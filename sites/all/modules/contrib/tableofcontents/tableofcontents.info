@@ -1,0 +1,11 @@
+name = Table of Contents
+description = "Adds a filter that generates Tables of contents for pages with  '[toc ...]' tags or that have a predetermined number of headers."
+package = Input filters
+core = 7.x
+
+; Information added by drupal.org packaging script on 2011-07-20
+version = "7.x-1.x-dev"
+core = "7.x"
+project = "tableofcontents"
+datestamp = "1311122341"
+
