@@ -1,0 +1,220 @@
+<?php
+/**
+ * @file
+ * Code for the SCF Members feature.
+ */
+
+include_once('scfmembers.features.inc');
+
+/**
+ * Implements hook_preprocess_user_profile().
+ */
+function scfmembers_preprocess_user_profile(&$vars) {
+  $account = $vars['elements']['#account'];
+  // Prepares the photo to be rendered outside the main profile content.
+  // We need the profile id to match the element in the render array.
+  $vars['pid'] = !empty($vars['user_profile']['profile_scfmembers_profile']['view']['profile2']) ? key($vars['user_profile']['profile_scfmembers_profile']['view']['profile2']) :  NULL;
+
+  $profile = profile2_load_by_user($account, 'scfmembers_profile');
+
+  // Last updated date.
+  if (!empty($profile->changed)) {
+    $vars['last_updated'] = format_date($profile->changed);
+  }
+
+  // Member full name.
+  $vars['name'] = check_plain(format_username($vars['elements']['#account']));
+
+  // Profile links.
+  $toc_links = array();
+
+    $toc_links['contact'] = '<li><a href="#contact">Contact<span class="arrow"></span></a></li>';
+    $toc_links['background'] = '<li><a href="#background">Background<span class="arrow"></span></a></li>';
+    $toc_links['site_participation'] = '<li><a href="#site participation">Site Participation<span class="arrow"></span></a></li>';
+//    $toc_links['related_items'] = '<li><a href="#related items">Related Items<span class="arrow"></span></a></li>';
+    $toc_links['publications'] = '<li><a href="#publications">Publications<span class="arrow"></span></a></li>';
+
+    $vars['toc_links'] = '';
+    $vars['toc_links'] .= '<ul class="toc-links">';
+    foreach ($toc_links as $l) {
+      $vars['toc_links'] .= $l;
+    }
+    $vars['toc_links'] .= '</ul>';
+
+
+  //////////////////////////////////////////////////////////////////////////////
+  // Site participation fieldset.
+  //////////////////////////////////////////////////////////////////////////////
+  $content = array();
+
+  $view = views_get_view('scfmembers_commented_on');
+  if (!empty($view) && $account->uid > 0) {
+    // Renders display and checks whether there are results to be displayed.
+    $rendered_display = $view->execute_display('' , array($account->uid));
+    if ($rendered_display && $view->result) {
+      $content['member_commented_on']['#prefix'] = '<div class="field members-commented-on-wrapper field-label-inline clearfix"><div class="field-label">Commented on:</div><div class="field-items">';
+      $content['member_commented_on']['#markup'] = $rendered_display;
+      $content['member_commented_on']['#suffix'] = '</div></div>';
+    }
+  }
+
+  $view = views_get_view('scfmembers_contributed');
+  if (!empty($view) && $account->uid > 0) {
+    // Renders display and checks whether there are results to be displayed.
+    $rendered_display = $view->execute_display('' , array($account->uid));
+    if ($rendered_display && $view->result) {
+      $content['member_contributions']['#prefix'] = '<div class="field members-contributions-wrapper field-label-inline clearfix"><div class="field-label">Contributed:</div><div class="field-items">';
+      $content['member_contributions']['#markup'] = $rendered_display;
+      $content['member_commented_on']['#suffix'] = '</div></div>';
+    }
+  }
+
+  // Adds a fieldset to the user profile page with the content of the views.
+  if (!empty($content)) {
+    $vars['user_profile']['site_participation'] = array(
+      '#type' => 'fieldset',
+      '#title' => 'Site participation',
+      '#attributes' => array('id' => array('member_site_participation'), 'class' => array('field')),
+      '#weight' => '11',
+    );
+    $vars['user_profile']['site_participation']['content'] = $content;
+  }
+
+  //////////////////////////////////////////////////////////////////////////////
+  // Publications fieldset.
+  //////////////////////////////////////////////////////////////////////////////
+  $content = array();
+  // Extract publication nids from profile in order to pass them as contextual
+  // filter to the view.
+  $profile = profile2_load_by_user($account, 'scfmembers_profile');
+  if ($profile) {
+    $publication_items = field_get_items('profile2', $profile, 'field_scfmembers_publication');
+  }
+  if ($publication_items) {
+    $nids = array();
+    foreach ($publication_items as $publication) {
+      $nids[] = $publication['nid'];
+    }
+    $view = views_get_view('scfmembers_publications');
+    if (!empty($view) && $account->uid > 0) {
+      // Renders display with nids as contextual filters, and checks whether there
+      // are results to be displayed.
+      $rendered_display = $view->execute_display('', array(implode(',', $nids)));
+      if ($rendered_display && $view->result) {
+        $content['scfmembers_publications']['#markup'] = $rendered_display;
+      }
+    }
+  }
+
+  // Adds a fieldset to the user profile page with the content of the views.
+  if (!empty($content)) {
+    $vars['user_profile']['mypublications'] = array(
+      '#type' => 'fieldset',
+      '#title' => 'Publications',
+      '#attributes' => array('id' => array('member_publications'), 'class' => array('field')),
+      '#weight' => '12',
+    );
+    $vars['user_profile']['mypublications']['content'] = $content;
+  }
+
+}
+
+/**
+ * Implements hook_field_group_build_pre_render_alter().
+ */
+function scfmembers_field_group_build_pre_render_alter(& $element) {
+  if ($element['#entity_type'] == 'profile2' &&
+      $element['#bundle'] == 'scfmembers_profile' &&
+      !empty($element['#entity']->uid)) {
+
+    // Fix the fieldsets id to be more readable.
+    $element['group_scfmembers_contact']['#id'] = 'contact';
+    $element['group_scfmembers_background']['#id'] = 'background';
+
+    // A send email link right after the fax field in the contact fieldgroup.
+    // The markup mimics the regular markup of a field for CSS consistency.
+    if (!empty($element['#entity']->uid) && _contact_personal_tab_access(user_load($element['#entity']->uid))) {
+      $markup  = '<div class="field send-email">';
+      $markup .= '  <div class="field-items">';
+      $markup .= '    <div class="field-item even">';
+      $markup .= l('Send email', 'user/' . $element['#entity']->uid . '/contact', array('attributes' => array('class' => 'button')));
+      $markup .= '    </div>';
+      $markup .= '  </div>';
+      $markup .= '</div>';
+      $element['group_scfmembers_contact']['scfmembers_send_email_link'] = array(
+        '#markup' => $markup,
+        '#weight' => 8,
+      );
+    }
+  }
+}
+
+/**
+ * Implements hook_preprocess_field().
+ */
+function scfmembers_preprocess_field(&$vars) {
+  // Turn the url of the attachment into a link with fixed title.
+  if ($vars['element']['#field_name'] == 'field_scfmembers_attachment') {
+    if (!empty($vars['items'][0]['#markup'])) {
+      $vars['items'][0]['#markup'] = l('Download CV', $vars['items'][0]['#markup'], array('attributes' => array('class' => 'button')));
+    }
+  }
+}
+
+/**
+ * Implements hook_menu_alter().
+ */
+function scfmembers_menu_alter(&$items) {
+  // Hide non used tabs.
+  foreach (array('contact', 'shortcuts', 'devel', 'biblio_import', 'track/navigation', 'mailchimp', 'notifications') as $name) {
+    if (!empty($items['user/%user/' . $name])) {
+      $items['user/%user/' . $name]['type'] = MENU_CALLBACK;
+    }
+  }
+
+  // Hide all menu items which are placed in the user account management block.
+//  $items['user/%user/edit']['type'] = MENU_CALLBACK;
+//  $items['user/%user_category/edit/account']['type'] = MENU_CALLBACK;
+//  $items['user/%user_category/edit/scfmembers_profile']['type'] = MENU_CALLBACK;
+}
+
+/**
+ * Implements hook_form_alter().
+ */
+function scfmembers_form_alter(&$form, &$form_state, $form_id) {
+  if ($form_id == 'user_profile_form' || $form_id == 'user_register_form') {
+    if(!empty($form['profile_scfmembers_profile']['field_scfmembers_clinical_i'])) {
+      $form['profile_scfmembers_profile']['field_scfmembers_clinical_i']['#access'] = FALSE;
+    }
+    if(!empty($form['profile_scfmembers_profile']['field_scfmembers_publication'])) {
+      $form['profile_scfmembers_profile']['field_scfmembers_publication']['#access'] = FALSE;
+    }
+    if(!empty($form['overlay_control'])) {
+      $form['overlay_control']['#access'] = FALSE;
+    }
+
+    if (!empty($form['mailchimp_lists']['mailchimp_1']['subscribe'])) {
+      // Add helper text to the newsletter checkbox.
+      $form['mailchimp_lists']['mailchimp_1']['subscribe']['#title'] .= ': receive weekly updates about new site content, features, and items of interest.';
+      // Tick newsletter box by default.
+      $form['mailchimp_lists']['mailchimp_1']['subscribe']['#default_value'] = TRUE;
+    }
+
+    // Displays the Terms and Conditions content above the checkbox.
+//    $tnc_field = field_get_items('node', node_load(572), 'body');
+    // HTML tags are not allowed and will be stripped.
+    $form['profile_scfmembers_profile']['field_scfmembers_agree_tc']['tnc_text'] = array(
+      '#type' => 'textarea',
+      '#title' => t('Terms & Conditions'),
+      '#default_value' => filter_xss($tnc_field[0]['value'], array()),
+      '#disabled' => TRUE,
+      '#weight' => -1,
+    );
+  }
+
+  // Close optional information fieldset on registration form.
+  if ($form_id == 'user_register_form') {
+    $form['profile_scfmembers_profile']['#fieldgroups']['group_scfmembers_optional_info']->format_settings['formatter'] = 'collapsed';
+    $form['profile_scfmembers_profile']['#groups']['group_scfmembers_optional_info']->format_settings['formatter'] = 'collapsed';
+  }
+}
