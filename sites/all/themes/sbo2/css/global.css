@@ -590,7 +590,7 @@ body.front #region-sidebar-second img {
   box-shadow: none;
   border: none;
   width: auto;
-  height: 435px;
+  height: 430px;
   padding: 0;
   background: white;
   margin-bottom: 14px;
@@ -599,7 +599,7 @@ body.front #region-sidebar-second img {
 #accordion {
   width: 25%;
   height: 412px;
-  z-index: 50;
+  z-index: 49;
   box-shadow: 5px 1px 5px -3px #aeb0b2;
   background: #a2dadb;
   overflow: visible;
@@ -612,7 +612,7 @@ body.front #region-sidebar-second img {
   line-height: 13px;
   height: 26px;
   position: absolute;
-  z-index: 60;
+  z-index: 50;
 }
 #accordion-title > div {
   padding: 6px 14px;
@@ -689,4 +689,7 @@ body.front #region-sidebar-second img {
 }
 #slider .slide-overlay .overlay-chapters .item-list ul {
   margin: 0.75em 0;
+}
+#region-menu ul.nice-menu li.menu-path-chapters ul li {
+  display: none;
 }
