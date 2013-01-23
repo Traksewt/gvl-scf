@@ -1,7 +1,0 @@
-<?php
-/**
- * @file
- * Code for the scf_search feature.
- */
-
-include_once 'scf_search.features.inc';

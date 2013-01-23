@@ -1,6 +1,0 @@
-name = Pubnode7
-description =
-package = SCF
-version = VERSION
-core = 7.x
-stylesheets[all][] = pubnode7.css
