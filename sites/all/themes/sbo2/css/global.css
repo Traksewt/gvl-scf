@@ -11,6 +11,17 @@ h1, h2, h3, h4, h5, h6 {
   line-height: 1em;
   letter-spacing: 0px;
 }
+/* reset.css resets the settings of sup, restore them here */
+sub {
+  vertical-align: sub;
+}
+sup {
+  vertical-align: super;
+}
+sub, sup {
+  font-size: 75%;
+  line-height: 100%;
+}
 
 
 h1 {
@@ -30,6 +41,18 @@ a.active {
   text-decoration: none;
   letter-spacing: 0px;
 }
+
+/* Style pages */
+
+/* breaks node/398 and possibly other pages too.
+.page-node .container-16 .grid-9 {
+    width: 875px;
+}
+
+.page-node-384 .container-16 .grid-9 {
+    width: 655px;
+}
+ */
 
 /* Branding region */
 #region-branding {
@@ -95,6 +118,20 @@ h1.site-name a, h2.site-name a {
 #block-stembook-site-user-top-menu li {
   display: inline;
 }
+#block-stembook-site-user-top-menu div.item-list {
+  clear: both;
+}
+#stembook_site_user_menu1 li,
+#stembook_site_user_menu2 li {
+    border-left: 1px solid white;
+    padding-left: 10px;
+}
+
+#stembook_site_user_menu1 li.first,
+#stembook_site_user_menu2 li.first {
+    border-left: none;
+}
+
 #stembook_site_user_menu3 a {
   background: #C8DD5D;
   color: #0F4982;
@@ -339,11 +376,12 @@ h2.node-title {
 }
 
 .node-stembook-book td.book-icon img {
-    padding-left: 10px;
+    padding-left:  0px;
     padding-right: 0px;
     width: 100px;
     height: 100px;
     float: right;
+    border: 1px solid lightgrey;
 }
 
 .node-type-stembook-book .region-content h1#page-title {
@@ -418,12 +456,33 @@ h2.node-title {
 .node-protocol h4,
 .node-pubnode h4,
 .stembook_chapter_new h4 {
+    font-size: 12px;
+    line-height: 15px;
+    color: #0f4982;
+    padding: 0px;
+    margin: 5px 0px;
+}
+
+.node-protocol h5,
+.node-pubnode h5,
+.stembook_chapter_new h5 {
     font-size: 11px;
     line-height: 15px;
     color: #0f4982;
     padding: 0px;
     margin: 5px 0px;
 }
+
+.node-protocol h6,
+.node-pubnode h6,
+.stembook_chapter_new h6 {
+    font-size: 11px;
+    line-height: 15px;
+    color: #0f4982;
+    padding: 0px;
+    margin: 5px 0px;
+}
+
 
 .node-scf-protocol .field-name-scf-f-ptls-copyright-fixed {
     padding-top: 5px;
@@ -576,6 +635,49 @@ body.front #region-sidebar-second img {
 }
 
 
+.block-section-search fieldset#edit-keys-set,
+.block-section-search fieldset#edit-date-wrapper,
+.block-section-search fieldset.form-wrapper,
+.block-section-search .form-item{
+
+    margin: 0;
+    padding: 5px 0;
+}
+
+.block-section-search .form-item input#edit-keys {
+    width: 100%;
+}
+
+.block-section-search .fieldset-legend {
+    font-weight: bold;
+}
+
+.block-section-search  #edit-date-from select,
+.block-section-search  #edit-date-to select {
+    color: #333333;
+    font-size: 0.9em;
+    padding: 2px 0 2px 2px;
+    width: 120px;
+    margin-right: 10px;
+}
+
+.block-section-search .form-actions {
+    background-color: #e7f5f5;
+    margin: 0 -10px -10px -10px;
+    padding: 15px 10px;
+}
+
+.block-section-search .form-submit {
+    background: none;
+    background-color: #C8DD5D;
+    border: none;
+    border-radius: 2px 2px 2px 2px;
+    color: #0F4982;
+    font-size: 10px;
+    font-weight: bold;
+    padding: 5px 10px;
+    text-transform: uppercase;
+}
 /* homepage */
 .front #region-menu {
   border-bottom: solid 1px #aeb0b2;
@@ -593,7 +695,7 @@ body.front #region-sidebar-second img {
   height: 430px;
   padding: 0;
   background: white;
-  margin-bottom: 14px;
+  margin-bottom: 24px;
   box-shadow: 5px 2px 5px 0px #aeb0b2 inset;
 }
 #accordion {
@@ -657,7 +759,7 @@ body.front #region-sidebar-second img {
 }
 #slider .slide-overlay {
   background: #00aeef;
-  opacity: 0.75;
+  background: rgba(0,174,239,0.6);
   color: white;
   bottom: 10px;
   padding: 15px;
@@ -667,7 +769,6 @@ body.front #region-sidebar-second img {
 }
 #slider .slide-overlay div,
 #slider .slide-overlay div a {
-  opacity: 1;
   color: white;
 }
 #slider .slide-overlay .overlay-title {
@@ -692,4 +793,15 @@ body.front #region-sidebar-second img {
 }
 #region-menu ul.nice-menu li.menu-path-chapters ul li {
   display: none;
+}
+.add-protocol-button {
+    background-color: #C8DD5D;
+    border-radius: 2px 2px 2px 2px;
+    color: #0F4982;
+    float: right;
+    font-size: 10px;
+    font-weight: bold;
+    padding: 5px 10px;
+    text-transform: uppercase;
+    margin-top: -50px;
 }
