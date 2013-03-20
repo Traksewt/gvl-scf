@@ -36,11 +36,11 @@ function f_stembook_context_default_contexts() {
   $context->reactions = array(
     'block' => array(
       'blocks' => array(
-        'scf_nodeblock_export-scf_content_search_placeholder' => array(
-          'module' => 'scf_nodeblock_export',
-          'delta' => 'scf_content_search_placeholder',
+        'scf_search-section_search' => array(
+          'module' => 'scf_search',
+          'delta' => 'section_search',
           'region' => 'sidebar_second',
-          'weight' => '-4',
+          'weight' => '-10',
         ),
       ),
     ),

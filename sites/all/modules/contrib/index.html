@@ -1,0 +1,737 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no" />
+<meta name="Generator" content="Drupal 7 (http://drupal.org)" />
+<link rel="shortcut icon" href="http://www.stembook.org/misc/favicon.ico" type="image/vnd.microsoft.icon" />
+  <title>StemBook</title>
+  <style type="text/css" media="all">@import url("http://www.stembook.org/modules/system/system.base.css?mhejzc");
+@import url("http://www.stembook.org/modules/system/system.menus.css?mhejzc");
+@import url("http://www.stembook.org/modules/system/system.messages.css?mhejzc");
+@import url("http://www.stembook.org/modules/system/system.theme.css?mhejzc");</style>
+<style type="text/css" media="all">@import url("http://www.stembook.org/modules/comment/comment.css?mhejzc");
+@import url("http://www.stembook.org/sites/all/modules/contrib/date/date_api/date.css?mhejzc");
+@import url("http://www.stembook.org/modules/field/theme/field.css?mhejzc");
+@import url("http://www.stembook.org/modules/node/node.css?mhejzc");
+@import url("http://www.stembook.org/sites/all/modules/custom/pubnode/pubnode.css?mhejzc");
+@import url("http://www.stembook.org/sites/all/modules/custom/pubnode_nlm/css/nlm.css?mhejzc");
+@import url("http://www.stembook.org/modules/search/search.css?mhejzc");
+@import url("http://www.stembook.org/modules/user/user.css?mhejzc");
+@import url("http://www.stembook.org/sites/all/modules/contrib/views/css/views.css?mhejzc");
+@import url("http://www.stembook.org/sites/all/modules/contrib/caption_filter/caption-filter.css?mhejzc");</style>
+<style type="text/css" media="all">@import url("http://www.stembook.org/sites/all/modules/contrib/ctools/css/ctools.css?mhejzc");
+@import url("http://www.stembook.org/sites/all/modules/contrib/ctools/css/modal.css?mhejzc");
+@import url("http://www.stembook.org/sites/all/modules/contrib/modal_forms/css/modal_forms_popup.css?mhejzc");
+@import url("http://www.stembook.org/sites/all/modules/contrib/nice_menus/nice_menus.css?mhejzc");
+@import url("http://www.stembook.org/sites/all/modules/contrib/nice_menus/nice_menus_default.css?mhejzc");
+@import url("http://www.stembook.org/sites/all/modules/contrib/biblio/biblio.css?mhejzc");
+@import url("http://www.stembook.org/sites/all/themes/sbo2/js/slidorion/css/slidorion.css?mhejzc");</style>
+<style type="text/css" media="all">@import url("http://www.stembook.org/sites/all/themes/omega/alpha/css/alpha-reset.css?mhejzc");
+@import url("http://www.stembook.org/sites/all/themes/omega/alpha/css/alpha-mobile.css?mhejzc");
+@import url("http://www.stembook.org/sites/all/themes/omega/alpha/css/alpha-alpha.css?mhejzc");
+@import url("http://www.stembook.org/sites/all/themes/omega/omega/css/formalize.css?mhejzc");
+@import url("http://www.stembook.org/sites/all/themes/omega/omega/css/omega-text.css?mhejzc");
+@import url("http://www.stembook.org/sites/all/themes/omega/omega/css/omega-branding.css?mhejzc");
+@import url("http://www.stembook.org/sites/all/themes/omega/omega/css/omega-menu.css?mhejzc");
+@import url("http://www.stembook.org/sites/all/themes/omega/omega/css/omega-forms.css?mhejzc");
+@import url("http://www.stembook.org/sites/all/themes/omega/omega/css/omega-visuals.css?mhejzc");
+@import url("http://www.stembook.org/sites/all/themes/sbo2/css/global.css?mhejzc");</style>
+
+<!--[if (lt IE 9)&(!IEMobile)]>
+<style type="text/css" media="all">@import url("http://www.stembook.org/sites/all/themes/sbo2/css/sbo2-alpha-default.css?mhejzc");
+@import url("http://www.stembook.org/sites/all/themes/sbo2/css/sbo2-alpha-default-normal.css?mhejzc");
+@import url("http://www.stembook.org/sites/all/themes/omega/alpha/css/grid/alpha_default/normal/alpha-default-normal-12.css?mhejzc");
+@import url("http://www.stembook.org/sites/all/themes/omega/alpha/css/grid/alpha_default/normal/alpha-default-normal-16.css?mhejzc");</style>
+<![endif]-->
+
+<!--[if gte IE 9]><!-->
+<style type="text/css" media="all and (min-width: 740px) and (min-device-width: 740px), (max-device-width: 800px) and (min-width: 740px) and (orientation:landscape)">@import url("http://www.stembook.org/sites/all/themes/sbo2/css/sbo2-alpha-default.css?mhejzc");
+@import url("http://www.stembook.org/sites/all/themes/sbo2/css/sbo2-alpha-default-narrow.css?mhejzc");
+@import url("http://www.stembook.org/sites/all/themes/omega/alpha/css/grid/alpha_default/narrow/alpha-default-narrow-12.css?mhejzc");
+@import url("http://www.stembook.org/sites/all/themes/omega/alpha/css/grid/alpha_default/narrow/alpha-default-narrow-16.css?mhejzc");</style>
+<!--<![endif]-->
+
+<!--[if gte IE 9]><!-->
+<style type="text/css" media="all and (min-width: 980px) and (min-device-width: 980px), all and (max-device-width: 1024px) and (min-width: 1024px) and (orientation:landscape)">@import url("http://www.stembook.org/sites/all/themes/sbo2/css/sbo2-alpha-default.css?mhejzc");
+@import url("http://www.stembook.org/sites/all/themes/sbo2/css/sbo2-alpha-default-normal.css?mhejzc");
+@import url("http://www.stembook.org/sites/all/themes/omega/alpha/css/grid/alpha_default/normal/alpha-default-normal-12.css?mhejzc");
+@import url("http://www.stembook.org/sites/all/themes/omega/alpha/css/grid/alpha_default/normal/alpha-default-normal-16.css?mhejzc");</style>
+<!--<![endif]-->
+
+<!--[if gte IE 9]><!-->
+<style type="text/css" media="all and (min-width: 1220px)">@import url("http://www.stembook.org/sites/all/themes/sbo2/css/sbo2-alpha-default.css?mhejzc");
+@import url("http://www.stembook.org/sites/all/themes/sbo2/css/sbo2-alpha-default-wide.css?mhejzc");
+@import url("http://www.stembook.org/sites/all/themes/omega/alpha/css/grid/alpha_default/wide/alpha-default-wide-12.css?mhejzc");
+@import url("http://www.stembook.org/sites/all/themes/omega/alpha/css/grid/alpha_default/wide/alpha-default-wide-16.css?mhejzc");</style>
+<!--<![endif]-->
+  <script type="text/javascript" src="http://www.stembook.org/sites/default/files/js/js_xAPl0qIk9eowy_iS9tNkCWXLUVoat94SQT48UBCFkyQ.js"></script>
+<script type="text/javascript" src="http://www.stembook.org/sites/default/files/js/js_4RLg_0mcLz8_00RMt9A9Ud5xsS4fiSi3ArVfSZMKjy4.js"></script>
+<script type="text/javascript" src="http://www.stembook.org/sites/default/files/js/js_TGt4Bz2WQNO2l8-kQRpmF_J7K3WB-qqhpTEDuzSnHec.js"></script>
+<script type="text/javascript" src="http://www.stembook.org/sites/default/files/js/js_S5hKD3GOQW6_4rzVaGQEbAKf4sNW_vxYbQh7T0i0P6M.js"></script>
+<script type="text/javascript">
+<!--//--><![CDATA[//><!--
+var _gaq = _gaq || [];_gaq.push(["_setAccount", "UA-19330704-7"]);_gaq.push(["_trackPageview"]);(function() {var ga = document.createElement("script");ga.type = "text/javascript";ga.async = true;ga.src = ("https:" == document.location.protocol ? "https://ssl" : "http://www") + ".google-analytics.com/ga.js";var s = document.getElementsByTagName("script")[0];s.parentNode.insertBefore(ga, s);})();
+//--><!]]>
+</script>
+<script type="text/javascript" src="http://www.stembook.org/sites/default/files/js/js_bwpG4h-BoS_-WQG8XgFOn3gCSPHnT18Cp7rxvuAJFgc.js"></script>
+<script type="text/javascript" src="http://www.stembook.org/sites/default/files/js/js_meDomBEy82aWXpUVuohOCqoX7y2SY1EL4mcRvK0f97E.js"></script>
+<script type="text/javascript">
+<!--//--><![CDATA[//><!--
+jQuery.extend(Drupal.settings, {"basePath":"\/","pathPrefix":"","ajaxPageState":{"theme":"sbo2","theme_token":"0MmyA81S5Ej8aCTomfGtbFoT1vnlKfpAyhNYTuh6qMU","js":{"misc\/jquery.js":1,"misc\/jquery.once.js":1,"misc\/drupal.js":1,"misc\/jquery.cookie.js":1,"misc\/jquery.form.js":1,"misc\/ajax.js":1,"sites\/all\/modules\/contrib\/caption_filter\/js\/caption-filter.js":1,"sites\/all\/modules\/contrib\/modal_forms\/js\/modal_forms_login.js":1,"sites\/all\/modules\/contrib\/modal_forms\/js\/modal_forms_password.js":1,"misc\/progress.js":1,"sites\/all\/modules\/contrib\/ctools\/js\/modal.js":1,"sites\/all\/modules\/contrib\/modal_forms\/js\/modal_forms_popup.js":1,"sites\/all\/modules\/contrib\/nice_menus\/superfish\/js\/superfish.js":1,"sites\/all\/modules\/contrib\/nice_menus\/superfish\/js\/jquery.bgiframe.min.js":1,"sites\/all\/modules\/contrib\/nice_menus\/superfish\/js\/jquery.hoverIntent.minified.js":1,"sites\/all\/modules\/contrib\/nice_menus\/nice_menus.js":1,"sites\/all\/modules\/contrib\/google_analytics\/googleanalytics.js":1,"0":1,"sites\/all\/themes\/sbo2\/js\/slidorion\/js\/jquery.easing.js":1,"sites\/all\/themes\/sbo2\/js\/slidorion\/js\/jquery.slidorion.min.js":1,"sites\/all\/themes\/sbo2\/js\/sbo2.js":1,"sites\/all\/themes\/omega\/omega\/js\/jquery.formalize.js":1,"sites\/all\/themes\/omega\/omega\/js\/omega-mediaqueries.js":1},"css":{"modules\/system\/system.base.css":1,"modules\/system\/system.menus.css":1,"modules\/system\/system.messages.css":1,"modules\/system\/system.theme.css":1,"modules\/comment\/comment.css":1,"sites\/all\/modules\/contrib\/date\/date_api\/date.css":1,"modules\/field\/theme\/field.css":1,"modules\/node\/node.css":1,"sites\/all\/modules\/custom\/pubnode\/pubnode.css":1,"sites\/all\/modules\/custom\/pubnode_nlm\/css\/nlm.css":1,"modules\/search\/search.css":1,"modules\/user\/user.css":1,"sites\/all\/modules\/contrib\/views\/css\/views.css":1,"sites\/all\/modules\/contrib\/caption_filter\/caption-filter.css":1,"sites\/all\/modules\/contrib\/ctools\/css\/ctools.css":1,"sites\/all\/modules\/contrib\/ctools\/css\/modal.css":1,"sites\/all\/modules\/contrib\/modal_forms\/css\/modal_forms_popup.css":1,"sites\/all\/modules\/contrib\/nice_menus\/nice_menus.css":1,"sites\/all\/modules\/contrib\/nice_menus\/nice_menus_default.css":1,"sites\/all\/modules\/contrib\/biblio\/biblio.css":1,"sites\/all\/themes\/sbo2\/js\/slidorion\/css\/slidorion.css":1,"sites\/all\/themes\/omega\/alpha\/css\/alpha-reset.css":1,"sites\/all\/themes\/omega\/alpha\/css\/alpha-mobile.css":1,"sites\/all\/themes\/omega\/alpha\/css\/alpha-alpha.css":1,"sites\/all\/themes\/omega\/omega\/css\/formalize.css":1,"sites\/all\/themes\/omega\/omega\/css\/omega-text.css":1,"sites\/all\/themes\/omega\/omega\/css\/omega-branding.css":1,"sites\/all\/themes\/omega\/omega\/css\/omega-menu.css":1,"sites\/all\/themes\/omega\/omega\/css\/omega-forms.css":1,"sites\/all\/themes\/omega\/omega\/css\/omega-visuals.css":1,"sites\/all\/themes\/sbo2\/css\/global.css":1,"ie::normal::sites\/all\/themes\/sbo2\/css\/sbo2-alpha-default.css":1,"ie::normal::sites\/all\/themes\/sbo2\/css\/sbo2-alpha-default-normal.css":1,"ie::normal::sites\/all\/themes\/omega\/alpha\/css\/grid\/alpha_default\/normal\/alpha-default-normal-12.css":1,"ie::normal::sites\/all\/themes\/omega\/alpha\/css\/grid\/alpha_default\/normal\/alpha-default-normal-16.css":1,"narrow::sites\/all\/themes\/sbo2\/css\/sbo2-alpha-default.css":1,"narrow::sites\/all\/themes\/sbo2\/css\/sbo2-alpha-default-narrow.css":1,"sites\/all\/themes\/omega\/alpha\/css\/grid\/alpha_default\/narrow\/alpha-default-narrow-12.css":1,"sites\/all\/themes\/omega\/alpha\/css\/grid\/alpha_default\/narrow\/alpha-default-narrow-16.css":1,"normal::sites\/all\/themes\/sbo2\/css\/sbo2-alpha-default.css":1,"normal::sites\/all\/themes\/sbo2\/css\/sbo2-alpha-default-normal.css":1,"sites\/all\/themes\/omega\/alpha\/css\/grid\/alpha_default\/normal\/alpha-default-normal-12.css":1,"sites\/all\/themes\/omega\/alpha\/css\/grid\/alpha_default\/normal\/alpha-default-normal-16.css":1,"wide::sites\/all\/themes\/sbo2\/css\/sbo2-alpha-default.css":1,"wide::sites\/all\/themes\/sbo2\/css\/sbo2-alpha-default-wide.css":1,"sites\/all\/themes\/omega\/alpha\/css\/grid\/alpha_default\/wide\/alpha-default-wide-12.css":1,"sites\/all\/themes\/omega\/alpha\/css\/grid\/alpha_default\/wide\/alpha-default-wide-16.css":1}},"CToolsModal":{"loadingText":"Loading...","closeText":"Close Window","closeImage":"\u003Cimg src=\u0022http:\/\/www.stembook.org\/sites\/all\/modules\/contrib\/ctools\/images\/icon-close-window.png\u0022 alt=\u0022Close window\u0022 title=\u0022Close window\u0022 \/\u003E","throbber":"\u003Cimg src=\u0022http:\/\/www.stembook.org\/sites\/all\/modules\/contrib\/ctools\/images\/throbber.gif\u0022 alt=\u0022Loading\u0022 title=\u0022Loading...\u0022 \/\u003E"},"modal-popup-small":{"modalSize":{"type":"fixed","width":300,"height":300},"modalOptions":{"opacity":0.85,"background":"#000"},"animation":"fadeIn","modalTheme":"ModalFormsPopup","throbber":"\u003Cimg src=\u0022http:\/\/www.stembook.org\/sites\/all\/modules\/contrib\/modal_forms\/images\/loading_animation.gif\u0022 alt=\u0022Loading...\u0022 title=\u0022Loading\u0022 \/\u003E","closeText":"Close"},"modal-popup-medium":{"modalSize":{"type":"fixed","width":550,"height":450},"modalOptions":{"opacity":0.85,"background":"#000"},"animation":"fadeIn","modalTheme":"ModalFormsPopup","throbber":"\u003Cimg src=\u0022http:\/\/www.stembook.org\/sites\/all\/modules\/contrib\/modal_forms\/images\/loading_animation.gif\u0022 alt=\u0022Loading...\u0022 title=\u0022Loading\u0022 \/\u003E","closeText":"Close"},"modal-popup-large":{"modalSize":{"type":"scale","width":0.8,"height":0.8},"modalOptions":{"opacity":0.85,"background":"#000"},"animation":"fadeIn","modalTheme":"ModalFormsPopup","throbber":"\u003Cimg src=\u0022http:\/\/www.stembook.org\/sites\/all\/modules\/contrib\/modal_forms\/images\/loading_animation.gif\u0022 alt=\u0022Loading...\u0022 title=\u0022Loading\u0022 \/\u003E","closeText":"Close"},"nice_menus_options":{"delay":800,"speed":1},"googleanalytics":{"trackOutbound":1,"trackMailto":1,"trackDownload":1,"trackDownloadExtensions":"7z|aac|arc|arj|asf|asx|avi|bin|csv|doc|exe|flv|gif|gz|gzip|hqx|jar|jpe?g|js|mp(2|3|4|e?g)|mov(ie)?|msi|msp|pdf|phps|png|ppt|qtm?|ra(m|r)?|sea|sit|tar|tgz|torrent|txt|wav|wma|wmv|wpd|xls|xml|z|zip"},"omega":{"layouts":{"primary":"normal","order":["narrow","normal","wide"],"queries":{"narrow":"all and (min-width: 740px) and (min-device-width: 740px), (max-device-width: 800px) and (min-width: 740px) and (orientation:landscape)","normal":"all and (min-width: 980px) and (min-device-width: 980px), all and (max-device-width: 1024px) and (min-width: 1024px) and (orientation:landscape)","wide":"all and (min-width: 1220px)"}}}});
+//--><!]]>
+</script>
+  <!--[if lt IE 9]><script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+</head>
+<body class="html front not-logged-in page-node">
+  <div id="skip-link">
+    <a href="#main-content" class="element-invisible element-focusable">Skip to main content</a>
+  </div>
+  <div class="region region-page-top" id="region-page-top">
+  <div class="region-inner region-page-top-inner">
+      </div>
+</div>
+  <div class="page clearfix" id="page">
+      <header id="section-header" class="section section-header">
+  <div id="zone-branding-wrapper" class="zone-wrapper zone-branding-wrapper clearfix">  <div id="zone-branding" class="zone zone-branding clearfix container-12">
+    <div class="grid-12 region region-branding" id="region-branding">
+  <div class="region-inner region-branding-inner">
+        <div class="branding-data clearfix">
+                        <hgroup class="site-name-slogan">
+                                <h1 class="site-name"><a href="/" title="Home" class="active">StemBook</a></h1>
+                              </hgroup>
+          </div>
+        <div class="block block-stembook-site block-user-top-menu block-stembook-site-user-top-menu odd block-without-title" id="block-stembook-site-user-top-menu">
+  <div class="block-inner clearfix">
+            
+    <div class="content clearfix">
+      <div class="item-list"><ul id="stembook_site_user_menu1" class="menu"><li class="first"><a href="/about">About Us</a></li><li><a href="/credits">Image Credits</a></li><li><a href="/contributor-info">Contributor Info</a></li><li class="last"><a href="/rss.xml">RSS</a></li></ul></div><div class="item-list"><ul id="stembook_site_user_menu2" class="menu"><li class="first"><a href="/user/login">Log In</a></li><li><a href="/user/register">Join</a></li><li class="last"><a href="/ealerts">E-Alerts</a></li></ul></div><div class="item-list"><ul id="stembook_site_user_menu3" class="menu"><li class="first last"><a href="/sites/all/files/ebook/stembook-ebook.epub">Download E-Book</a></li></ul></div>    </div>
+  </div>
+</div>
+  </div>
+</div>
+  </div>
+</div><div id="zone-menu-wrapper" class="zone-wrapper zone-menu-wrapper clearfix">  <div id="zone-menu" class="zone zone-menu clearfix container-12">
+    <div class="grid-12 region region-menu" id="region-menu">
+  <div class="region-inner region-menu-inner">
+        <section class="block block-nice-menus block-1 block-nice-menus-1 odd" id="block-nice-menus-1">
+  <div class="block-inner clearfix">
+              <h2 class="block-title"><span class="nice-menu-hide-title">Main menu</span></h2>
+        
+    <div class="content clearfix">
+      <ul class="nice-menu nice-menu-down" id="nice-menu-1"><li class="menu-1265 menuparent  menu-path-chapters  first   odd  "><a href="/chapters" title="">Review Chapters</a><ul><li class="menu-1292 menu-path-node-398  first   odd  "><a href="/node/398">Cellular and nuclear reprogramming</a></li>
+<li class="menu-1283 menu-path-node-393   even  "><a href="/node/393">Ectoderm specification and differentiation</a></li>
+<li class="menu-1282 menu-path-node-395   odd  "><a href="/node/395">Endoderm specification and differentiation</a></li>
+<li class="menu-1285 menu-path-node-387   even  "><a href="/node/387">Epigenetics</a></li>
+<li class="menu-1289 menu-path-node-488   odd  "><a href="/node/488">Genomics and proteomics</a></li>
+<li class="menu-1290 menu-path-node-412   even  "><a href="/node/412">Germ cell and somatic stem cell biology in reproduction</a></li>
+<li class="menu-1281 menu-path-node-394   odd  "><a href="/node/394">Mesoderm specification and differentiation</a></li>
+<li class="menu-1284 menu-path-node-392   even  "><a href="/node/392">Niche biology, homing, and migration</a></li>
+<li class="menu-1286 menu-path-node-391   odd  "><a href="/node/391">Renewal</a></li>
+<li class="menu-1288 menu-path-node-397   even  "><a href="/node/397">Stem cell immunology</a></li>
+<li class="menu-1291 menu-path-node-399   odd  "><a href="/node/399">Therapeutic prospects</a></li>
+<li class="menu-1287 menu-path-node-396   even   last "><a href="/node/396">Tissue engineering</a></li>
+</ul></li>
+<li class="menu-1471 menuparent  menu-path-forums active-trail   even  "><a href="/forums" title="">Forums</a><ul><li class="menu-1476 menu-path-forums-scf_discussion  first   odd  "><a href="/forums/scf_discussion" title="">Discussions</a></li>
+<li class="menu-1475 menu-path-forums-scf_webinar   even   last "><a href="/forums/scf_webinar" title="">Webinars</a></li>
+</ul></li>
+<li class="menu-1255 menuparent  menu-path-protocols   odd  "><a href="/protocols" title="StemBook Protocols">Protocols</a><ul><li class="menu-1274 menu-path-protocols-pluripotent-cells  first   odd  "><a href="/protocols/pluripotent-cells" title="">Pluripotent Cells</a></li>
+<li class="menu-1278 menu-path-protocols-reprogramming   even  "><a href="/protocols/reprogramming" title="">Reprogramming</a></li>
+<li class="menu-1277 menu-path-protocols-ectoderm   odd  "><a href="/protocols/ectoderm" title="">Ectoderm</a></li>
+<li class="menu-1270 menu-path-protocols-endoderm   even  "><a href="/protocols/endoderm" title="">Endoderm</a></li>
+<li class="menu-1273 menu-path-protocols-mesoderm   odd  "><a href="/protocols/mesoderm" title="">Mesoderm</a></li>
+<li class="menu-1293 menu-path-protocols-cell-imaging   even  "><a href="/protocols/cell-imaging" title="">Cell Imaging</a></li>
+<li class="menu-1269 menu-path-protocols-engineering   odd   last "><a href="/protocols/engineering" title="">Engineering</a></li>
+</ul></li>
+<li class="menu-1470 menuparent  menu-path-news   even  "><a href="/news" title="">News &amp; Commentaries</a><ul><li class="menu-1477 menu-path-news-cell-lines  first   odd  "><a href="/news/cell-lines" title="">Cell Lines</a></li>
+<li class="menu-1473 menu-path-news-protocols   even  "><a href="/news/protocols" title="">Protocols</a></li>
+<li class="menu-1472 menu-path-news-latest-news   odd  "><a href="/news/latest-news" title="">Latest News</a></li>
+<li class="menu-1474 menu-path-news-research   even   last "><a href="/news/research" title="">Research</a></li>
+</ul></li>
+<li class="menu-1264 menuparent  menu-path-node-384-top-menu-link   odd   last "><a href="/resources" title="Resources">Resources</a><ul><li class="menu-435 menu-path-node-384  first   odd  "><a href="/resources" title="Useful Links">Useful Links</a></li>
+<li class="menu-1537 menu-path-resources-directory   even   last "><a href="/resources/directory" title="">Directory</a></li>
+</ul></li>
+</ul>
+    </div>
+  </div>
+</section>
+<div class="block block-search block-form block-search-form even block-without-title" id="block-search-form">
+  <div class="block-inner clearfix">
+            
+    <div class="content clearfix">
+      <form action="/" method="post" id="search-block-form" accept-charset="UTF-8"><div><div class="container-inline">
+      <h2 class="element-invisible">Search form</h2>
+    <div class="form-item form-type-textfield form-item-search-block-form">
+  <label class="element-invisible" for="edit-search-block-form--2">Search </label>
+ <input title="Enter the terms you wish to search for." type="text" id="edit-search-block-form--2" name="search_block_form" value="" size="15" maxlength="128" class="form-text" />
+</div>
+<div class="form-actions form-wrapper" id="edit-actions"><input type="submit" id="edit-submit" name="op" value="Search" class="form-submit" /></div><input type="hidden" name="form_build_id" value="form-zI7bB3Hf5a8kyeVMjQ0Ln9ubb_M6qeQuiLZfcGWjbEY" />
+<input type="hidden" name="form_id" value="search_block_form" />
+</div>
+</div></form>    </div>
+  </div>
+</div>
+  </div>
+</div>
+  </div>
+</div><div id="zone-header-wrapper" class="zone-wrapper zone-header-wrapper clearfix">  <div id="zone-header" class="zone zone-header clearfix container-12">
+    <div class="grid-12 region region-header-first" id="region-header-first">
+  <div class="region-inner region-header-first-inner">
+    <div class="block block-views block-cf8db2583d8e553b315c14ae5905fb86 block-views-cf8db2583d8e553b315c14ae5905fb86 odd block-without-title" id="block-views-cf8db2583d8e553b315c14ae5905fb86">
+  <div class="block-inner clearfix">
+            
+    <div class="content clearfix">
+      <div id="slidorion">
+      
+      <div id="accordion-title"><div>Stembook Sections:</div></div>
+    <div id="accordion">
+            		<div class="link-header">
+            
+  <div>        <span>Cellular and nuclear reprogramming</span>  </div>        </div>
+		<div class="link-content">
+			<!-- empty -->
+		</div>
+      		<div class="link-header">
+            
+  <div>        <span>Ectoderm specification and differentiation</span>  </div>        </div>
+		<div class="link-content">
+			<!-- empty -->
+		</div>
+      		<div class="link-header">
+            
+  <div>        <span>Endoderm specification and differentiation</span>  </div>        </div>
+		<div class="link-content">
+			<!-- empty -->
+		</div>
+      		<div class="link-header">
+            
+  <div>        <span>Epigenetics</span>  </div>        </div>
+		<div class="link-content">
+			<!-- empty -->
+		</div>
+      		<div class="link-header">
+            
+  <div>        <span>Genomics and proteomics</span>  </div>        </div>
+		<div class="link-content">
+			<!-- empty -->
+		</div>
+      		<div class="link-header">
+            
+  <div>        <span>Germ cell and somatic stem cell biology in reproduction</span>  </div>        </div>
+		<div class="link-content">
+			<!-- empty -->
+		</div>
+      		<div class="link-header">
+            
+  <div>        <span>Mesoderm specification and differentiation</span>  </div>        </div>
+		<div class="link-content">
+			<!-- empty -->
+		</div>
+      		<div class="link-header">
+            
+  <div>        <span>Niche biology, homing, and migration</span>  </div>        </div>
+		<div class="link-content">
+			<!-- empty -->
+		</div>
+      		<div class="link-header">
+            
+  <div>        <span>Renewal</span>  </div>        </div>
+		<div class="link-content">
+			<!-- empty -->
+		</div>
+      		<div class="link-header">
+            
+  <div>        <span>Stem cell immunology</span>  </div>        </div>
+		<div class="link-content">
+			<!-- empty -->
+		</div>
+      		<div class="link-header">
+            
+  <div>        <span>Therapeutic prospects</span>  </div>        </div>
+		<div class="link-content">
+			<!-- empty -->
+		</div>
+      		<div class="link-header">
+            
+  <div>        <span>Tissue engineering</span>  </div>        </div>
+		<div class="link-content">
+			<!-- empty -->
+		</div>
+          </div>
+  
+
+  	<div id="slider">
+                <div class="slide">
+      
+  <div class="views-field views-field-field-slider-image">        <div class="field-content"><img src="http://www.stembook.org/sites/default/files/styles/homepage_slideshow/public/Reprogramming.jpg" width="885" height="410" alt="" /></div>  </div>  
+          <div class="slide-overlay">    
+  <div class="overlay-title">        <span>Cellular and nuclear reprogramming&nbsp;»</span>  </div>  
+  <div class="overlay-chapters">        <div><div class="item-list"><ul><li class="first">Inducing pluripotency</li><li>Stem cells in animal models of regeneration</li><li class="last">Small RNAs – their biogenesis, regulation and function in embryonic stem cells</li></ul></div></div>  </div>  
+  <div class="overlay-link">        <span><a href="/node/398">View all Chapters in Section »</a></span>  </div>  
+          </div>    </div>
+  <div class="slide">
+      
+  <div class="views-field views-field-field-slider-image">        <div class="field-content"><img src="http://www.stembook.org/sites/default/files/styles/homepage_slideshow/public/Ectoderm_slider.jpg" width="885" height="410" alt="" /></div>  </div>  
+          <div class="slide-overlay">    
+  <div class="overlay-title">        <span>Ectoderm specification and differentiation&nbsp;»</span>  </div>  
+  <div class="overlay-chapters">        <div><div class="item-list"><ul><li class="first">The cranial sensory nervous system: specification of sensory progenitors and placodes</li><li>Tooth organogenesis and regeneration</li><li class="last">Melanocyte stem cells</li></ul></div></div>  </div>  
+  <div class="overlay-link">        <span><a href="/node/393">View all Chapters in Section »</a></span>  </div>  
+          </div>    </div>
+  <div class="slide">
+      
+  <div class="views-field views-field-field-slider-image">        <div class="field-content"><img src="http://www.stembook.org/sites/default/files/styles/homepage_slideshow/public/Zorn06.tif_Endoderm.jpg" width="885" height="410" alt="" /></div>  </div>  
+          <div class="slide-overlay">    
+  <div class="overlay-title">        <span>Endoderm specification and differentiation&nbsp;»</span>  </div>  
+  <div class="overlay-chapters">        <div><div class="item-list"><ul><li class="first">Pancreatic stem cells</li><li>Specification and patterning of the respiratory system</li><li class="last">Liver development</li></ul></div></div>  </div>  
+  <div class="overlay-link">        <span><a href="/node/395">View all Chapters in Section »</a></span>  </div>  
+          </div>    </div>
+  <div class="slide">
+      
+  <div class="views-field views-field-field-slider-image">        <div class="field-content"><img src="http://www.stembook.org/sites/default/files/styles/homepage_slideshow/public/NewEpigeneticPicture.jpg" width="885" height="410" alt="" /></div>  </div>  
+          <div class="slide-overlay">    
+  <div class="overlay-title">        <span>Epigenetics&nbsp;»</span>  </div>  
+  <div class="overlay-chapters">        <div><div class="item-list"><ul><li class="first">Imaging chromatin in embryonic stem cells</li><li>Epigenetic silencing during early lineage commitment</li><li class="last">The chromatin signature of pluripotent cells</li></ul></div></div>  </div>  
+  <div class="overlay-link">        <span><a href="/node/387">View all Chapters in Section »</a></span>  </div>  
+          </div>    </div>
+  <div class="slide">
+      
+  <div class="views-field views-field-field-slider-image">        <div class="field-content"><img src="http://www.stembook.org/sites/default/files/styles/homepage_slideshow/public/Genomics%20and%20Proteomics.jpg" width="885" height="410" alt="" /></div>  </div>  
+          <div class="slide-overlay">    
+  <div class="overlay-title">        <span>Genomics and proteomics&nbsp;»</span>  </div>  
+  <div class="overlay-chapters">        <div><div class="item-list"><ul><li class="first">Proteomic studies of stem cells</li><li>Genome-wide transcription factor localization and function in stem cells</li><li class="last">The pluripotent transcriptome</li></ul></div></div>  </div>  
+  <div class="overlay-link">        <span><a href="/node/488">View all Chapters in Section »</a></span>  </div>  
+          </div>    </div>
+  <div class="slide">
+      
+  <div class="views-field views-field-field-slider-image">        <div class="field-content"><img src="http://www.stembook.org/sites/default/files/styles/homepage_slideshow/public/Germline_slider.jpg" width="885" height="410" alt="" /></div>  </div>  
+          <div class="slide-overlay">    
+  <div class="overlay-title">        <span>Germ cell and somatic stem cell biology in reproduction&nbsp;»</span>  </div>  
+  <div class="overlay-chapters">        <div><div class="item-list"><ul><li class="first">Regulation of spermatogonia</li><li>piRNA function in germline development</li><li class="last">The role of microRNAs in germline differentiation</li></ul></div></div>  </div>  
+  <div class="overlay-link">        <span><a href="/node/412">View all Chapters in Section »</a></span>  </div>  
+          </div>    </div>
+  <div class="slide">
+      
+  <div class="views-field views-field-field-slider-image">        <div class="field-content"><img src="http://www.stembook.org/sites/default/files/styles/homepage_slideshow/public/mesoderm_0.jpg" width="885" height="410" alt="" /></div>  </div>  
+          <div class="slide-overlay">    
+  <div class="overlay-title">        <span>Mesoderm specification and differentiation&nbsp;»</span>  </div>  
+  <div class="overlay-chapters">        <div><div class="item-list"><ul><li class="first">Epigenetic mechanisms controlling mesodermal specification</li><li>Mouse kidney development</li><li class="last">Adult mesenchymal stem cells</li></ul></div></div>  </div>  
+  <div class="overlay-link">        <span><a href="/node/394">View all Chapters in Section »</a></span>  </div>  
+          </div>    </div>
+  <div class="slide">
+      
+  <div class="views-field views-field-field-slider-image">        <div class="field-content"><img src="http://www.stembook.org/sites/default/files/styles/homepage_slideshow/public/Nichejpg.jpg" width="885" height="410" alt="" /></div>  </div>  
+          <div class="slide-overlay">    
+  <div class="overlay-title">        <span>Niche biology, homing, and migration&nbsp;»</span>  </div>  
+  <div class="overlay-chapters">        <div><div class="item-list"><ul><li class="first">Hematopoietic stem cell trafficking</li><li class="last">The neural stem cell microenvironment</li></ul></div></div>  </div>  
+  <div class="overlay-link">        <span><a href="/node/392">View all Chapters in Section »</a></span>  </div>  
+          </div>    </div>
+  <div class="slide">
+      
+  <div class="views-field views-field-field-slider-image">        <div class="field-content"><img src="http://www.stembook.org/sites/default/files/styles/homepage_slideshow/public/Renewal_slider.jpg" width="885" height="410" alt="" /></div>  </div>  
+          <div class="slide-overlay">    
+  <div class="overlay-title">        <span>Renewal&nbsp;»</span>  </div>  
+  <div class="overlay-chapters">        <div><div class="item-list"><ul><li class="first">Aging and stem cell renewal</li><li>Quiescent stem cells in the niche</li><li class="last">Mechanisms regulating stem cell polarity and the specification of asymmetric divisions</li></ul></div></div>  </div>  
+  <div class="overlay-link">        <span><a href="/node/391">View all Chapters in Section »</a></span>  </div>  
+          </div>    </div>
+  <div class="slide">
+      
+  <div class="views-field views-field-field-slider-image">        <div class="field-content"><img src="http://www.stembook.org/sites/default/files/styles/homepage_slideshow/public/Immunology.jpg" width="885" height="410" alt="" /></div>  </div>  
+          <div class="slide-overlay">    
+  <div class="overlay-title">        <span>Stem cell immunology&nbsp;»</span>  </div>  
+  <div class="overlay-chapters">        <div><div class="item-list"><ul><li class="first">Immunologic targeting of the cancer stem cell</li><li>Immunological considerations for cell therapy using human embryonic stem cell derivatives</li><li class="last">Mouse models of graft-versus-host disease</li></ul></div></div>  </div>  
+  <div class="overlay-link">        <span><a href="/node/397">View all Chapters in Section »</a></span>  </div>  
+          </div>    </div>
+  <div class="slide">
+      
+  <div class="views-field views-field-field-slider-image">        <div class="field-content"><img src="http://www.stembook.org/sites/default/files/styles/homepage_slideshow/public/Therapeuticprospects.jpg" width="885" height="410" alt="" /></div>  </div>  
+          <div class="slide-overlay">    
+  <div class="overlay-title">        <span>Therapeutic prospects&nbsp;»</span>  </div>  
+  <div class="overlay-chapters">        <div><div class="item-list"><ul><li class="first">The hematopoietic stem cell niche</li><li>Medical applications of epidermal stem cells</li><li class="last">Mesenchymal stromal cells as a drug delivery system</li></ul></div></div>  </div>  
+  <div class="overlay-link">        <span><a href="/node/399">View all Chapters in Section »</a></span>  </div>  
+          </div>    </div>
+  <div class="slide">
+      
+  <div class="views-field views-field-field-slider-image">        <div class="field-content"><img src="http://www.stembook.org/sites/default/files/styles/homepage_slideshow/public/Tissueengineering_slider.jpg" width="885" height="410" alt="" /></div>  </div>  
+          <div class="slide-overlay">    
+  <div class="overlay-title">        <span>Tissue engineering&nbsp;»</span>  </div>  
+  <div class="overlay-chapters">        <div><div class="item-list"><ul><li class="first">Combining stem cells and biomaterial scaffolds for constructing tissues and cell delivery</li><li>Autologous approaches to tissue engineering</li><li class="last">Flow perfusion culture of mesenchymal stem cells for bone tissue engineering</li></ul></div></div>  </div>  
+  <div class="overlay-link">        <span><a href="/node/396">View all Chapters in Section »</a></span>  </div>  
+          </div>    </div>
+
+      </div>
+  
+
+</div>    </div>
+  </div>
+</div>
+  </div>
+</div>
+  </div>
+</div></header>
+  
+      <section id="section-content" class="section section-content">
+  <div id="zone-content-wrapper" class="zone-wrapper zone-content-wrapper clearfix">  <div id="zone-content" class="zone zone-content clearfix container-16">
+            <aside class="grid-6 region region-sidebar-first" id="region-sidebar-first">
+  <div class="region-inner region-sidebar-first-inner">
+    <section class="block block-views block-scf-forums-block-1 block-views-scf-forums-block-1 odd" id="block-views-scf-forums-block-1">
+  <div class="block-inner clearfix">
+              <h2 class="block-title">Forums</h2>
+        
+    <div class="content clearfix">
+      <div class="view view-scf-forums view-id-scf_forums view-display-id-block_1 view-dom-id-3372fea91fb343f8aee31ef8d61d893d">
+        
+  
+  
+      <div class="view-content">
+        <div class="views-row views-row-1 views-row-odd views-row-first">
+    <article id="node-scf-discussion-756">
+
+
+  <div class="content clearfix">
+
+    <div class="node-meta">
+      Discussion |
+      <div class="field field-name-post-date field-type-ds field-label-hidden"><div class="field-items"><div class="field-item even">29 Jan 2013</div></div></div>    </div>
+
+    <header>
+    <h2 class="node-title"><a href="/node/756" title="Discuss protocols here">Discuss protocols here</a></h2>
+  </header>
+  
+
+    <div class="field field-name-author field-type-ds field-label-hidden"><div class="field-items"><div class="field-item even">lisa_girard</div></div></div><div class="field field-name-body field-type-text-with-summary field-label-hidden"><div class="field-items"><div class="field-item even"><p>This forum is set to discuss protocol related issues. Please sign up to post your comment/question here.</p>
+</div></div></div>  </div>
+
+  <div class="clearfix">
+          <nav class="links node-links clearfix"><ul class="links inline"><li class="node-readmore first last"><a href="/node/756" rel="tag" title="Discuss protocols here">Read more<span class="element-invisible"> about Discuss protocols here</span></a></li></ul></nav>
+    
+      </div>
+</article>
+
+  </div>
+  <div class="views-row views-row-2 views-row-even views-row-last">
+    <article id="node-scf-discussion-755">
+
+
+  <div class="content clearfix">
+
+    <div class="node-meta">
+      Discussion |
+      <div class="field field-name-post-date field-type-ds field-label-hidden"><div class="field-items"><div class="field-item even">29 Jan 2013</div></div></div>    </div>
+
+    <header>
+    <h2 class="node-title"><a href="/node/755" title="Coming Soon!">Coming Soon!</a></h2>
+  </header>
+  
+
+    <div class="field field-name-author field-type-ds field-label-hidden"><div class="field-items"><div class="field-item even">lisa_girard</div></div></div><div class="field field-name-body field-type-text-with-summary field-label-hidden"><div class="field-items"><div class="field-item even"><p>Interviews with key opinion leaders coming soon! Propose your discussion topics here.</p>
+<p> </p>
+</div></div></div>  </div>
+
+  <div class="clearfix">
+          <nav class="links node-links clearfix"><ul class="links inline"><li class="node-readmore first last"><a href="/node/755" rel="tag" title="Coming Soon!">Read more<span class="element-invisible"> about Coming Soon!</span></a></li></ul></nav>
+    
+      </div>
+</article>
+
+  </div>
+    </div>
+  
+  
+  
+      
+<div class="more-link">
+  <a href="/forums">
+    Go to Forums  </a>
+</div>
+  
+  
+  
+</div>    </div>
+  </div>
+</section>
+  </div>
+</aside>
+<div class="grid-6 region region-content" id="region-content">
+  <div class="region-inner region-content-inner">
+    <a id="main-content"></a>
+                        <section class="block block-views block-scf-news-block-1 block-views-scf-news-block-1 odd" id="block-views-scf-news-block-1">
+  <div class="block-inner clearfix">
+              <h2 class="block-title">News &amp; Commentaries</h2>
+        
+    <div class="content clearfix">
+      <div class="view view-scf-news view-id-scf_news view-display-id-block_1 view-dom-id-577e38fa580241c6c53302e75181fd45">
+        
+  
+  
+      <div class="view-content">
+        <div class="views-row views-row-1 views-row-odd views-row-first">
+    <article id="node-scf-news-746">
+
+
+  <div class="content clearfix">
+
+    <div class="node-meta">
+      <div class="field field-name-scf-f-news-type field-type-list-text field-label-hidden"><div class="field-items"><div class="field-item even">Latest News</div></div></div> |
+      <div class="field field-name-post-date field-type-ds field-label-hidden"><div class="field-items"><div class="field-item even">16 Nov 2012</div></div></div>    </div>
+
+    <header>
+    <h2 class="node-title"><a href="/node/746" title="Bone Marrow Transplantation">Bone Marrow Transplantation</a></h2>
+  </header>
+  
+
+    <div class="field field-name-scf-f-news-byline field-type-text-long field-label-hidden"><div class="field-items"><div class="field-item even">By Jeffrey M. Perkel</div></div></div><div class="field field-name-body field-type-text-with-summary field-label-hidden"><div class="field-items"><div class="field-item even"><p>On Oct. 20, E. Donnall Thomas, the “father of bone marrow transplantation,” died at age 92. </p></div></div></div>  </div>
+
+  <div class="clearfix">
+          <nav class="links node-links clearfix"><ul class="links inline"><li class="node-readmore first last"><a href="/node/746" rel="tag" title="Bone Marrow Transplantation">Read more<span class="element-invisible"> about Bone Marrow Transplantation</span></a></li></ul></nav>
+    
+      </div>
+</article>
+
+  </div>
+  <div class="views-row views-row-2 views-row-even">
+    <article id="node-scf-news-742">
+
+
+  <div class="content clearfix">
+
+    <div class="node-meta">
+      <div class="field field-name-scf-f-news-type field-type-list-text field-label-hidden"><div class="field-items"><div class="field-item even">Latest News</div></div></div> |
+      <div class="field field-name-post-date field-type-ds field-label-hidden"><div class="field-items"><div class="field-item even">10 Jul 2012</div></div></div>    </div>
+
+    <header>
+    <h2 class="node-title"><a href="/node/742" title="Stem Cells and Neurodegeneration">Stem Cells and Neurodegeneration</a></h2>
+  </header>
+  
+
+    <div class="field field-name-scf-f-news-byline field-type-text-long field-label-hidden"><div class="field-items"><div class="field-item even">By Jeffrey M. Perkel</div></div></div><div class="field field-name-body field-type-text-with-summary field-label-hidden"><div class="field-items"><div class="field-item even"><p>On July 26, the California Institute of Regenerative Medicine announced $151 million worth of grants for research that would take stem cell therapies from the laboratory to the clinic.</p></div></div></div>  </div>
+
+  <div class="clearfix">
+          <nav class="links node-links clearfix"><ul class="links inline"><li class="node-readmore first last"><a href="/node/742" rel="tag" title="Stem Cells and Neurodegeneration">Read more<span class="element-invisible"> about Stem Cells and Neurodegeneration</span></a></li></ul></nav>
+    
+      </div>
+</article>
+
+  </div>
+  <div class="views-row views-row-3 views-row-odd views-row-last">
+    <article id="node-scf-news-741">
+
+
+  <div class="content clearfix">
+
+    <div class="node-meta">
+      <div class="field field-name-scf-f-news-type field-type-list-text field-label-hidden"><div class="field-items"><div class="field-item even">Research</div></div></div> |
+      <div class="field field-name-post-date field-type-ds field-label-hidden"><div class="field-items"><div class="field-item even">10 Jul 2012</div></div></div>    </div>
+
+    <header>
+    <h2 class="node-title"><a href="/node/741" title="MSCs and bone repair ">MSCs and bone repair </a></h2>
+  </header>
+  
+
+    <div class="field field-name-scf-f-news-byline field-type-text-long field-label-hidden"><div class="field-items"><div class="field-item even">By Jeffrey M. Perkel</div></div></div><div class="field field-name-body field-type-text-with-summary field-label-hidden"><div class="field-items"><div class="field-item even"><p>Two years ago, Pamela Robey broke two bones in her leg, a consequence of snow outside and an errant boot. “I slipped and my boot heel got caught in a crack,” she says. “I was moving very fast but my leg was not.”<br /></p></div></div></div>  </div>
+
+  <div class="clearfix">
+          <nav class="links node-links clearfix"><ul class="links inline"><li class="node-readmore first last"><a href="/node/741" rel="tag" title="MSCs and bone repair ">Read more<span class="element-invisible"> about MSCs and bone repair </span></a></li></ul></nav>
+    
+      </div>
+</article>
+
+  </div>
+    </div>
+  
+  
+  
+      
+<div class="more-link">
+  <a href="/news">
+    Go to News &amp; Commentaries  </a>
+</div>
+  
+  
+  
+</div>    </div>
+  </div>
+</section>
+      </div>
+</div>
+<aside class="grid-4 region region-sidebar-second" id="region-sidebar-second">
+  <div class="region-inner region-sidebar-second-inner">
+    <section class="block block-views block-scf-protocols-view-block-1 block-views-scf-protocols-view-block-1 odd" id="block-views-scf-protocols-view-block-1">
+  <div class="block-inner clearfix">
+              <h2 class="block-title">New protocols</h2>
+        
+    <div class="content clearfix">
+      <div class="view view-scf-protocols-view view-id-scf_protocols_view view-display-id-block_1 view-dom-id-4badd06cd7a6720eea30bf3db4c44596">
+        
+  
+  
+      <div class="view-content">
+      <div class="item-list">    <ul>          <li class="views-row views-row-1 views-row-odd views-row-first">  
+  <div class="views-field views-field-title">        <span class="field-content"><a href="/node/749">Splitting hPSCs with Dispase</a></span>  </div></li>
+          <li class="views-row views-row-2 views-row-even">  
+  <div class="views-field views-field-title">        <span class="field-content"><a href="/node/748">Splitting hESC/hiPSC lines with EDTA in feeder-free conditions</a></span>  </div></li>
+          <li class="views-row views-row-3 views-row-odd">  
+  <div class="views-field views-field-title">        <span class="field-content"><a href="/node/747">Splitting hESC/hiPSC lines on MEF using Accutase</a></span>  </div></li>
+          <li class="views-row views-row-4 views-row-even">  
+  <div class="views-field views-field-title">        <span class="field-content"><a href="/node/745">General spinfection </a></span>  </div></li>
+          <li class="views-row views-row-5 views-row-odd views-row-last">  
+  <div class="views-field views-field-title">        <span class="field-content"><a href="/node/743">Assessment of human pluripotent stem cells with PluriTest  </a></span>  </div></li>
+      </ul></div>    </div>
+  
+  
+  
+      
+<div class="more-link">
+  <a href="/protocols">
+    More  </a>
+</div>
+  
+  
+  
+</div>    </div>
+  </div>
+</section>
+<section class="block block-views block-book-chapters-block-1 block-views-book-chapters-block-1 even" id="block-views-book-chapters-block-1">
+  <div class="block-inner clearfix">
+              <h2 class="block-title">New Chapters</h2>
+        
+    <div class="content clearfix">
+      <div class="view view-book-chapters view-id-book_chapters view-display-id-block_1 view-dom-id-b2531a053997df6b8cd8bddf86b5e55b">
+        
+  
+  
+      <div class="view-content">
+      <div class="item-list">    <ul>          <li class="views-row views-row-1 views-row-odd views-row-first">  
+  <div class="views-field views-field-title">        <span class="field-content"><a href="/node/703">Prospects for ensuring acceptance of ES cell-derived tissues</a></span>  </div></li>
+          <li class="views-row views-row-2 views-row-even">  
+  <div class="views-field views-field-title">        <span class="field-content"><a href="/node/702">Sex differentiation in mouse and man and subsequent development of the female reproductive organs</a></span>  </div></li>
+          <li class="views-row views-row-3 views-row-odd">  
+  <div class="views-field views-field-title">        <span class="field-content"><a href="/node/696">Neural crest-derived stem cells</a></span>  </div></li>
+          <li class="views-row views-row-4 views-row-even">  
+  <div class="views-field views-field-title">        <span class="field-content"><a href="/node/693">Cord blood hematopoietic stem cell transplantation</a></span>  </div></li>
+          <li class="views-row views-row-5 views-row-odd views-row-last">  
+  <div class="views-field views-field-title">        <span class="field-content"><a href="/node/613">Stem cells, cancer, and epigenetics</a></span>  </div></li>
+      </ul></div>    </div>
+  
+  
+  
+      
+<div class="more-link">
+  <a href="/chapters">
+    More  </a>
+</div>
+  
+  
+  
+</div>    </div>
+  </div>
+</section>
+<section class="block block-views block-scf-most-popular-block-1 block-views-scf-most-popular-block-1 odd" id="block-views-scf-most-popular-block-1">
+  <div class="block-inner clearfix">
+              <h2 class="block-title">Most Popular Content</h2>
+        
+    <div class="content clearfix">
+      <div class="view view-scf-most-popular view-id-scf_most_popular view-display-id-block_1 view-dom-id-de34eb1dcaaae298d1fd1cde94d1d0c3">
+        
+  
+  
+      <div class="view-content">
+      <div class="item-list">    <ul>          <li class="views-row views-row-1 views-row-odd views-row-first">  
+  <div class="views-field views-field-title">        <span class="field-content"><a href="/node/756">Discuss protocols here</a></span>  </div></li>
+          <li class="views-row views-row-2 views-row-even">  
+  <div class="views-field views-field-title">        <span class="field-content"><a href="/node/755">Coming Soon!</a></span>  </div></li>
+          <li class="views-row views-row-3 views-row-odd">  
+  <div class="views-field views-field-title">        <span class="field-content"><a href="/node/723">Teratoma formation: A tool for monitoring pluripotency in stem cell research</a></span>  </div></li>
+          <li class="views-row views-row-4 views-row-even">  
+  <div class="views-field views-field-title">        <span class="field-content"><a href="/node/398">Cellular and nuclear reprogramming</a></span>  </div></li>
+          <li class="views-row views-row-5 views-row-odd views-row-last">  
+  <div class="views-field views-field-title">        <span class="field-content"><a href="/node/720">Basic pluripotent stem cell culture protocol</a></span>  </div></li>
+      </ul></div>    </div>
+  
+  
+  
+      
+<div class="more-link">
+  <a href="/most-popular-content">
+    See full list  </a>
+</div>
+  
+  
+  
+</div>    </div>
+  </div>
+</section>
+  </div>
+</aside>
+  </div>
+</div></section>
+  
+      <footer id="section-footer" class="section section-footer">
+  <div id="zone-footer-wrapper" class="zone-wrapper zone-footer-wrapper clearfix">  <div id="zone-footer" class="zone zone-footer clearfix container-12">
+    <div class="grid-12 region region-footer-first" id="region-footer-first">
+  <div class="region-inner region-footer-first-inner">
+    <section class="block block-scf-nodeblock-export block-scf-common-copyright-block block-scf-nodeblock-export-scf-common-copyright-block odd" id="block-scf-nodeblock-export-scf-common-copyright-block">
+  <div class="block-inner clearfix">
+              <h2 class="block-title">Copyright block</h2>
+        
+    <div class="content clearfix">
+      <div id="node-752" class="node node-nodeblock clearfix" class="node node-nodeblock node-published node-not-promoted node-not-sticky author-1 even clearfix" id="node-nodeblock-752">
+
+  
+      
+  
+  <div class="content" class="content clearfix">
+    <div class="field field-name-body field-type-text-with-summary field-label-hidden"><div class="field-items"><div class="field-item even"><p>Copyright 2013 by the Massachusetts General Hospital. Some sections copyright 2008-2009 by The President and Fellows of Harvard College.</p>
+</div></div></div>  </div>
+
+  
+  
+</div>
+    </div>
+  </div>
+</section>
+<section class="block block-scf-nodeblock-export block-scf-common-collaborators-block block-scf-nodeblock-export-scf-common-collaborators-block even" id="block-scf-nodeblock-export-scf-common-collaborators-block">
+  <div class="block-inner clearfix">
+              <h2 class="block-title">A Collaborative Effort by</h2>
+        
+    <div class="content clearfix">
+      <div id="node-751" class="node node-nodeblock clearfix" class="node node-nodeblock node-published node-not-promoted node-not-sticky author-1 odd clearfix" id="node-nodeblock-751">
+
+  
+      
+  
+  <div class="content" class="content clearfix">
+    <div class="field field-name-body field-type-text-with-summary field-label-hidden"><div class="field-items"><div class="field-item even"><p><img src="/sites/all/themes/sbo2/images/1-HSCI.jpg" alt="HSCI logo" /><img src="/sites/all/themes/sbo2/images/3-NIH.jpg" alt="NIH logo" /><img src="/sites/all/themes/sbo2/images/4-MIND.jpg" alt="MIND logo" /></p></div></div></div>  </div>
+
+  
+  
+</div>
+    </div>
+  </div>
+</section>
+<section class="block block-scf-nodeblock-export block-scf-common-license-block block-scf-nodeblock-export-scf-common-license-block odd" id="block-scf-nodeblock-export-scf-common-license-block">
+  <div class="block-inner clearfix">
+              <h2 class="block-title">License block</h2>
+        
+    <div class="content clearfix">
+      <div id="node-753" class="node node-nodeblock clearfix" class="node node-nodeblock node-published node-not-promoted node-not-sticky author-1 even clearfix" id="node-nodeblock-753">
+
+  
+      
+  
+  <div class="content" class="content clearfix">
+    <div class="field field-name-body field-type-text-with-summary field-label-hidden"><div class="field-items"><div class="field-item even"><p><a id="cc_image" href="http://creativecommons.org/licenses/by/3.0/" rel="license"><br /><img src="http://i.creativecommons.org/l/by/3.0/88x31.png" style="border-width:0" alt="Creative Commons License" /></a>
+  All content unless otherwise noted is licensed under a <a href="http://creativecommons.org/licenses/by/3.0/" rel="license">Creative Commons Attribution 3.0 Unported License</a></p></div></div></div>  </div>
+
+  
+  
+</div>
+    </div>
+  </div>
+</section>
+  </div>
+</div>
+  </div>
+</div></footer>
+  </div>
+  </body>
+</html>

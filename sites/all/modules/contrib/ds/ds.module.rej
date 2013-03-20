@@ -1,0 +1,17 @@
+***************
+*** 1074,1080 ****
+    }
+  
+    if ($field['formatter'] == 'author') {
+-     return $field['entity']->name;
+    }
+  
+    if ($field['formatter'] == 'author_linked') {
+--- 1074,1080 ----
+    }
+  
+    if ($field['formatter'] == 'author') {
++     return check_plain(format_username($field['entity']));
+    }
+  
+    if ($field['formatter'] == 'author_linked') {

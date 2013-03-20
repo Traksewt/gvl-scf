@@ -190,6 +190,17 @@ function f_stembook_field_default_fields() {
         0 => 'node',
       ),
       'field_name' => 'body',
+      'field_permissions' => array(
+        'type' => '0',
+      ),
+      'foreign keys' => array(
+        'format' => array(
+          'columns' => array(
+            'format' => 'format',
+          ),
+          'table' => 'filter_format',
+        ),
+      ),
       'indexes' => array(
         'format' => array(
           0 => 'format',
@@ -197,7 +208,9 @@ function f_stembook_field_default_fields() {
       ),
       'locked' => '0',
       'module' => 'text',
-      'settings' => array(),
+      'settings' => array(
+        'profile2_private' => FALSE,
+      ),
       'translatable' => '1',
       'type' => 'text_with_summary',
     ),
@@ -256,6 +269,17 @@ function f_stembook_field_default_fields() {
         0 => 'node',
       ),
       'field_name' => 'body',
+      'field_permissions' => array(
+        'type' => '0',
+      ),
+      'foreign keys' => array(
+        'format' => array(
+          'columns' => array(
+            'format' => 'format',
+          ),
+          'table' => 'filter_format',
+        ),
+      ),
       'indexes' => array(
         'format' => array(
           0 => 'format',
@@ -263,7 +287,9 @@ function f_stembook_field_default_fields() {
       ),
       'locked' => '0',
       'module' => 'text',
-      'settings' => array(),
+      'settings' => array(
+        'profile2_private' => FALSE,
+      ),
       'translatable' => '1',
       'type' => 'text_with_summary',
     ),
@@ -322,6 +348,17 @@ function f_stembook_field_default_fields() {
         0 => 'node',
       ),
       'field_name' => 'body',
+      'field_permissions' => array(
+        'type' => '0',
+      ),
+      'foreign keys' => array(
+        'format' => array(
+          'columns' => array(
+            'format' => 'format',
+          ),
+          'table' => 'filter_format',
+        ),
+      ),
       'indexes' => array(
         'format' => array(
           0 => 'format',
@@ -329,7 +366,9 @@ function f_stembook_field_default_fields() {
       ),
       'locked' => '0',
       'module' => 'text',
-      'settings' => array(),
+      'settings' => array(
+        'profile2_private' => FALSE,
+      ),
       'translatable' => '1',
       'type' => 'text_with_summary',
     ),
@@ -402,7 +441,7 @@ function f_stembook_field_default_fields() {
       'module' => 'file',
       'settings' => array(
         'display_default' => 0,
-        'display_field' => 1,
+        'display_field' => 0,
         'uri_scheme' => 'public',
       ),
       'translatable' => '0',
@@ -681,6 +720,17 @@ function f_stembook_field_default_fields() {
         0 => 'node',
       ),
       'field_name' => 'body',
+      'field_permissions' => array(
+        'type' => '0',
+      ),
+      'foreign keys' => array(
+        'format' => array(
+          'columns' => array(
+            'format' => 'format',
+          ),
+          'table' => 'filter_format',
+        ),
+      ),
       'indexes' => array(
         'format' => array(
           0 => 'format',
@@ -688,7 +738,9 @@ function f_stembook_field_default_fields() {
       ),
       'locked' => '0',
       'module' => 'text',
-      'settings' => array(),
+      'settings' => array(
+        'profile2_private' => FALSE,
+      ),
       'translatable' => '1',
       'type' => 'text_with_summary',
     ),
@@ -703,7 +755,7 @@ function f_stembook_field_default_fields() {
           'module' => 'text',
           'settings' => array(),
           'type' => 'text_default',
-          'weight' => '0',
+          'weight' => '1',
         ),
         'teaser' => array(
           'label' => 'hidden',
@@ -878,7 +930,12 @@ function f_stembook_field_default_fields() {
     ),
     'field_instance' => array(
       'bundle' => 'pubnode',
-      'default_value' => NULL,
+      'default_value' => array(
+        0 => array(
+          'value' => '<p>NOTE: This is not the most current version. Please <a href="insert_new_node_id_here" target="_blank">go here </a>for latest version.</p>',
+          'format' => 'scf_wysiwyg_filter',
+        ),
+      ),
       'deleted' => '0',
       'description' => 'Enter revision information of the chapter here.',
       'display' => array(
@@ -976,7 +1033,7 @@ function f_stembook_field_default_fields() {
           'module' => 'file',
           'settings' => array(),
           'type' => 'file_table',
-          'weight' => '0',
+          'weight' => '2',
         ),
         'full' => array(
           'label' => 'hidden',
@@ -1043,6 +1100,17 @@ function f_stembook_field_default_fields() {
         0 => 'node',
       ),
       'field_name' => 'body',
+      'field_permissions' => array(
+        'type' => '0',
+      ),
+      'foreign keys' => array(
+        'format' => array(
+          'columns' => array(
+            'format' => 'format',
+          ),
+          'table' => 'filter_format',
+        ),
+      ),
       'indexes' => array(
         'format' => array(
           0 => 'format',
@@ -1050,7 +1118,9 @@ function f_stembook_field_default_fields() {
       ),
       'locked' => '0',
       'module' => 'text',
-      'settings' => array(),
+      'settings' => array(
+        'profile2_private' => FALSE,
+      ),
       'translatable' => '1',
       'type' => 'text_with_summary',
     ),
@@ -1094,7 +1164,7 @@ function f_stembook_field_default_fields() {
           'summary_rows' => 5,
         ),
         'type' => 'text_textarea_with_summary',
-        'weight' => '0',
+        'weight' => 0,
       ),
     ),
   );
@@ -1615,6 +1685,17 @@ function f_stembook_field_default_fields() {
         0 => 'node',
       ),
       'field_name' => 'body',
+      'field_permissions' => array(
+        'type' => '0',
+      ),
+      'foreign keys' => array(
+        'format' => array(
+          'columns' => array(
+            'format' => 'format',
+          ),
+          'table' => 'filter_format',
+        ),
+      ),
       'indexes' => array(
         'format' => array(
           0 => 'format',
@@ -1622,7 +1703,9 @@ function f_stembook_field_default_fields() {
       ),
       'locked' => '0',
       'module' => 'text',
-      'settings' => array(),
+      'settings' => array(
+        'profile2_private' => FALSE,
+      ),
       'translatable' => '1',
       'type' => 'text_with_summary',
     ),
@@ -1637,7 +1720,7 @@ function f_stembook_field_default_fields() {
           'module' => 'text',
           'settings' => array(),
           'type' => 'text_default',
-          'weight' => '0',
+          'weight' => '1',
         ),
         'teaser' => array(
           'label' => 'hidden',
@@ -1665,7 +1748,7 @@ function f_stembook_field_default_fields() {
           'summary_rows' => 5,
         ),
         'type' => 'text_textarea_with_summary',
-        'weight' => '2',
+        'weight' => '3',
       ),
     ),
   );
@@ -1793,7 +1876,12 @@ function f_stembook_field_default_fields() {
     ),
     'field_instance' => array(
       'bundle' => 'stembook_chapter_new',
-      'default_value' => NULL,
+      'default_value' => array(
+        0 => array(
+          'value' => '<p>This is the latest version of this chapter. The previous version can be found <a href="insert_old_node_id_here" target="_blank">here</a>.</p>',
+          'format' => 'scf_wysiwyg_filter',
+        ),
+      ),
       'deleted' => '0',
       'description' => '',
       'display' => array(
@@ -1814,18 +1902,45 @@ function f_stembook_field_default_fields() {
       'entity_type' => 'node',
       'field_name' => 'field_revision_information',
       'label' => 'Revision information',
-      'required' => FALSE,
+      'required' => 0,
       'settings' => array(
-        'text_processing' => 0,
+        'better_formats' => array(
+          'allowed_formats' => array(
+            'scf_wysiwyg_filter' => 'scf_wysiwyg_filter',
+            1 => '1',
+            2 => '2',
+            3 => '3',
+          ),
+          'allowed_formats_toggle' => 0,
+          'default_order_toggle' => 0,
+          'default_order_wrapper' => array(
+            'formats' => array(
+              'scf_wysiwyg_filter' => array(
+                'weight' => '-3',
+              ),
+              1 => array(
+                'weight' => '-1',
+              ),
+              2 => array(
+                'weight' => '0',
+              ),
+              3 => array(
+                'weight' => '1',
+              ),
+            ),
+          ),
+        ),
+        'text_processing' => '1',
         'user_register_form' => FALSE,
       ),
       'widget' => array(
+        'active' => 1,
         'module' => 'text',
         'settings' => array(
-          'rows' => 5,
+          'rows' => '5',
         ),
         'type' => 'text_textarea',
-        'weight' => '7',
+        'weight' => '2',
       ),
     ),
   );
@@ -1977,7 +2092,7 @@ function f_stembook_field_default_fields() {
       'required' => 0,
       'settings' => array(
         'description_field' => 0,
-        'file_directory' => '',
+        'file_directory' => 'chapters_new',
         'file_extensions' => 'txt jpg tif png pdf',
         'max_filesize' => '',
         'user_register_form' => FALSE,
@@ -2007,7 +2122,7 @@ function f_stembook_field_default_fields() {
           'progress_indicator' => 'throbber',
         ),
         'type' => 'file_mfw',
-        'weight' => '3',
+        'weight' => '4',
       ),
     ),
   );
@@ -2022,6 +2137,17 @@ function f_stembook_field_default_fields() {
         0 => 'node',
       ),
       'field_name' => 'body',
+      'field_permissions' => array(
+        'type' => '0',
+      ),
+      'foreign keys' => array(
+        'format' => array(
+          'columns' => array(
+            'format' => 'format',
+          ),
+          'table' => 'filter_format',
+        ),
+      ),
       'indexes' => array(
         'format' => array(
           0 => 'format',
@@ -2029,7 +2155,9 @@ function f_stembook_field_default_fields() {
       ),
       'locked' => '0',
       'module' => 'text',
-      'settings' => array(),
+      'settings' => array(
+        'profile2_private' => FALSE,
+      ),
       'translatable' => '1',
       'type' => 'text_with_summary',
     ),

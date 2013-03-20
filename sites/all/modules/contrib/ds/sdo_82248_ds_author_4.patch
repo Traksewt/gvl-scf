@@ -1,0 +1,13 @@
+diff --git a/ds.module b/ds.module
+index 9d45560..8c6c2c1 100644
+--- a/ds.module
++++ b/ds.module
+@@ -1109,7 +1109,7 @@ function ds_render_author_field($field) {
+   }
+ 
+   if ($field['formatter'] == 'author') {
+-    $output = $field['entity']->name;
++    $output = check_plain(format_username($field['entity']));
+   }
+ 
+   if ($field['formatter'] == 'author_linked') {

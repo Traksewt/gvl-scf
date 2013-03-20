@@ -82,6 +82,10 @@ function pubnode_delete ($node) {
 function pubnode_node_view($node, $view_mode, $langcode) {
   if ($node->type == 'pubnode' && !empty($node->pdfpath)) {
     $href = $node->pubpath . '/' . $node->pdfpath;
+    // Fix issue with legacy path to files directory. Pantheon
+    // expects it to be the default Drupal files directory location.
+    $href = preg_replace('@sites/all/files/@', 'sites/default/files/', $href);
+
     $node->content['pdflink'] = array(
       '#markup' => '<div>' . l(t('Download (PDF)'), $href, array('attributes' => array('class' => 'pubnode-pdflink'))) . '</div>',
       '#weight' => 100
@@ -103,7 +107,6 @@ function pubnode_theme () {
  */
 function pubnode_block_info() {
   $blocks['toc']['info'] = t('Table of Contents');
-  $blocks['pubnode']['cache'] = DRUPAL_CACHE_PER_PAGE;
 
   return $blocks;
 }

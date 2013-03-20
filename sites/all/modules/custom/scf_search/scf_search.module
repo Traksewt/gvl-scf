@@ -5,3 +5,144 @@
  */
 
 include_once 'scf_search.features.inc';
+
+/**
+ * Implements hook_block_info().
+ */
+function scf_search_block_info() {
+  $blocks = array();
+
+  // Only implement one block that gets generated based on the context of the
+  // page and the search pages matching this context (if it exists).
+  $blocks['section_search']['info'] = t('SCF section search');
+
+  return $blocks;
+}
+
+/**
+ * Implements hook_block_view().
+ */
+function scf_search_block_view($delta = '') {
+  $block = array();
+
+  // Determine which section we're in.
+  // Only display the search block if there exist a search page matching
+  // one of the contexts we're in. Match is done on machine names.
+  $search_pages = apachesolr_search_load_all_search_pages();
+  foreach (context_active_contexts() as $context_name => $context) {
+    if (!empty($search_pages[$context_name])) {
+      $search_page = $search_pages[$context_name];
+      $block['subject'] = $search_page['label'];
+      $block['content'] = drupal_get_form('scf_search_section_search_form', $search_page);
+    }
+  }
+
+  return $block;
+}
+
+/**
+ * Specialized search form placed in the sections.
+ */
+function scf_search_section_search_form($form, &$form_state, $search_page, $keys = '') {
+  // Loads the core Search CSS file, use the core search module's classes.
+//  drupal_add_css(drupal_get_path('module', 'search') . '/search.css');
+
+  $form = array();
+  $form['#search_page'] = $search_page;
+
+  $form['keys_set'] = array(
+    '#type' => 'fieldset',
+  );
+
+  $form['keys_set']['keys'] = array(
+    '#type' => 'textfield',
+    '#title' => t('Search'),
+    '#title_display' => 'invisible',
+    '#size' => '',
+    '#default_value' => $keys,
+    '#attributes' => array('title' => t('Enter the terms you wish to search for.')),
+  );
+
+  $months = array(0 => 'Month', '01' => 'Jan', '02' => 'Feb', '03' => 'Mar', '04' => 'Apr', '05' => 'May', '06' => 'Jun', '07' => 'Jul', '08' => 'Aug', '09' => 'Sep', '10' => 'Oct', '11' => 'Nov', '12' => 'Dec');
+  $years = array(0 => 'Year');
+  for ($i = date('Y'); $i >= 1950; $i--) {
+    $years[$i] = $i;
+  }
+
+
+  $form['date_wrapper'] = array(
+    '#type' => 'fieldset',
+    '#title' => t('Posting date'),
+  );
+  $form['date_wrapper']['date_from'] = array(
+    '#type' => 'fieldset',
+    '#title' => t('From'),
+  );
+  $form['date_wrapper']['date_from']['date_from_year'] = array(
+    '#type' => 'select',
+    '#options' => $years,
+  );
+  $form['date_wrapper']['date_from']['date_from_month'] = array(
+    '#type' => 'select',
+    '#options' => $months,
+  );
+  $form['date_wrapper']['date_to'] = array(
+    '#type' => 'fieldset',
+    '#title' => t('To'),
+  );
+  $form['date_wrapper']['date_to']['date_to_year'] = array(
+    '#type' => 'select',
+    '#options' => $years,
+  );
+  $form['date_wrapper']['date_to']['date_to_month'] = array(
+    '#type' => 'select',
+    '#options' => $months,
+  );
+
+  $form['actions'] = array('#type' => 'actions');
+  $form['actions']['submit'] = array('#type' => 'submit', '#value' => t('Search'));
+  $form['actions']['clear'] = array('#type' => 'submit', '#value' => t('Clear'));
+  $form['#submit'][] = 'scf_search_section_search_form_submit';
+  $form['#attached']['library'][] = array('system', 'jquery.form');
+  $form['#attached']['js'][] = array(
+    'data' => '(function($){$(function() { $("#scf-search-section-search-form #edit-clear").click(function() {$("#scf-search-section-search-form").clearForm(); return false;}); })})(jQuery);',
+    'type' => 'inline',
+  );
+
+  return $form;
+}
+
+/**
+ * Process a block search form submission.
+ */
+function scf_search_section_search_form_submit($form, &$form_state) {
+  $search_page = $form['#search_page'];
+  // The search form relies on control of the redirect destination for its
+  // functionality, so we override any static destination set in the request,
+  // for example by drupal_access_denied() or drupal_not_found()
+  // (see http://drupal.org/node/292565).
+  if (isset($_GET['destination'])) {
+    unset($_GET['destination']);
+  }
+
+  $query = array();
+
+  // Builds the date filter if a date has been specified in the form.
+  $date_from = '*';
+  if ($form_state['values']['date_from_year']) {
+    $month = $form_state['values']['date_from_month'] ? $form_state['values']['date_from_month'] : '01';
+    $date_from = $form_state['values']['date_from_year'] . '-' . $month . '-01T00:00:00Z' ;
+    $date_filtering = TRUE;
+  }
+  $date_to = '*';
+  if ($form_state['values']['date_to_year']) {
+    $month = $form_state['values']['date_to_month'] ? $form_state['values']['date_to_month'] : '12';
+    $date_to = $form_state['values']['date_to_year'] . '-' . $month . '-01T00:00:00Z' ;
+    $date_filtering = TRUE;
+  }
+  if (!empty($date_filtering)) {
+    $query['f'][] = 'ds_created:[' . $date_from . ' TO ' . $date_to . ']';
+  }
+
+  $form_state['redirect'] = array($search_page['search_path'] . '/' . trim($form_state['values']['keys']), array('query' => $query));
+}

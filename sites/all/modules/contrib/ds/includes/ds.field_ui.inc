@@ -548,6 +548,8 @@ function ds_field_ui_layouts_save($form, &$form_state) {
   $record->layout = $layout;
   $record->settings = array();
 
+  $form_state['layout_saved'] = FALSE;
+
   // Remove old layout if necessary.
   if ($new_layout && !empty($old_layout)) {
     db_delete('ds_layout_settings')
@@ -558,6 +560,9 @@ function ds_field_ui_layouts_save($form, &$form_state) {
   }
 
   if ($new_layout && !empty($layout)) {
+
+    $form_state['layout_saved'] = TRUE;
+
     // Save new layout.
     $record->settings = $record->settings;
 
@@ -602,6 +607,8 @@ function ds_field_ui_layouts_save($form, &$form_state) {
   }
   // Update existing layout.
   elseif (!empty($layout)) {
+
+    $form_state['layout_saved'] = TRUE;
 
     $fields = _ds_sort_fields($form_state['values']['fields'], 'weight');
 
@@ -706,6 +713,10 @@ function ds_field_ui_fields_save($form, &$form_state) {
     ->condition('bundle', $bundle)
     ->condition('view_mode', $view_mode)
     ->execute();
+
+  if (empty($form_state['layout_saved'])) {
+    return;
+  }
 
   $field_settings = array();
 
@@ -828,8 +839,10 @@ function _ds_field_ui_clone_view_mode_settings($entity_type, $bundle, $view_mode
   foreach ($instances as $instance) {
     // If this field instance has display settings defined for this view mode,
     // respect those settings.
-    $instance['display'][$view_mode] = $instance['display'][$copy_view_mode];
-    field_update_instance($instance);
+    if (isset($instance['display'][$copy_view_mode])) {
+      $instance['display'][$view_mode] = $instance['display'][$copy_view_mode];
+      field_update_instance($instance);
+    }
   }
 
   // Update display settings for 'extra fields'.
@@ -936,7 +949,7 @@ function ds_field_formatter_settings_summary($field, $instance, $view_mode) {
  * @return $summary
  *   An markup array.
  */
-function ds_field_settings_summary($field, $form_state, $view_mode) {
+function ds_field_settings_summary($field, $form_state, $form, $view_mode) {
 
   $summary = '';
 
@@ -958,10 +971,28 @@ function ds_field_settings_summary($field, $form_state, $view_mode) {
     }
   }
 
+  if (!empty($form_state['complete form'])) {
+    $formatter_name = $form_state['complete form']['fields'][$field['name']]['format']['type']['#value'];
+  }
+  else {
+    $formatter_name = $form['fields'][$field['name']]['format']['type']['#default_value'];
+  }
+
   // Allow other modules to alter the formatter summary.
   $context = array(
+    'formatter' => $formatter_name,
     'field' => $field,
-    'instance' => array('display' => array('default' => array('settings' => array()))),
+    'instance' => array(
+      'display' => array(
+        $view_mode => array(
+          'label' => '',
+          'type' => '',
+          'weight' => '',
+          'settings' => array(),
+          'module' => '',
+        )
+      )
+    ),
     'view_mode' => $view_mode,
     'ds' => TRUE,
   );
@@ -1012,9 +1043,12 @@ function ds_field_settings_form($field, &$form_state, $entity_form, $view_mode) 
     }
   }
 
+  $formatter_name = $form_state['complete form']['fields'][$field['name']]['format']['type']['#value'];
+
   // Allow other modules to alter the formatter settings form.
   $context = array(
     'ds' => TRUE,
+    'formatter' => $formatter_name,
     'field' => $field,
     'instance' => array(
       'label' => $field['title'],
@@ -1043,6 +1077,12 @@ function ds_ds_field_format_summary($field) {
   $settings = isset($field['formatter_settings']) ? $field['formatter_settings'] : $field['properties']['default'];
   $functions = module_invoke_all('ds_field_theme_functions_info');
   foreach ($settings as $key => $value) {
+
+    // Ignore Field Formatter conditions.
+    if ($key == 'conditions') {
+      continue;
+    }
+
     if ($key == 'ctools') {
       $conf = unserialize($value);
       $summary .= t('Type: !type', array('!type' => check_plain(drupal_ucfirst(str_replace('_', ' ', $conf['subtype'])))));
@@ -1910,7 +1950,7 @@ function _ds_field_ui_fields($entity_type, $bundle, $view_mode, &$form, &$form_s
     else {
       // After saving, the settings are updated here as well. First we create
       // the element for the table cell.
-      $summary = ds_field_settings_summary($field, $form_state, $view_mode);
+      $summary = ds_field_settings_summary($field, $form_state, $form, $view_mode);
 
       if (isset($summary)) {
         $table[$key]['settings_summary'] = $summary;
@@ -2088,6 +2128,8 @@ function _ds_field_ui_core_fields($entity_type, $bundle, $view_mode, &$form, &$f
 
       // Allow other modules to alter the formatter summary.
       $context = array(
+        'module' => $formatter['module'],
+        'formatter' => $formatter,
         'field' => $field,
         'instance' => $instance,
         'view_mode' => $view_mode,

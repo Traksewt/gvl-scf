@@ -1,0 +1,106 @@
+commit 274652dfea72338ad9a8cb83ea1a5432477da995
+Author: Joachim Noreiko <joachim@107701.no-reply.drupal.org>
+Date:   Mon Jan 7 10:00:54 2013 +0000
+
+    Issue #1792584 by joachim: Fixed flag links displayed twice on user profile.
+
+diff --git a/flag.module b/flag.module
+index 9b621d6..3d618f8 100644
+--- a/flag.module
++++ b/flag.module
+@@ -1176,7 +1176,7 @@ function flag_user_view($account, $view_mode) {
+       // User has no permission to use this flag.
+       continue;
+     }
+-    if (!$flag->uses_hook_link(array())) {
++    if (!$flag->show_on_profile) {
+       // Flag not set to appear on profile.
+       continue;
+     }
+diff --git a/includes/flag.admin.inc b/includes/flag.admin.inc
+index d5026fa..4297d2a 100644
+--- a/includes/flag.admin.inc
++++ b/includes/flag.admin.inc
+@@ -477,7 +477,9 @@ function flag_form($form, &$form_state, $flag) {
+     '#options' => _flag_link_type_options(),
+     '#after_build' => array('flag_check_link_types'),
+     '#default_value' => $flag->link_type,
+-    '#weight' => 2,
++    // Give this a high weight so additions by the flag classes for entity-
++    // specific options go above.
++    '#weight' => 18,
+     '#attached' => array(
+       'js' => array(drupal_get_path('module', 'flag') . '/theme/flag-admin.js'),
+     ),
+diff --git a/includes/flag/flag_entity.inc b/includes/flag/flag_entity.inc
+index f706028..389becb 100644
+--- a/includes/flag/flag_entity.inc
++++ b/includes/flag/flag_entity.inc
+@@ -49,11 +49,13 @@ class flag_entity extends flag_flag {
+       '#type' => 'checkbox',
+       '#title' => t('Display link on entity'),
+       '#default_value' => isset($this->show_on_entity) ? $this->show_on_entity : TRUE,
++      '#weight' => 0,
+     );
+     $form['display']['show_on_form'] = array(
+       '#type' => 'checkbox',
+       '#title' => t('Display checkbox on entity edit form'),
+       '#default_value' => $this->show_on_form,
++      '#weight' => 5,
+     );
+     // We use FieldAPI to put the flag checkbox on the entity form, so therefore
+     // require the entity to be fielable. Since this is a potential DX
+@@ -69,6 +71,7 @@ class flag_entity extends flag_flag {
+       '#default_value' => $this->show_contextual_link,
+       '#description' => t('Note that not all entity types support contextual links.'),
+       '#access' => module_exists('contextual'),
++      '#weight' => 10,
+     );
+   }
+ 
+diff --git a/includes/flag/flag_user.inc b/includes/flag/flag_user.inc
+index 156ff96..17d7ab3 100644
+--- a/includes/flag/flag_user.inc
++++ b/includes/flag/flag_user.inc
+@@ -11,8 +11,9 @@
+ class flag_user extends flag_entity {
+   function options() {
+     $options = parent::options();
+-    // Use own display settings in the meanwhile.
+-    unset($options['show_on_entity']);
++    // We supersede, but do not supplant, the regular entity display with an
++    // option that's formatted in the style of user profiles.
++    $options['show_on_entity'] = FALSE;
+     $options += array(
+       'show_on_profile' => TRUE,
+       'access_uid' => '',
+@@ -40,10 +41,13 @@ class flag_user extends flag_entity {
+     $form['display']['show_on_profile'] = array(
+       '#type' => 'checkbox',
+       '#title' => t('Display link on user profile page'),
++      '#description' => t('Show the link formatted as a user profile element.'),
+       '#default_value' => $this->show_on_profile,
++      // Put this above 'show on entity'.
++      '#weight' => -1,
+     );
+-
+-    unset($form['display']['show_on_entity']);
++    // Explain how 'show on entity' is different.
++    $form['display']['show_on_entity']['#description'] = t('Show the link in the same format as on other entities.');
+   }
+ 
+   function form_input($form_values) {
+@@ -76,13 +80,6 @@ class flag_user extends flag_entity {
+     return $access;
+   }
+ 
+-  function uses_hook_link($teaser) {
+-    if ($this->show_on_profile) {
+-      return TRUE;
+-    }
+-    return FALSE;
+-  }
+-
+   function get_flag_action($entity_id) {
+     $flag_action = parent::get_flag_action($entity_id);
+     $user = $this->fetch_entity($entity_id);

@@ -50,11 +50,17 @@ function scf_common_context_default_contexts() {
           'region' => 'sidebar_second',
           'weight' => '-10',
         ),
-        'views-chapter-block_1' => array(
+        'views-book_chapters-block_1' => array(
           'module' => 'views',
           'delta' => 'book_chapters-block_1',
           'region' => 'sidebar_second',
           'weight' => '-8',
+        ),
+        'views-scf_most_popular-block_1' => array(
+          'module' => 'views',
+          'delta' => 'scf_most_popular-block_1',
+          'region' => 'sidebar_second',
+          'weight' => '-5',
         ),
       ),
     ),

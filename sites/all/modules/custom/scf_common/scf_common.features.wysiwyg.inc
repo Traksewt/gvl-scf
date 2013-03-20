@@ -62,6 +62,7 @@ function scf_common_wysiwyg_default_profiles() {
       'css_path' => '',
       'css_classes' => '',
     ),
+    'rdf_mapping' => array(),
   );
 
   return $profiles;

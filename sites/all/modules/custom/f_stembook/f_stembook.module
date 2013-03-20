@@ -103,5 +103,12 @@ function _stembook_filter_html_a_name($text, $filter) {
  * Change links pointing to dev.www.stembook.org to www.stembook.org.
  */
 function _stembook_filter_html_dev_links($text, $filter) {
-  return preg_replace('/dev.www.stembook.org/', 'www.stembook.org', $text);
+  // Fix all dev. urls to point to live domain.
+  $text = preg_replace('@dev.www.stembook.org@', 'www.stembook.org', $text);
+  // Remove domain name so the images are loaded from the same site, as opposed
+  // to always stembook.org.
+  $text = preg_replace('@http://www.stembook.org/@', base_path(), $text);
+  // Fix legacy files path which was set to the wrong location in pubnode.
+  $text = preg_replace('@/sites/all/files/@', '/sites/default/files/', $text);
+  return $text;
 }

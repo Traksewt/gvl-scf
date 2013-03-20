@@ -655,7 +655,7 @@ function scf_protocols_field_default_fields() {
       ),
       'widget' => array(
         'active' => 0,
-        'module' => NULL,
+        'module' => 'field_extrawidgets',
         'settings' => array(),
         'type' => 'field_extrawidgets_hidden',
         'weight' => '10',
@@ -713,7 +713,7 @@ This is an open-access article distributed under the terms of the Creative Commo
       ),
       'widget' => array(
         'active' => 0,
-        'module' => NULL,
+        'module' => 'field_extrawidgets',
         'settings' => array(),
         'type' => 'field_extrawidgets_hidden',
         'weight' => '9',

@@ -19,6 +19,8 @@ function stembook_site_install() {
   stembook_site_update_7006();
   stembook_site_update_7007();
   stembook_site_update_7008();
+  stembook_site_update_7009();
+  stembook_site_update_7010();
 }
 
 /**
@@ -160,8 +162,69 @@ function stembook_site_update_7008() {
 }
 
 /**
- * Delete site_frontpage variable.
+ * Delete some variables.
  */
 function stembook_site_update_7009() {
   variable_del('site_frontpage');
+  variable_del('file_directory_path');
+  variable_del('file_public_path');
+}
+
+/**
+ * Force a url alias for node/384/top-menu-link.
+ */
+function stembook_site_update_7010() {
+  db_insert('url_alias')
+    ->fields(array(
+      'source' => 'node/384/top-menu-link',
+      'alias' => 'resources',
+      'language' => 'und',
+    ))
+    ->execute();
+}
+
+/**
+ * Disable history section in user profiles. This settings isn't supported
+ * by features.
+ */
+function stembook_site_update_7011() {
+  // Get current bundle settings.
+  $bundle_settings = field_bundle_settings('user', 'user');
+  // Save data for 'extra' summary / history field.
+  $bundle_settings['extra_fields']['display']['summary']['default'] = array(
+    'weight' => 0,
+    'visible' => FALSE,
+  );
+  // Save updated bundle settings.
+  field_bundle_settings('user', 'user', $bundle_settings);
+}
+
+/**
+ * Set weight of profile display to -1 so that the flags appear below.
+ * This settings isn't supported by features.
+ * Flag items seem to have a weight of 0 which cannot be configured.
+ */
+function stembook_site_update_7012() {
+  // Get current bundle settings.
+  $bundle_settings = field_bundle_settings('user', 'user');
+  // Save data for 'extra' summary / history field.
+  $bundle_settings['extra_fields']['display']['profile_scf_members_profile']['default'] = array(
+    'weight' => -1,
+    'visible' => TRUE,
+  );
+  // Save updated bundle settings.
+  field_bundle_settings('user', 'user', $bundle_settings);
+}
+
+/**
+ * Remove field_scf_members_publication field which was removed from feature.
+ */
+function stembook_site_update_7013() {
+  field_delete_field('field_scf_members_publication');
+  field_sync_field_status();
+  // For some reason we need to run the purge many times until the tmp tables
+  // are deleted.
+  field_purge_batch('10');
+  field_purge_batch('10');
+  field_purge_batch('10');
 }

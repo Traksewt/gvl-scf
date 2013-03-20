@@ -55,6 +55,13 @@ function f_stembook_strongarm() {
   $strongarm = new stdClass();
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
+  $strongarm->name = 'comment_anonymous_stembook_chapter_new';
+  $strongarm->value = 0;
+  $export['comment_anonymous_stembook_chapter_new'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
   $strongarm->name = 'comment_anonymous_story';
   $strongarm->value = 0;
   $export['comment_anonymous_story'] = $strongarm;
@@ -135,6 +142,13 @@ function f_stembook_strongarm() {
   $strongarm->name = 'comment_default_mode_stembook_book';
   $strongarm->value = 1;
   $export['comment_default_mode_stembook_book'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'comment_default_mode_stembook_chapter_new';
+  $strongarm->value = 1;
+  $export['comment_default_mode_stembook_chapter_new'] = $strongarm;
 
   $strongarm = new stdClass();
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
@@ -223,6 +237,13 @@ function f_stembook_strongarm() {
   $strongarm = new stdClass();
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
+  $strongarm->name = 'comment_default_per_page_stembook_chapter_new';
+  $strongarm->value = '50';
+  $export['comment_default_per_page_stembook_chapter_new'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
   $strongarm->name = 'comment_default_per_page_story';
   $strongarm->value = '50';
   $export['comment_default_per_page_story'] = $strongarm;
@@ -268,6 +289,13 @@ function f_stembook_strongarm() {
   $strongarm->name = 'comment_form_location_stembook_book';
   $strongarm->value = 0;
   $export['comment_form_location_stembook_book'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'comment_form_location_stembook_chapter_new';
+  $strongarm->value = 1;
+  $export['comment_form_location_stembook_chapter_new'] = $strongarm;
 
   $strongarm = new stdClass();
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
@@ -335,6 +363,13 @@ function f_stembook_strongarm() {
   $strongarm = new stdClass();
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
+  $strongarm->name = 'comment_preview_stembook_chapter_new';
+  $strongarm->value = '1';
+  $export['comment_preview_stembook_chapter_new'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
   $strongarm->name = 'comment_preview_story';
   $strongarm->value = '2';
   $export['comment_preview_story'] = $strongarm;
@@ -359,6 +394,13 @@ function f_stembook_strongarm() {
   $strongarm->name = 'comment_stembook_book';
   $strongarm->value = '2';
   $export['comment_stembook_book'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'comment_stembook_chapter_new';
+  $strongarm->value = '2';
+  $export['comment_stembook_chapter_new'] = $strongarm;
 
   $strongarm = new stdClass();
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
@@ -408,6 +450,13 @@ function f_stembook_strongarm() {
   $strongarm->name = 'comment_subject_field_stembook_book';
   $strongarm->value = 1;
   $export['comment_subject_field_stembook_book'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'comment_subject_field_stembook_chapter_new';
+  $strongarm->value = 1;
+  $export['comment_subject_field_stembook_chapter_new'] = $strongarm;
 
   $strongarm = new stdClass();
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
@@ -622,6 +671,15 @@ function f_stembook_strongarm() {
   $strongarm = new stdClass();
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
+  $strongarm->name = 'menu_options_stembook_chapter_new';
+  $strongarm->value = array(
+    0 => 'main-menu',
+  );
+  $export['menu_options_stembook_chapter_new'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
   $strongarm->name = 'menu_options_story';
   $strongarm->value = array(
     0 => 'main-menu',
@@ -676,6 +734,13 @@ function f_stembook_strongarm() {
   $strongarm->name = 'menu_parent_stembook_book';
   $strongarm->value = 'main-menu:0';
   $export['menu_parent_stembook_book'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'menu_parent_stembook_chapter_new';
+  $strongarm->value = 'main-menu:0';
+  $export['menu_parent_stembook_chapter_new'] = $strongarm;
 
   $strongarm = new stdClass();
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
@@ -756,6 +821,16 @@ function f_stembook_strongarm() {
   $strongarm = new stdClass();
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
+  $strongarm->name = 'node_options_stembook_chapter_new';
+  $strongarm->value = array(
+    0 => 'status',
+    1 => 'promote',
+  );
+  $export['node_options_stembook_chapter_new'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
   $strongarm->name = 'node_options_story';
   $strongarm->value = array(
     0 => 'status',
@@ -815,6 +890,13 @@ function f_stembook_strongarm() {
   $strongarm = new stdClass();
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
+  $strongarm->name = 'node_preview_stembook_chapter_new';
+  $strongarm->value = '1';
+  $export['node_preview_stembook_chapter_new'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
   $strongarm->name = 'node_preview_story';
   $strongarm->value = '1';
   $export['node_preview_story'] = $strongarm;
@@ -867,6 +949,13 @@ function f_stembook_strongarm() {
   $strongarm->name = 'node_submitted_stembook_book';
   $strongarm->value = 0;
   $export['node_submitted_stembook_book'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'node_submitted_stembook_chapter_new';
+  $strongarm->value = 0;
+  $export['node_submitted_stembook_chapter_new'] = $strongarm;
 
   $strongarm = new stdClass();
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
