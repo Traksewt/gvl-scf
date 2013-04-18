@@ -4,7 +4,7 @@
  * Implementation of hook_install().
  */
 function pubnode_install () {
-  drupal_install_schema('pubnode');
+  //drupal_install_schema('pubnode');
   module_load_include("php", "pubnode", "PubNodeModule");
   pubnode()->installForumContainer();
   $vocabs = array(

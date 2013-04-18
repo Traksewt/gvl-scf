@@ -494,7 +494,7 @@ function system_requirements($phase) {
  */
 function system_install() {
   // Create tables.
-  drupal_install_schema('system');
+  //drupal_install_schema('system');
   $versions = drupal_get_schema_versions('system');
   $version = $versions ? max($versions) : SCHEMA_INSTALLED;
   drupal_set_installed_schema_version('system', $version);

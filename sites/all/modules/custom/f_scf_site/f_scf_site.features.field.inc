@@ -657,13 +657,6 @@ function f_scf_site_field_default_fields() {
       'module' => 'list',
       'settings' => array(
         'allowed_values' => array(
-          'pluripotent-cells' => 'Pluripotent Cells',
-          'reprogramming' => 'Reprogramming',
-          'ectoderm' => 'Ectoderm',
-          'endoderm' => 'Endoderm',
-          'mesoderm' => 'Mesoderm',
-          'cell-imaging' => 'Cell Imaging',
-          'engineering' => 'Engineering',
         ),
         'allowed_values_function' => '',
         'allowed_values_php' => '',
