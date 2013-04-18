@@ -1,13 +1,13 @@
 <?php
 /**
  * @file
- * f_stembook.features.inc
+ * f_scf_site.features.inc
  */
 
 /**
  * Implements hook_ctools_plugin_api().
  */
-function f_stembook_ctools_plugin_api() {
+function f_scf_site_ctools_plugin_api() {
   list($module, $api) = func_get_args();
   if ($module == "apachesolr_search" && $api == "apachesolr_search_defaults") {
     return array("version" => "3");
@@ -25,14 +25,14 @@ function f_stembook_ctools_plugin_api() {
 /**
  * Implements hook_views_api().
  */
-function f_stembook_views_api() {
+function f_scf_site_views_api() {
   return array("version" => "3.0");
 }
 
 /**
  * Implements hook_flag_default_flags().
  */
-function f_stembook_flag_default_flags() {
+function f_scf_site_flag_default_flags() {
   $flags = array();
   // Exported flag: "validation status for user uploaded protocols".
   $flags['validationstatus'] = array(
@@ -67,7 +67,7 @@ function f_stembook_flag_default_flags() {
     'show_on_teaser' => 1,
     'show_contextual_link' => 0,
     'i18n' => 0,
-    'module' => 'f_stembook',
+    'module' => 'f_scf_site',
     'locked' => array(
       0 => 'name',
     ),
@@ -80,7 +80,7 @@ function f_stembook_flag_default_flags() {
 /**
  * Implements hook_node_info().
  */
-function f_stembook_node_info() {
+function f_scf_site_node_info() {
   $items = array(
     'commentary' => array(
       'name' => t('Commentary'),
@@ -115,14 +115,14 @@ function f_stembook_node_info() {
       'help' => '',
     ),
     'pubnode' => array(
-      'name' => t('StemBook Chapter'),
+      'name' => t('SCF Chapter'),
       'base' => 'node_content',
-      'description' => t('StemBook Chapter'),
+      'description' => t('SCF Chapter'),
       'has_title' => '1',
       'title_label' => t('Title'),
       'help' => '',
     ),
-    'stembook_book' => array(
+    'scf_book' => array(
       'name' => t('Book'),
       'base' => 'node_content',
       'description' => '',
@@ -130,8 +130,8 @@ function f_stembook_node_info() {
       'title_label' => t('Title'),
       'help' => '',
     ),
-    'stembook_chapter_new' => array(
-      'name' => t('Stembook Chapter (New)'),
+    'scf_chapter_new' => array(
+      'name' => t('SCF Chapter (New)'),
       'base' => 'node_content',
       'description' => '',
       'has_title' => '1',

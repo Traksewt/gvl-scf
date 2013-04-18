@@ -1,17 +1,17 @@
 <?php
 /**
  * @file
- * Code for the f_stembook feature.
+ * Code for the f_scf_site feature.
  */
 
-include_once('f_stembook.features.inc');
+include_once('f_scf_site.features.inc');
 
 /**
  * Implements hook_node_view().
  */
-function f_stembook_node_view($node, $view_mode, $langcode) {
+function f_scf_site_node_view($node, $view_mode, $langcode) {
   // Set menu tree path so that the menu block appears on node full views.
-  if ($node->type == 'pubnode' || $node->type == 'stembook_chapter_new') {
+  if ($node->type == 'pubnode' || $node->type == 'scf_chapter_new') {
     menu_tree_set_path('main-menu', 'chapters');
   }
 }
@@ -19,20 +19,20 @@ function f_stembook_node_view($node, $view_mode, $langcode) {
 /**
  * Implements hook_filter_info().
  */
-function f_stembook_filter_info() {
-  $filters['_stembook_filter_html_entrezgene'] = array(
+function f_scf_site_filter_info() {
+  $filters['_scf_filter_html_entrezgene'] = array(
     'title' => t('Add EntrezGene links'),
-    'process callback' => '_stembook_filter_html_entrezgene',
+    'process callback' => '_scf_filter_html_entrezgene',
     //'cache' => FALSE,
   );
-  $filters['_stembook_filter_html_a_name'] = array(
+  $filters['_scf_filter_html_a_name'] = array(
     'title' => t('Remove name attribute in a tags'),
-    'process callback' => '_stembook_filter_html_a_name',
+    'process callback' => '_scf_filter_html_a_name',
     //'cache' => FALSE,
   );
-  $filters['_stembook_filter_html_dev_links'] = array(
-    'title' => t('Change links pointing to dev.www.stembook.org to www.stembook.org'),
-    'process callback' => '_stembook_filter_html_dev_links',
+  $filters['_scf_filter_html_dev_links'] = array(
+    'title' => t('Change links pointing to your dev.www.yoursite.org to www.yoursite.org'),
+    'process callback' => '_scf_filter_html_dev_links',
     //'cache' => FALSE,
   );
   return $filters;
@@ -41,7 +41,7 @@ function f_stembook_filter_info() {
 /**
  * HTML filter to add links to entrezgenes.
  */
-function _stembook_filter_html_entrezgene($text, $filter) {
+function _scf_filter_html_entrezgene($text, $filter) {
   $html_dom = filter_dom_load($text);
   $links = $html_dom->getElementsByTagName('span');
   foreach ($links as $node) {
@@ -73,7 +73,7 @@ function _stembook_filter_html_entrezgene($text, $filter) {
 /**
  * HTML filter to remove name attributes in links.
  */
-function _stembook_filter_html_a_name($text, $filter) {
+function _scf_filter_html_a_name($text, $filter) {
   $html_dom = filter_dom_load($text);
   $ps = $html_dom->getElementsByTagName('p');
   foreach ($ps as $p) {
@@ -100,14 +100,14 @@ function _stembook_filter_html_a_name($text, $filter) {
 }
 
 /**
- * Change links pointing to dev.www.stembook.org to www.stembook.org.
+ * Change links pointing to dev.www.yoursite.org to www.yoursite.org.
  */
-function _stembook_filter_html_dev_links($text, $filter) {
+function _scf_filter_html_dev_links($text, $filter) {
   // Fix all dev. urls to point to live domain.
-  $text = preg_replace('@dev.www.stembook.org@', 'www.stembook.org', $text);
+  $text = preg_replace('@dev.www.yoursite.org@', 'www.yoursite.org', $text);
   // Remove domain name so the images are loaded from the same site, as opposed
-  // to always stembook.org.
-  $text = preg_replace('@http://www.stembook.org/@', base_path(), $text);
+  // to always yoursite.org.
+  $text = preg_replace('@http://www.yoursite.org/@', base_path(), $text);
   // Fix legacy files path which was set to the wrong location in pubnode.
   $text = preg_replace('@/sites/all/files/@', '/sites/default/files/', $text);
   return $text;

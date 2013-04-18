@@ -1,13 +1,13 @@
 <?php
 /**
  * @file
- * f_stembook.features.menu_links.inc
+ * f_scf_site.features.menu_links.inc
  */
 
 /**
  * Implements hook_menu_default_menu_links().
  */
-function f_stembook_menu_default_menu_links() {
+function f_scf_site_menu_default_menu_links() {
   $menu_links = array();
 
   // Exported menu link: main-menu:chapters

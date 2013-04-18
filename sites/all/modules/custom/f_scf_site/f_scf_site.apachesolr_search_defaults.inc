@@ -1,19 +1,19 @@
 <?php
 /**
  * @file
- * f_stembook.apachesolr_search_defaults.inc
+ * f_scf_site.apachesolr_search_defaults.inc
  */
 
 /**
  * Implements hook_apachesolr_search_default_searchers().
  */
-function f_stembook_apachesolr_search_default_searchers() {
+function f_scf_site_apachesolr_search_default_searchers() {
   $export = array();
 
   $searcher = new stdClass();
   $searcher->disabled = FALSE; /* Edit this to true to make a default searcher disabled initially */
   $searcher->api_version = 3;
-  $searcher->page_id = 'f_stembook';
+  $searcher->page_id = 'f_scf_site';
   $searcher->label = 'Search Book Chapters';
   $searcher->description = '';
   $searcher->search_path = 'search/chapters';
@@ -21,7 +21,7 @@ function f_stembook_apachesolr_search_default_searchers() {
   $searcher->env_id = 'solr';
   $searcher->settings = array(
     'fq' => array(
-      0 => 'bundle:(pubnode OR stembook_book OR stembook_chapter_new)',
+      0 => 'bundle:(pubnode OR scf_book OR scf_chapter_new)',
     ),
     'apachesolr_search_custom_enable' => 1,
     'apachesolr_search_search_type' => 'custom',
@@ -31,7 +31,7 @@ function f_stembook_apachesolr_search_default_searchers() {
     'apachesolr_search_spellcheck' => 1,
     'apachesolr_search_allow_user_input' => 0,
   );
-  $export['f_stembook'] = $searcher;
+  $export['f_scf_site'] = $searcher;
 
   return $export;
 }

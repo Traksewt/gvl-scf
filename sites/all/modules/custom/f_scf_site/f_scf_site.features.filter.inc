@@ -1,13 +1,13 @@
 <?php
 /**
  * @file
- * f_stembook.features.filter.inc
+ * f_scf_site.features.filter.inc
  */
 
 /**
  * Implements hook_filter_default_formats().
  */
-function f_stembook_filter_default_formats() {
+function f_scf_site_filter_default_formats() {
   $formats = array();
 
   // Exported format: Filtered HTML.
@@ -62,7 +62,7 @@ function f_stembook_filter_default_formats() {
           'filter_url_length' => '72',
         ),
       ),
-      '_stembook_filter_html_entrezgene' => array(
+      '_scf_filter_html_entrezgene' => array(
         'weight' => '-49',
         'status' => '1',
         'settings' => array(),
@@ -77,12 +77,12 @@ function f_stembook_filter_default_formats() {
         'status' => '1',
         'settings' => array(),
       ),
-      '_stembook_filter_html_a_name' => array(
+      '_scf_filter_html_a_name' => array(
         'weight' => '-45',
         'status' => '1',
         'settings' => array(),
       ),
-      '_stembook_filter_html_dev_links' => array(
+      '_scf_filter_html_dev_links' => array(
         'weight' => '0',
         'status' => '1',
         'settings' => array(),

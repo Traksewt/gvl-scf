@@ -27,7 +27,7 @@ function scf_search_apachesolr_environments() {
       3 => 'scf_discussion',
       4 => 'scf_news',
       5 => 'scf_protocol',
-      6 => 'stembook_chapter_new',
+      6 => 'scf_chapter_new',
     ),
   );
   $export['solr'] = $environment;

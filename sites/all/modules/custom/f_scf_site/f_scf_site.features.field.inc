@@ -1,13 +1,13 @@
 <?php
 /**
  * @file
- * f_stembook.features.field.inc
+ * f_scf_site.features.field.inc
  */
 
 /**
  * Implements hook_field_default_fields().
  */
-function f_stembook_field_default_fields() {
+function f_scf_site_field_default_fields() {
   $fields = array();
 
   // Exported field: 'node-commentary-body'.
@@ -1090,8 +1090,8 @@ function f_stembook_field_default_fields() {
     ),
   );
 
-  // Exported field: 'node-stembook_book-body'.
-  $fields['node-stembook_book-body'] = array(
+  // Exported field: 'node-scf_book-body'.
+  $fields['node-scf_book-body'] = array(
     'field_config' => array(
       'active' => '1',
       'cardinality' => '1',
@@ -1125,7 +1125,7 @@ function f_stembook_field_default_fields() {
       'type' => 'text_with_summary',
     ),
     'field_instance' => array(
-      'bundle' => 'stembook_book',
+      'bundle' => 'scf_book',
       'default_value' => NULL,
       'deleted' => '0',
       'description' => '',
@@ -1169,8 +1169,8 @@ function f_stembook_field_default_fields() {
     ),
   );
 
-  // Exported field: 'node-stembook_book-field_book_icon_image'.
-  $fields['node-stembook_book-field_book_icon_image'] = array(
+  // Exported field: 'node-scf_book-field_book_icon_image'.
+  $fields['node-scf_book-field_book_icon_image'] = array(
     'field_config' => array(
       'active' => '1',
       'cardinality' => '1',
@@ -1200,7 +1200,7 @@ function f_stembook_field_default_fields() {
       'type' => 'image',
     ),
     'field_instance' => array(
-      'bundle' => 'stembook_book',
+      'bundle' => 'scf_book',
       'deleted' => '0',
       'description' => '',
       'display' => array(
@@ -1260,8 +1260,8 @@ function f_stembook_field_default_fields() {
     ),
   );
 
-  // Exported field: 'node-stembook_book-field_caption'.
-  $fields['node-stembook_book-field_caption'] = array(
+  // Exported field: 'node-scf_book-field_caption'.
+  $fields['node-scf_book-field_caption'] = array(
     'field_config' => array(
       'active' => '1',
       'cardinality' => '1',
@@ -1291,10 +1291,10 @@ function f_stembook_field_default_fields() {
       ),
       'translatable' => '0',
       'type' => 'text_long',
-      'type_name' => 'stembook_book',
+      'type_name' => 'scf_book',
     ),
     'field_instance' => array(
-      'bundle' => 'stembook_book',
+      'bundle' => 'scf_book',
       'default_value' => array(
         0 => array(
           '_error_element' => 'default_value_widget][field_caption][0][value',
@@ -1370,8 +1370,8 @@ function f_stembook_field_default_fields() {
     ),
   );
 
-  // Exported field: 'node-stembook_book-field_chapters_in_book'.
-  $fields['node-stembook_book-field_chapters_in_book'] = array(
+  // Exported field: 'node-scf_book-field_chapters_in_book'.
+  $fields['node-scf_book-field_chapters_in_book'] = array(
     'field_config' => array(
       'active' => '1',
       'cardinality' => '-1',
@@ -1405,8 +1405,8 @@ function f_stembook_field_default_fields() {
           'protocol' => 0,
           'pubnode' => 'pubnode',
           'scf_protocol' => 0,
-          'stembook_book' => 0,
-          'stembook_chapter_new' => 'stembook_chapter_new',
+          'scf_book' => 0,
+          'scf_chapter_new' => 'scf_chapter_new',
           'story' => 0,
           'webform' => 0,
         ),
@@ -1420,10 +1420,10 @@ function f_stembook_field_default_fields() {
       ),
       'translatable' => '0',
       'type' => 'node_reference',
-      'type_name' => 'stembook_book',
+      'type_name' => 'scf_book',
     ),
     'field_instance' => array(
-      'bundle' => 'stembook_book',
+      'bundle' => 'scf_book',
       'default_value' => NULL,
       'deleted' => '0',
       'description' => '',
@@ -1494,8 +1494,8 @@ function f_stembook_field_default_fields() {
     ),
   );
 
-  // Exported field: 'node-stembook_book-field_slider_image'.
-  $fields['node-stembook_book-field_slider_image'] = array(
+  // Exported field: 'node-scf_book-field_slider_image'.
+  $fields['node-scf_book-field_slider_image'] = array(
     'field_config' => array(
       'active' => '1',
       'cardinality' => '1',
@@ -1525,7 +1525,7 @@ function f_stembook_field_default_fields() {
       'type' => 'image',
     ),
     'field_instance' => array(
-      'bundle' => 'stembook_book',
+      'bundle' => 'scf_book',
       'deleted' => '0',
       'description' => '',
       'display' => array(
@@ -1584,8 +1584,8 @@ function f_stembook_field_default_fields() {
     ),
   );
 
-  // Exported field: 'node-stembook_book-upload'.
-  $fields['node-stembook_book-upload'] = array(
+  // Exported field: 'node-scf_book-upload'.
+  $fields['node-scf_book-upload'] = array(
     'field_config' => array(
       'active' => '1',
       'cardinality' => '-1',
@@ -1609,7 +1609,7 @@ function f_stembook_field_default_fields() {
       'type' => 'file',
     ),
     'field_instance' => array(
-      'bundle' => 'stembook_book',
+      'bundle' => 'scf_book',
       'deleted' => '0',
       'description' => '',
       'display' => array(
@@ -1675,8 +1675,8 @@ function f_stembook_field_default_fields() {
     ),
   );
 
-  // Exported field: 'node-stembook_chapter_new-body'.
-  $fields['node-stembook_chapter_new-body'] = array(
+  // Exported field: 'node-scf_chapter_new-body'.
+  $fields['node-scf_chapter_new-body'] = array(
     'field_config' => array(
       'active' => '1',
       'cardinality' => '1',
@@ -1710,7 +1710,7 @@ function f_stembook_field_default_fields() {
       'type' => 'text_with_summary',
     ),
     'field_instance' => array(
-      'bundle' => 'stembook_chapter_new',
+      'bundle' => 'scf_chapter_new',
       'default_value' => NULL,
       'deleted' => '0',
       'description' => '',
@@ -1753,8 +1753,8 @@ function f_stembook_field_default_fields() {
     ),
   );
 
-  // Exported field: 'node-stembook_chapter_new-field_authors'.
-  $fields['node-stembook_chapter_new-field_authors'] = array(
+  // Exported field: 'node-scf_chapter_new-field_authors'.
+  $fields['node-scf_chapter_new-field_authors'] = array(
     'field_config' => array(
       'active' => '1',
       'cardinality' => '1',
@@ -1781,7 +1781,7 @@ function f_stembook_field_default_fields() {
       'type' => 'text_long',
     ),
     'field_instance' => array(
-      'bundle' => 'stembook_chapter_new',
+      'bundle' => 'scf_chapter_new',
       'default_value' => NULL,
       'deleted' => '0',
       'description' => '',
@@ -1845,8 +1845,8 @@ function f_stembook_field_default_fields() {
     ),
   );
 
-  // Exported field: 'node-stembook_chapter_new-field_revision_information'.
-  $fields['node-stembook_chapter_new-field_revision_information'] = array(
+  // Exported field: 'node-scf_chapter_new-field_revision_information'.
+  $fields['node-scf_chapter_new-field_revision_information'] = array(
     'field_config' => array(
       'active' => '1',
       'cardinality' => '1',
@@ -1875,7 +1875,7 @@ function f_stembook_field_default_fields() {
       'type' => 'text_long',
     ),
     'field_instance' => array(
-      'bundle' => 'stembook_chapter_new',
+      'bundle' => 'scf_chapter_new',
       'default_value' => array(
         0 => array(
           'value' => '<p>This is the latest version of this chapter. The previous version can be found <a href="insert_old_node_id_here" target="_blank">here</a>.</p>',
@@ -1945,8 +1945,8 @@ function f_stembook_field_default_fields() {
     ),
   );
 
-  // Exported field: 'node-stembook_chapter_new-field_toc'.
-  $fields['node-stembook_chapter_new-field_toc'] = array(
+  // Exported field: 'node-scf_chapter_new-field_toc'.
+  $fields['node-scf_chapter_new-field_toc'] = array(
     'field_config' => array(
       'active' => '1',
       'cardinality' => '1',
@@ -1973,7 +1973,7 @@ function f_stembook_field_default_fields() {
       'type' => 'text_long',
     ),
     'field_instance' => array(
-      'bundle' => 'stembook_chapter_new',
+      'bundle' => 'scf_chapter_new',
       'default_value' => NULL,
       'deleted' => '0',
       'description' => '',
@@ -2037,8 +2037,8 @@ function f_stembook_field_default_fields() {
     ),
   );
 
-  // Exported field: 'node-stembook_chapter_new-scf_f_attachment'.
-  $fields['node-stembook_chapter_new-scf_f_attachment'] = array(
+  // Exported field: 'node-scf_chapter_new-scf_f_attachment'.
+  $fields['node-scf_chapter_new-scf_f_attachment'] = array(
     'field_config' => array(
       'active' => '1',
       'cardinality' => '-1',
@@ -2069,7 +2069,7 @@ function f_stembook_field_default_fields() {
       'type' => 'file',
     ),
     'field_instance' => array(
-      'bundle' => 'stembook_chapter_new',
+      'bundle' => 'scf_chapter_new',
       'deleted' => '0',
       'description' => '',
       'display' => array(

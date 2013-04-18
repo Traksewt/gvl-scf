@@ -35,7 +35,7 @@
   <?php print render($title_suffix); ?>
 
   <?php if ($rows): ?>
-    <div id="accordion-title"><div>Stembook Sections:</div></div>
+    <div id="accordion-title"><div>SCF Sections:</div></div>
     <div id="accordion">
       <?php print $rows; ?>
     </div>

@@ -12,7 +12,7 @@
             print '<li>' . '<div class=chapter-title>' .  l($chapter->title, 'node/' . $chapter->nid)  . '</div>'  . '<div class=chapter-authors>' . $chapter->field_pub_node_toc_authors[LANGUAGE_NONE][0]['safe_value'] . '</div>' .  '</li>';
         ?>
        <?php endif; ?>
-       <?php  if ($chapter->type == 'stembook_chapter_new'): ?>
+       <?php  if ($chapter->type == 'scf_chapter_new'): ?>
         <?php
             print '<li>' . '<div class=chapter-title>' .  l($chapter->title, 'node/' . $chapter->nid)  . '</div>'  . '<div class=chapter-authors>' . $chapter->field_authors[LANGUAGE_NONE][0]['safe_value'] . '</div>' .  '</li>';
         ?>
@@ -21,7 +21,7 @@
   <?php endif; ?>
 </td>
 <td class="book-icon"><div class="views-field-field-book-icon-fid">
-<img class="imagecache imagecache-toc_icon" title="" alt="" height="100" width="100" src="<?php print image_style_url('stembook_thumbnail', $node->field_book_icon_image[LANGUAGE_NONE][0]['uri']); ?>">
+<img class="imagecache imagecache-toc_icon" title="" alt="" height="100" width="100" src="<?php print image_style_url('scf_thumbnail', $node->field_book_icon_image[LANGUAGE_NONE][0]['uri']); ?>">
 </div></td>
 </tr>
 </table>

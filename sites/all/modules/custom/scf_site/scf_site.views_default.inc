@@ -1,13 +1,13 @@
 <?php
 /**
  * @file
- * stembook_site.views_default.inc
+ * scf_site.views_default.inc
  */
 
 /**
  * Implements hook_views_default_views().
  */
-function stembook_site_views_default_views() {
+function scf_site_views_default_views() {
   $export = array();
 
   $view = new view();
@@ -55,7 +55,7 @@ function stembook_site_views_default_views() {
   $handler->display->display_options['filters']['type']['table'] = 'node';
   $handler->display->display_options['filters']['type']['field'] = 'type';
   $handler->display->display_options['filters']['type']['value'] = array(
-    'stembook_book' => 'stembook_book',
+    'scf_book' => 'scf_book',
   );
 
   /* Display: Block */

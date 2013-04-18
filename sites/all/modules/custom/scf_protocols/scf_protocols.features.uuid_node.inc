@@ -29,10 +29,10 @@ function scf_protocols_uuid_features_default_content() {
   'body' => array(
     'und' => array(
       0 => array(
-        'value' => 'StemBook Protocols are a collection of protocols collected by a team stem cell core facility heads. The protocols span the range of diverse techniques inherent to the interdisciplinary nature of stem cell research. We welcome your input on these protocols through our discussion forums and comments section.',
+        'value' => 'SCF Protocols are a collection of protocols collected by [TODO] . We welcome your input on these protocols through our discussion forums and comments section.',
         'summary' => '',
         'format' => '1',
-        'safe_value' => '<p>StemBook Protocols are a collection of protocols collected by a team stem cell core facility heads. The protocols span the range of diverse techniques inherent to the interdisciplinary nature of stem cell research. We welcome your input on these protocols through our discussion forums and comments section.</p>
+        'safe_value' => '<p>SCF Protocols are a collection of protocols collected by [TODO] . We welcome your input on these protocols through our discussion forums and comments section.</p>
 ',
         'safe_summary' => '',
       ),

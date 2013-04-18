@@ -45,40 +45,6 @@ function scf_protocols_views_default_views() {
 <a class="add-protocol-button" href="/node/add/scf-protocol">Upload Protocol</a>
 </p> 
 
-Stem Cell COREdinates is a group of  Cores from the United States that have come together with the goal to share knowledge, expertise and further the spread of stem cell science. This group was established in 2011 with the assistance of Mahendra Rao, Director of NIH CRM and Scott Lipnick, Director of Scientific Programs, NYSCF. We are currently working with Stembook to put together and validate a list of current protocols encompassing various methods to generate and differentiate induced pluripotent stem cells into various lineages.
-
-Stem Cell COREdinates is currently composed of ten different Cores headed by:
-
-
-W. Travis Berggren: Salk Institute- Stem Cell Core Facility, La Jolla, CA.
-http://www.salk.edu/stemcell/
-
-Guokai Chen: NHLBI iPSC Core Facility, Bethesda, MD
-https://intramural.nhlbi.nih.gov/Cores/iPSC/Pages/Home.aspx
-
-Laurence Daheron: Harvard Stem Cell Institute iPSC Core Facility, Boston, MA.
-http://www.hsci.harvard.edu/research/ips-core-facility
-
-Sunita D\'Souza: hESC / iPSC Shared Resource Facility, MSSM, New York, NY.
-http://www.mssm.edu/research/resources/shared-resource-facilities/human-embryonic-stem-cell
-
-Richard Gronostajski: Western New York Stem Cell Culture and Analysis Center (WNYSTEM), Buffalo, NY.
-http://wnystem.buffalo.edu/
-
-Hyesoo Kim: Stem Cell Core Facility at John Hopkins School of Medicine, Baltimore, MD.
-http://www.hopkinsmedicine.org/institute_cell_engineering/resources/stem_cell_core/
-
-Tenneille Ludwig: WiCell Research Institute, Madison, WI.
-http://www.wicell.org/home/about-wicell/key-personnel/key-personnel.cmsx
-
-Thorsten Schlaeger: HSCI/CHB human embryonic stem cell core, Boston, MA
-http://stemcell.childrenshospital.org/about-us/stem-cell-program-labs/the-hesc-core-facility/hesc-training-opportunities/
-
-Mark Tomishima: MSKCC Stem Cell Research Facility, New York, NY.
-http://stemcells.mskcc.org
-
-Wenli Yang: Director, UPenn iPSC Core Facility, Philadelphia, PA.
-http://www.med.upenn.edu/ipsccore/index.shtml
 
 ';
   $handler->display->display_options['empty']['area']['format'] = '1';

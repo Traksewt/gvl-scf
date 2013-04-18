@@ -1,13 +1,13 @@
 <?php
 /**
  * @file
- * stembook_site.strongarm.inc
+ * scf_site.strongarm.inc
  */
 
 /**
  * Implements hook_strongarm().
  */
-function stembook_site_strongarm() {
+function scf_site_strongarm() {
   $export = array();
 
   $strongarm = new stdClass();
@@ -297,7 +297,7 @@ function stembook_site_strongarm() {
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
   $strongarm->name = 'biblio_openurl_sid';
-  $strongarm->value = 'Biblio:StemBook';
+  $strongarm->value = 'Biblio:SCF';
   $export['biblio_openurl_sid'] = $strongarm;
 
   $strongarm = new stdClass();

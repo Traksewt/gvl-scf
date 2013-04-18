@@ -1,13 +1,13 @@
 <?php
 /**
  * @file
- * stembook_site.features.inc
+ * scf_site.features.inc
  */
 
 /**
  * Implements hook_ctools_plugin_api().
  */
-function stembook_site_ctools_plugin_api() {
+function scf_site_ctools_plugin_api() {
   list($module, $api) = func_get_args();
   if ($module == "context" && $api == "context") {
     return array("version" => "3");
@@ -21,14 +21,14 @@ function stembook_site_ctools_plugin_api() {
 /**
  * Implements hook_views_api().
  */
-function stembook_site_views_api() {
+function scf_site_views_api() {
   return array("version" => "3.0");
 }
 
 /**
  * Implements hook_image_default_styles().
  */
-function stembook_site_image_default_styles() {
+function scf_site_image_default_styles() {
   $styles = array();
 
   // Exported image style: homepage_slideshow.
@@ -53,9 +53,9 @@ function stembook_site_image_default_styles() {
     ),
   );
 
-  // Exported image style: stembook_thumbnail.
-  $styles['stembook_thumbnail'] = array(
-    'name' => 'stembook_thumbnail',
+  // Exported image style: scf_thumbnail.
+  $styles['scf_thumbnail'] = array(
+    'name' => 'scf_thumbnail',
     'effects' => array(
       5 => array(
         'label' => 'Scale and crop',
@@ -81,7 +81,7 @@ function stembook_site_image_default_styles() {
 /**
  * Implements hook_node_info().
  */
-function stembook_site_node_info() {
+function scf_site_node_info() {
   $items = array(
     'nodeblock' => array(
       'name' => t('nodeblock'),

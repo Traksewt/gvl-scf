@@ -1,4 +1,4 @@
-name = stembook_site
+name = scf_site
 core = 7.x
 package = Features
 php = 5.2.4
@@ -26,7 +26,7 @@ features[features_api][] = api:1
 features[field][] = node-nodeblock-body
 features[field][] = node-nodeblock-scf_f_machine_name
 features[image][] = homepage_slideshow
-features[image][] = stembook_thumbnail
+features[image][] = scf_thumbnail
 features[menu_links][] = main-menu:node/382
 features[menu_links][] = main-menu:node/383
 features[menu_links][] = main-menu:node/384-top-menu-link

@@ -60,7 +60,7 @@ function scf_common_views_default_views() {
   $handler->display->display_options['filters']['type']['field'] = 'type';
   $handler->display->display_options['filters']['type']['value'] = array(
     'biblio' => 'biblio',
-    'stembook_book' => 'stembook_book',
+    'scf_book' => 'scf_book',
     'scf_discussion' => 'scf_discussion',
     'scf_news' => 'scf_news',
     'protocol' => 'protocol',

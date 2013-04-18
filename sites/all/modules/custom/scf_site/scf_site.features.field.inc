@@ -1,13 +1,13 @@
 <?php
 /**
  * @file
- * stembook_site.features.field.inc
+ * scf_site.features.field.inc
  */
 
 /**
  * Implements hook_field_default_fields().
  */
-function stembook_site_field_default_fields() {
+function scf_site_field_default_fields() {
   $fields = array();
 
   // Exported field: 'node-nodeblock-body'.

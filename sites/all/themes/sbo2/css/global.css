@@ -97,42 +97,42 @@ h1.site-name a, h2.site-name a {
 }
 
 /* User top menu */
-#block-stembook-site-user-top-menu {
+#block-scf-site-user-top-menu {
   position: absolute;
   top: 0;
   right: 0;
   z-index: 1;
   padding: 10px;
 }
-#block-stembook-site-user-top-menu,
-#block-stembook-site-user-top-menu a {
+#block-scf-site-user-top-menu,
+#block-scf-site-user-top-menu a {
   color: #fff;
   text-transform: uppercase;
   font-size: 10px;
   line-height: 12px;
   font-weight: bold;
 }
-#block-stembook-site-user-top-menu ul {
+#block-scf-site-user-top-menu ul {
   float: right;
 }
-#block-stembook-site-user-top-menu li {
+#block-scf-site-user-top-menu li {
   display: inline;
 }
-#block-stembook-site-user-top-menu div.item-list {
+#block-scf-site-user-top-menu div.item-list {
   clear: both;
 }
-#stembook_site_user_menu1 li,
-#stembook_site_user_menu2 li {
+#scf_site_user_menu1 li,
+#scf_site_user_menu2 li {
     border-left: 1px solid white;
     padding-left: 10px;
 }
 
-#stembook_site_user_menu1 li.first,
-#stembook_site_user_menu2 li.first {
+#scf_site_user_menu1 li.first,
+#scf_site_user_menu2 li.first {
     border-left: none;
 }
 
-#stembook_site_user_menu3 a {
+#scf_site_user_menu3 a {
   background: #C8DD5D;
   color: #0F4982;
   padding: 4px;
@@ -331,7 +331,7 @@ h2.node-title {
     margin: 0;
     padding: 0;
 }
-.node-stembook-book h2 {
+.node-scf-book h2 {
     font-size: 14px;
     line-height: 18px;
     color: #0f4982;
@@ -339,22 +339,22 @@ h2.node-title {
     margin: 0;
 }
 
-.node-stembook-book table {
+.node-scf-book table {
     border: none;
     margin-bottom: 10px;
 }
 
-.node-stembook-book td{
+.node-scf-book td{
     padding: 0;
     border-top: solid #00a297 2px;
 }
 
-.node-stembook-book td ul li {
+.node-scf-book td ul li {
     margin-left: 0;
     list-style: disc outside none;
 }
 
-.node-stembook-book li .chapter-title {
+.node-scf-book li .chapter-title {
     font-size: 12px;
     line-height: 18px;
     color: #0f4982;
@@ -362,7 +362,7 @@ h2.node-title {
     margin: 0;
 }
 
-.node-stembook-book li .chapter-authors {
+.node-scf-book li .chapter-authors {
     font-size: 10px;
     line-height: 15px;
     color: black;
@@ -370,12 +370,12 @@ h2.node-title {
     margin: 0;
 }
 
-.node-stembook-book td.book-icon {
+.node-scf-book td.book-icon {
     vertical-align: top;
     padding-top: 10px;
 }
 
-.node-stembook-book td.book-icon img {
+.node-scf-book td.book-icon img {
     padding-left:  0px;
     padding-right: 0px;
     width: 100px;
@@ -384,7 +384,7 @@ h2.node-title {
     border: 1px solid lightgrey;
 }
 
-.node-type-stembook-book .region-content h1#page-title {
+.node-type-scf-book .region-content h1#page-title {
     display: none;
 }
 
@@ -394,7 +394,7 @@ h2.node-title {
 .node-scf-protocol .content img,
 .node-protocol .content img,
 .node-pubnode .content img,
-.stembook_chapter_new .content img
+.scf_chapter_new .content img
 {
     max-width: 100%;
     display: block;
@@ -419,14 +419,14 @@ h2.node-title {
 .node-scf-protocol p,
 .node-protocol p,
 .node-pubnode p,
-.stembook_chapter_new p {
+.scf_chapter_new p {
   margin-bottom: 10px;
 }
 
 .page-node .node-scf-protocol .field-name-scf-f-ptls-abstract,
 .page-node .node-protocol .abstract,
 .page-node .node-pubnode .abstract,
-.page-node .stembook_chapter_new .abstract {
+.page-node .scf_chapter_new .abstract {
     font-weight: bold;
     margin-top: 1em;
     color: #666666;
@@ -445,7 +445,7 @@ h2.node-title {
 .node-scf-protocol .field-label-above .field-label,
 .node-protocol h3,
 .node-pubnode h3,
-.stembook_chapter_new h3 {
+.scf_chapter_new h3 {
     font-size: 14px;
     line-height: 18px;
     color: #0f4982;
@@ -455,7 +455,7 @@ h2.node-title {
 
 .node-protocol h4,
 .node-pubnode h4,
-.stembook_chapter_new h4 {
+.scf_chapter_new h4 {
     font-size: 12px;
     line-height: 15px;
     color: #0f4982;
@@ -465,7 +465,7 @@ h2.node-title {
 
 .node-protocol h5,
 .node-pubnode h5,
-.stembook_chapter_new h5 {
+.scf_chapter_new h5 {
     font-size: 11px;
     line-height: 15px;
     color: #0f4982;
@@ -475,7 +475,7 @@ h2.node-title {
 
 .node-protocol h6,
 .node-pubnode h6,
-.stembook_chapter_new h6 {
+.scf_chapter_new h6 {
     font-size: 11px;
     line-height: 15px;
     color: #0f4982;

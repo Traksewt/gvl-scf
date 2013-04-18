@@ -1,13 +1,13 @@
 <?php
 /**
  * @file
- * stembook_site.context.inc
+ * scf_site.context.inc
  */
 
 /**
  * Implements hook_context_default_contexts().
  */
-function stembook_site_context_default_contexts() {
+function scf_site_context_default_contexts() {
   $export = array();
 
   $context = new stdClass();

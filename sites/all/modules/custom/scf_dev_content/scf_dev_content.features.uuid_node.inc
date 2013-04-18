@@ -1,13 +1,13 @@
 <?php
 /**
  * @file
- * stembook_dev_content.features.uuid_node.inc
+ * scf_dev_content.features.uuid_node.inc
  */
 
 /**
  * Implements hook_uuid_features_default_content().
  */
-function stembook_dev_content_uuid_features_default_content() {
+function scf_dev_content_uuid_features_default_content() {
   $nodes = array();
 
   $nodes[] = array(
@@ -135,8 +135,8 @@ function stembook_dev_content_uuid_features_default_content() {
   'body' => array(
     'und' => array(
       0 => array(
-        'value' => 'Stembook resources
-http://www.stembook.org/scf/resources
+        'value' => 'scf resources
+http://www.yoursite.org/scf/resources
 
 PubMed
 http://www.ncbi.nlm.nih.gov/sites/entrez?db=PubMed
@@ -157,13 +157,8 @@ EuroStemCell
 http://www.eurostemcell.org',
         'summary' => '',
         'format' => '1',
-        'safe_value' => '<p>Stembook resources<br /><a href="http://www.stembook.org/scf/resources">http://www.stembook.org/scf/resources</a></p>
+        'safe_value' => '<p>scf resources<br /><a href="http://www.yoursite.org/scf/resources">http://www.yoursite.org/scf/resources</a></p>
 <p>PubMed<br /><a href="http://www.ncbi.nlm.nih.gov/sites/entrez?db=PubMed">http://www.ncbi.nlm.nih.gov/sites/entrez?db=PubMed</a></p>
-<p>Ensembl<br /><a href="http://www.ensembl.org/index.html">http://www.ensembl.org/index.html</a></p>
-<p>ISSCR<br /><a href="http://www.isscr.org">http://www.isscr.org</a></p>
-<p>HSCI<br /><a href="http://www.hsci.harvard.edu/">http://www.hsci.harvard.edu/</a></p>
-<p>Massachusetts Human Stem Cell Bank and International Registry<br /><a href="http://www.umassmed.edu/umscr/index.aspx">http://www.umassmed.edu/umscr/index.aspx</a></p>
-<p>EuroStemCell<br /><a href="http://www.eurostemcell.org">http://www.eurostemcell.org</a></p>
 ',
         'safe_summary' => '',
       ),

@@ -102,7 +102,7 @@ h2#page-title, h1#page-title {
   background: #fff;
 }
 #zone-branding {
-  background: url('../images/StemBookBanner.png') no-repeat;
+  background: url('../images/SCFBanner.png') no-repeat;
   height:140px;
   margin-top: 35px;
 }
@@ -157,7 +157,7 @@ h2#page-title, h1#page-title {
 #region-menu ul li.leaf                   { list-style-image: none; }
 
 
-/* =Stembook Book
+/* =SCF Book
 -------------------------------------------------------------- */
 
 .pubgroup #attachments { display: none; }
@@ -165,37 +165,37 @@ h2#page-title, h1#page-title {
 #edit-pgid-wrapper {
 	display:none;
 }
-.stembook_book .content .imgBlock {
+.scf_book .content .imgBlock {
 	float:right;
 	margin-right:5px;
 	margin-bottom:5px;
 }
-.stembook_book .content .imgBlock .caption {
+.scf_book .content .imgBlock .caption {
 	width:400px;
 	font-size:0.9em;
 }
 
-.stembook_book ol {
+.scf_book ol {
 	list-style-image:none;
 	list-style-position:outside;
 	list-style-type:decimal;
 }
-.stembook_book ol li {
+.scf_book ol li {
 	list-style-type:decimal;
 }
-.view-stembook-book-list {
+.view-scf-book-list {
     margin-top: 2em;
 }
-.view-stembook-book-list img {
+.view-scf-book-list img {
 	height:70px;
 	width:70px;
 	float:left;
 	margin-right:5px;
 }
-.view-stembook-book-list .views-field-title {
+.view-scf-book-list .views-field-title {
 	font-size:1.2em;
 }
-.view-stembook-book-list td {
+.view-scf-book-list td {
 	width:33%;
 	padding:10px 0px;
 }
@@ -237,26 +237,26 @@ width:75px;
     margin-bottom: 2em;
 }
 
-body.scf-pub #stembook_intro_region .block { margin-bottom: 0; }
+body.scf-pub #scf_intro_region .block { margin-bottom: 0; }
 
 body.scf-pub #block-blockclone-1_wrapper {
-  background: #111 url('images/bg_stembook_intro_01.jpg') no-repeat 50% 50%; }
+  background: #111 url('images/bg_scf_intro_01.jpg') no-repeat 50% 50%; }
 
-body #stembook_intro {
+body #scf_intro {
   position:relative;
   z-index:10;
   background: #666;
   color: white;
   padding: 10px; }
 
-#stembook_intro                       { font-weight: bold; margin-bottom:10px; }
-#stembook_intro p              { margin: 0; font-variant: small-caps; }
-#stembook_intro a.hi-lite             { margin-top: .5em; font-variant:normal;}
-#stembook_intro h2                    { font-size: 3em; }
+#scf_intro                       { font-weight: bold; margin-bottom:10px; }
+#scf_intro p              { margin: 0; font-variant: small-caps; }
+#scf_intro a.hi-lite             { margin-top: .5em; font-variant:normal;}
+#scf_intro h2                    { font-size: 3em; }
 
-body.scf-pub #stembook_intro a:focus,
-body.scf-pub #stembook_intro a:hover  { color: #0F86E2;  text-decoration: underline;}
-body.scf-pub #stembook_intro a        { color: #AAA; text-decoration: none; }
+body.scf-pub #scf_intro a:focus,
+body.scf-pub #scf_intro a:hover  { color: #0F86E2;  text-decoration: underline;}
+body.scf-pub #scf_intro a        { color: #AAA; text-decoration: none; }
 
 /* title of the commentary on front page is too big */
 #block-views-stories-block-1 h2#page-title {

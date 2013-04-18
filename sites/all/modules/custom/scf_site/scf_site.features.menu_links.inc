@@ -1,13 +1,13 @@
 <?php
 /**
  * @file
- * stembook_site.features.menu_links.inc
+ * scf_site.features.menu_links.inc
  */
 
 /**
  * Implements hook_menu_default_menu_links().
  */
-function stembook_site_menu_default_menu_links() {
+function scf_site_menu_default_menu_links() {
   $menu_links = array();
 
   // Exported menu link:
@@ -38,7 +38,7 @@ function stembook_site_menu_default_menu_links() {
     'link_title' => 'About',
     'options' => array(
       'attributes' => array(
-        'title' => 'About StemBook',
+        'title' => 'About',
       ),
     ),
     'module' => 'menu',

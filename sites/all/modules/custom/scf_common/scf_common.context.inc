@@ -87,8 +87,8 @@ function scf_common_context_default_contexts() {
   $context->reactions = array(
     'block' => array(
       'blocks' => array(
-        'stembook_site-user_top_menu' => array(
-          'module' => 'stembook_site',
+        'scf_site-user_top_menu' => array(
+          'module' => 'scf_site',
           'delta' => 'user_top_menu',
           'region' => 'branding',
           'weight' => '-10',

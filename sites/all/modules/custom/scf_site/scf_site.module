@@ -1,15 +1,15 @@
 <?php
 /**
  * @file
- * Code for the stembook_site feature.
+ * Code for the scf_site feature.
  */
 
-include_once 'stembook_site.features.inc';
+include_once 'scf_site.features.inc';
 
 /**
  * Implements hook_block_info().
  */
-function stembook_site_block_info() {
+function scf_site_block_info() {
   $block = array();
 
   // Customize this block as needed for your site. This block is generated
@@ -17,7 +17,7 @@ function stembook_site_block_info() {
   // logged in or not.
   $blocks['user_top_menu'] = array(
     // Admin block title (admin area only).
-    'info' => t('stembook_site: User top menu'),
+    'info' => t('scf_site: User top menu'),
     'cache' => DRUPAL_NO_CACHE,
   );
   return $blocks;
@@ -26,22 +26,22 @@ function stembook_site_block_info() {
 /**
  * Implements hook_block_view().
  */
-function stembook_site_block_view($delta = '') {
+function scf_site_block_view($delta = '') {
   $block = array();
   switch ($delta) {
     case 'user_top_menu':
       // Rendered block title. Leave it empty if you don't want to display it.
       $block['subject'] = t('');
-      $block['content'] = stembook_site_user_top_menu_block_content();
+      $block['content'] = scf_site_user_top_menu_block_content();
       break;
   }
   return $block;
 }
 
 /**
- * Renders content for the stembook_site_user_top_menu block
+ * Renders content for the scf_site_user_top_menu block
  */
-function stembook_site_user_top_menu_block_content() {
+function scf_site_user_top_menu_block_content() {
   global $user;
   $account = user_load($user->uid);
 
@@ -53,7 +53,7 @@ function stembook_site_user_top_menu_block_content() {
   $links[] = l(t('Image Credits'), 'credits');
   $links[] = l(t('Contributor Info'), 'contributor-info');
   $links[] = l(t('RSS'), 'rss.xml');
-  $output .= theme('item_list', array('items' => $links, 'attributes' => array('id' => 'stembook_site_user_menu1', 'class' => 'menu')));
+  $output .= theme('item_list', array('items' => $links, 'attributes' => array('id' => 'scf_site_user_menu1', 'class' => 'menu')));
 
   // Second row of links (log in ...).
   $links = array();
@@ -66,12 +66,12 @@ function stembook_site_user_top_menu_block_content() {
     $links[] = l(t('Join'), 'user/register');
   }
   $links[] = l(t('E-Alerts'), 'ealerts');
-  $output .= theme('item_list', array('items' => $links, 'attributes' => array('id' => 'stembook_site_user_menu2', 'class' => 'menu')));
+  $output .= theme('item_list', array('items' => $links, 'attributes' => array('id' => 'scf_site_user_menu2', 'class' => 'menu')));
 
   // Third row of links (download e-book).
   $links = array();
-  $links[] = l(t('Download E-Book'), 'sites/default/files/ebook/stembook-ebook.epub');
-  $output .= theme('item_list', array('items' => $links, 'attributes' => array('id' => 'stembook_site_user_menu3', 'class' => 'menu')));
+  $links[] = l(t('Download E-Book'), 'sites/default/files/ebook/scf-ebook.epub');
+  $output .= theme('item_list', array('items' => $links, 'attributes' => array('id' => 'scf_site_user_menu3', 'class' => 'menu')));
 
   return $output;
 }

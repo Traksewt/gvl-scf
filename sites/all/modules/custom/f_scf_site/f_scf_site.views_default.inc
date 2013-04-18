@@ -1,13 +1,13 @@
 <?php
 /**
  * @file
- * f_stembook.views_default.inc
+ * f_scf_site.views_default.inc
  */
 
 /**
  * Implements hook_views_default_views().
  */
-function f_stembook_views_default_views() {
+function f_scf_site_views_default_views() {
   $export = array();
 
   $view = new view();
@@ -49,7 +49,7 @@ function f_stembook_views_default_views() {
   $handler->display->display_options['filters']['type']['table'] = 'node';
   $handler->display->display_options['filters']['type']['field'] = 'type';
   $handler->display->display_options['filters']['type']['value'] = array(
-    'stembook_book' => 'stembook_book',
+    'scf_book' => 'scf_book',
   );
   $handler->display->display_options['filters']['type']['group'] = 0;
   $handler->display->display_options['filters']['type']['expose']['operator'] = FALSE;
@@ -93,7 +93,7 @@ function f_stembook_views_default_views() {
   $handler->display->display_options['filters']['type']['table'] = 'node';
   $handler->display->display_options['filters']['type']['field'] = 'type';
   $handler->display->display_options['filters']['type']['value'] = array(
-    'stembook_book' => 'stembook_book',
+    'scf_book' => 'scf_book',
   );
   $handler->display->display_options['filters']['type']['group'] = 0;
   $handler->display->display_options['filters']['type']['expose']['operator'] = FALSE;
@@ -139,7 +139,7 @@ function f_stembook_views_default_views() {
   $handler->display->display_options['filters']['type']['field'] = 'type';
   $handler->display->display_options['filters']['type']['value'] = array(
     'pubnode' => 'pubnode',
-    'stembook_chapter_new' => 'stembook_chapter_new',
+    'scf_chapter_new' => 'scf_chapter_new',
   );
   $handler->display->display_options['filters']['type']['group'] = 0;
   $handler->display->display_options['filters']['type']['expose']['operator'] = FALSE;
@@ -256,7 +256,7 @@ function f_stembook_views_default_views() {
   $export['new_chapters'] = $view;
 
   $view = new view();
-  $view->name = 'stembook_book_list';
+  $view->name = 'scf_book_list';
   $view->description = '';
   $view->tag = '';
   $view->base_table = 'node';
@@ -283,7 +283,7 @@ function f_stembook_views_default_views() {
   $handler->display->display_options['header']['area']['id'] = 'area';
   $handler->display->display_options['header']['area']['table'] = 'views';
   $handler->display->display_options['header']['area']['field'] = 'area';
-  $handler->display->display_options['header']['area']['content'] = '<div id="stembook_intro"><p>StemBook is a comprehensive, open-access collection of original, peer-reviewed chapters covering topics related to Stem Cell Biology. <a class="read-more" href="about">Read More</a></p></div>';
+  $handler->display->display_options['header']['area']['content'] = '<div id="scf_intro"><p>The Science Collaboration Framework (SCF) is a software toolkit to establish web-based virtual team organizations for researchers in biomedicine. <a class="read-more" href="about">Read More</a></p></div>';
   $handler->display->display_options['header']['area']['format'] = '2';
   /* Field: Content: book_icon_image */
   $handler->display->display_options['fields']['field_book_icon_image']['id'] = 'field_book_icon_image';
@@ -311,7 +311,7 @@ function f_stembook_views_default_views() {
   $handler->display->display_options['filters']['type']['table'] = 'node';
   $handler->display->display_options['filters']['type']['field'] = 'type';
   $handler->display->display_options['filters']['type']['value'] = array(
-    'stembook_book' => 'stembook_book',
+    'scf_book' => 'scf_book',
   );
   $handler->display->display_options['filters']['type']['group'] = 0;
   $handler->display->display_options['filters']['type']['expose']['operator'] = FALSE;
@@ -319,8 +319,8 @@ function f_stembook_views_default_views() {
   /* Display: Page */
   $handler = $view->new_display('page', 'Page', 'page_1');
   $handler->display->display_options['defaults']['hide_admin_links'] = FALSE;
-  $handler->display->display_options['path'] = 'stembook_book_list';
-  $export['stembook_book_list'] = $view;
+  $handler->display->display_options['path'] = 'scf_book_list';
+  $export['scf_book_list'] = $view;
 
   $view = new view();
   $view->name = 'stories';

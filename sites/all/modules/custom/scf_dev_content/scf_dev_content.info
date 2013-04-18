@@ -1,10 +1,10 @@
-name = stembook_dev_content
+name = scf_dev_content
 core = 7.x
 package = Features
 php = 5.2.4
 dependencies[] = biblio
 dependencies[] = context_ui
-dependencies[] = f_stembook
+dependencies[] = f_scf_site
 dependencies[] = scf_protocols
 dependencies[] = uuid_features
 __drupal_alter_by_ref[][node][scf_protocol] = scf_protocol

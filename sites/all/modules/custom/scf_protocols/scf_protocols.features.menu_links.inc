@@ -18,7 +18,7 @@ function scf_protocols_menu_default_menu_links() {
     'link_title' => 'Protocols',
     'options' => array(
       'attributes' => array(
-        'title' => 'StemBook Protocols',
+        'title' => 'SCF Protocols',
       ),
     ),
     'module' => 'system',

@@ -1,13 +1,13 @@
 <?php
 /**
  * @file
- * stembook_dev_content.features.uuid_menu_links.inc
+ * scf_dev_content.features.uuid_menu_links.inc
  */
 
 /**
  * Implements hook_uuid_menu_default_menu_links().
  */
-function stembook_dev_content_uuid_menu_default_menu_links() {
+function scf_dev_content_uuid_menu_default_menu_links() {
   $uuid_menu_links = array();
 
   // Exported menu link: main-menu:node/50983ef4-be18-4049-983f-26ddc1d414b2

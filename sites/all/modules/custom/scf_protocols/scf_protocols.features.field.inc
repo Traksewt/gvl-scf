@@ -620,7 +620,7 @@ function scf_protocols_field_default_fields() {
       'locked' => '0',
       'module' => 'fixed_field',
       'settings' => array(
-        'content' => '*Edited by [node:scf-f-ptls-authors]. Last revised [node:changed]. Published [node:created]. This chapter should be cited as: [node:scf-f-ptls-authors], [node:title] ([node:created]), StemBook, ed. The Stem Cell Research Community, StemBook, doi/10.3824/stembook.10.[node:nid].1, http://www.stembook.org.',
+        'content' => '*Edited by [node:scf-f-ptls-authors]. Last revised [node:changed]. Published [node:created]. This chapter should be cited as: [node:scf-f-ptls-authors], [node:title] ([node:created]), Your DOI sitation record here [node:nid].1, http://www.yoursite.org.',
         'text_format' => '1',
       ),
       'translatable' => '0',

@@ -1,4 +1,4 @@
-	modified:   f_stembook/f_stembook.context.inc
+	modified:   f_scf_site/f_scf_site.context.inc
 	modified:   scfcommon/scfcommon.context.inc
 	modified:   scfcommon/scfcommon.delta.inc
 	modified:   scfcommon/scfcommon.ds.inc
@@ -47,7 +47,7 @@
 	modified:   scfsearch/scfsearch.info
 	modified:   scfsearch/scfsearch.module
 	modified:   scfsearch/scfsearch.strongarm.inc
-	modified:   stembook_dev_content/stembook_dev_content.features.uuid_node.inc
-	modified:   stembook_dev_content/stembook_dev_content.info
-	modified:   stembook_site/stembook_site.context.inc
-	modified:   stembook_site/stembook_site.info
+	modified:   scf_dev_content/scf_dev_content.features.uuid_node.inc
+	modified:   scf_dev_content/scf_dev_content.info
+	modified:   scf_site/scf_site.context.inc
+	modified:   scf_site/scf_site.info

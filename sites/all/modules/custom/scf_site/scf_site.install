@@ -8,26 +8,26 @@
 /**
  * Implements hook_install().
  */
-function stembook_site_install() {
+function scf_site_install() {
   // This is a new module, so make sure to fire the update functions upon
   // installation.
-  stembook_site_update_7001();
-  stembook_site_update_7002();
-  stembook_site_update_7003();
-  // stembook_site_update_7004() not necessary.
-  stembook_site_update_7005();
-  stembook_site_update_7006();
-  stembook_site_update_7007();
-  stembook_site_update_7008();
-  stembook_site_update_7009();
-  stembook_site_update_7010();
+  scf_site_update_7001();
+  scf_site_update_7002();
+  scf_site_update_7003();
+  // scf_site_update_7004() not necessary.
+  scf_site_update_7005();
+  scf_site_update_7006();
+  scf_site_update_7007();
+  scf_site_update_7008();
+  scf_site_update_7009();
+  scf_site_update_7010();
 }
 
 /**
  * Disable menu links which are no longer used. (they are kept as legacy in
  * case they need to be revived later).
  */
-function stembook_site_update_7001() {
+function scf_site_update_7001() {
   $menu_links = array(
     '<front>',
     'contents',
@@ -49,7 +49,7 @@ function stembook_site_update_7001() {
 /**
  * Enable new theme.
  */
-function stembook_site_update_7002() {
+function scf_site_update_7002() {
   theme_enable(array('sbo2'));
   variable_set('theme_default', 'sbo2');
 }
@@ -57,7 +57,7 @@ function stembook_site_update_7002() {
 /**
  * Disable blocks which are now in context or irrelevant.
  */
-function stembook_site_update_7003() {
+function scf_site_update_7003() {
   $blocks = array(
     // Footer message
     'block-5', // site mission
@@ -83,7 +83,7 @@ function stembook_site_update_7003() {
 /**
  * Re-install biblio.
  */
-function stembook_site_update_7004() {
+function scf_site_update_7004() {
   $result = db_query("SELECT * FROM {node} WHERE type='biblio' ");
   foreach  ($result as $node ) {
     db_query('DELETE FROM {node} WHERE nid = :nid', array(':nid' => $node->nid));
@@ -115,7 +115,7 @@ function stembook_site_update_7004() {
 /**
  * Install cell biblio style.
  */
-function stembook_site_update_7005() {
+function scf_site_update_7005() {
   module_enable(array('biblio_citeproc'));
   cache_clear_all();
   module_load_include('inc', 'biblio_citeproc', 'biblio_citeproc.admin');
@@ -125,23 +125,23 @@ function stembook_site_update_7005() {
 /**
  * Uninstall search module.
  */
-function stembook_site_update_7006() {
+function scf_site_update_7006() {
   module_disable(array('search'), FALSE);
   require_once DRUPAL_ROOT . '/includes/install.inc';
   drupal_uninstall_modules(array('search'), FALSE);
 }
 
 /**
- * Delete old stembook_protocols view.
+ * Delete old scf_protocols view.
  */
-function stembook_site_update_7007() {
-  views_get_view('stembook_protocols')->delete();
+function scf_site_update_7007() {
+  views_get_view('scf_protocols')->delete();
 }
 
 /**
  * Delete old member and newsarticle nodes and content type.
  */
-function stembook_site_update_7008() {
+function scf_site_update_7008() {
   // Delete actual nodes first.
   $results = db_query("SELECT nid FROM {node} WHERE type='newsarticle'");
   foreach  ($results as $node) {
@@ -164,7 +164,7 @@ function stembook_site_update_7008() {
 /**
  * Delete some variables.
  */
-function stembook_site_update_7009() {
+function scf_site_update_7009() {
   variable_del('site_frontpage');
   variable_del('file_directory_path');
   variable_del('file_public_path');
@@ -173,7 +173,7 @@ function stembook_site_update_7009() {
 /**
  * Force a url alias for node/384/top-menu-link.
  */
-function stembook_site_update_7010() {
+function scf_site_update_7010() {
   db_insert('url_alias')
     ->fields(array(
       'source' => 'node/384/top-menu-link',
@@ -187,7 +187,7 @@ function stembook_site_update_7010() {
  * Disable history section in user profiles. This settings isn't supported
  * by features.
  */
-function stembook_site_update_7011() {
+function scf_site_update_7011() {
   // Get current bundle settings.
   $bundle_settings = field_bundle_settings('user', 'user');
   // Save data for 'extra' summary / history field.
@@ -204,7 +204,7 @@ function stembook_site_update_7011() {
  * This settings isn't supported by features.
  * Flag items seem to have a weight of 0 which cannot be configured.
  */
-function stembook_site_update_7012() {
+function scf_site_update_7012() {
   // Get current bundle settings.
   $bundle_settings = field_bundle_settings('user', 'user');
   // Save data for 'extra' summary / history field.
@@ -219,7 +219,7 @@ function stembook_site_update_7012() {
 /**
  * Remove field_scf_members_publication field which was removed from feature.
  */
-function stembook_site_update_7013() {
+function scf_site_update_7013() {
   field_delete_field('field_scf_members_publication');
   field_sync_field_status();
   // For some reason we need to run the purge many times until the tmp tables
