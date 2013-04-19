@@ -12,7 +12,7 @@ function f_scf_site_filter_default_formats() {
 
   // Exported format: Filtered HTML.
   $formats['1'] = array(
-    'format' => '1',
+    'format' => 'filtered_html',
     'name' => 'Filtered HTML',
     'cache' => '1',
     'status' => '1',
@@ -49,7 +49,7 @@ function f_scf_site_filter_default_formats() {
 
   // Exported format: Full HTML.
   $formats['2'] = array(
-    'format' => '2',
+    'format' => 'full_html',
     'name' => 'Full HTML',
     'cache' => '1',
     'status' => '1',
@@ -92,7 +92,7 @@ function f_scf_site_filter_default_formats() {
 
   // Exported format: Plain text.
   $formats['3'] = array(
-    'format' => '3',
+    'format' => 'plain_text',
     'name' => 'Plain text',
     'cache' => '1',
     'status' => '1',

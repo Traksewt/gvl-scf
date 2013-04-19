@@ -140,21 +140,7 @@ http://www.yoursite.org/scf/resources
 
 PubMed
 http://www.ncbi.nlm.nih.gov/sites/entrez?db=PubMed
-
-Ensembl
-http://www.ensembl.org/index.html
-
-ISSCR
-http://www.isscr.org
-
-HSCI
-http://www.hsci.harvard.edu/
-
-Massachusetts Human Stem Cell Bank and International Registry
-http://www.umassmed.edu/umscr/index.aspx
-
-EuroStemCell
-http://www.eurostemcell.org',
+',
         'summary' => '',
         'format' => '1',
         'safe_value' => '<p>scf resources<br /><a href="http://www.yoursite.org/scf/resources">http://www.yoursite.org/scf/resources</a></p>
