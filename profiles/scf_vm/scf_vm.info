@@ -26,9 +26,9 @@ dependencies[] = file
 dependencies[] = rdf
 
 dependencies[] = f_scf_site
-dependencies[] = jounralstream
+dependencies[] = journalstream
 dependencies[] = pubnode
-dependencies[] = scf
+;dependencies[] = scf
 dependencies[] = scf_common
 dependencies[] = scf_dev_content
 dependencies[] = scf_members
