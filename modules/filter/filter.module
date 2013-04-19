@@ -199,7 +199,7 @@ function filter_format_save($format) {
   }
 
   // Insert or update the text format.
-  $return = db_merge('filter_format')
+  $return = db_update('filter_format')
     ->key(array('format' => $format->format))
     ->fields(array(
       'name' => $format->name,
