@@ -25,7 +25,7 @@ dependencies[] = field_ui
 dependencies[] = file
 dependencies[] = rdf
 
-;dependencies[] = f_scf_site
+dependencies[] = f_scf_site
 ;dependencies[] = journalstream
 ;dependencies[] = pubnode7
 ;dependencies[] = pubnode
