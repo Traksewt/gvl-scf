@@ -25,13 +25,13 @@ dependencies[] = field_ui
 dependencies[] = file
 dependencies[] = rdf
 
-; This provides Review Capters
-dependencies[] = f_scf_site
+; This provides Review Chapters
+;dependencies[] = f_scf_site
 
-dependencies[] = journalstream
+;dependencies[] = journalstream
 ;dependencies[] = pubnode7
 ;dependencies[] = pubnode
-dependencies[] = scf
+;dependencies[] = scf
 dependencies[] = scf_common
 ;dependencies[] = scf_dev_content
 ;dependencies[] = scf_members
