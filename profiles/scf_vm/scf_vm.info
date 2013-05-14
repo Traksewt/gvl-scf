@@ -37,8 +37,8 @@ dependencies[] = scf_common
 ;dependencies[] = scf_members
 dependencies[] = scf_news
 ;dependencies[] = scf_nodeblock_export
-dependencies[] = scf_site
-dependencies[] = scf_protocols
+;dependencies[] = scf_site
+;dependencies[] = scf_protocols
 
 
 ;dependencies[] = apachesolr
