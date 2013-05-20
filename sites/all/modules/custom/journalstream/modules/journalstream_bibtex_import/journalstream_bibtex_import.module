@@ -20,7 +20,7 @@ function journalstream_bibtex_import_menu() {
 /**
  * Implements hook_admin_paths().
  */
-function journalstream_biblio_import_admin_paths() {
+function journalstream_bibtex_import_admin_paths() {
   $paths = array(
     'node/*/bibtex_import' => TRUE,
   );
