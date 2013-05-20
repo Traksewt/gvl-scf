@@ -15,7 +15,7 @@ function f_scf_site_menu_default_menu_links() {
     'menu_name' => 'main-menu',
     'link_path' => 'chapters',
     'router_path' => 'chapters',
-    'link_title' => 'Review Chapters',
+    'link_title' => 'Tutorials',
     'options' => array(
       'attributes' => array(
         'title' => '',
@@ -30,7 +30,7 @@ function f_scf_site_menu_default_menu_links() {
   );
   // Translatables
   // Included for use with string extractors like potx.
-  t('Review Chapters');
+  t('Tutorials');
 
 
   return $menu_links;
