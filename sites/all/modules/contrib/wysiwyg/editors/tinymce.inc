@@ -19,7 +19,7 @@ function wysiwyg_tinymce_editor() {
     'libraries' => array(
       '' => array(
         'title' => 'Minified',
-        'files' => array('tiny_mce.min.js'),
+        'files' => array('tinymce.min.js'),
       ),
       'src' => array(
         'title' => 'Source',
@@ -53,7 +53,7 @@ function wysiwyg_tinymce_editor() {
           '' => array(
             'title' => 'Minified',
             'files' => array(
-              'tiny_mce.min.js' => array('preprocess' => FALSE),
+              'tinymce.min.js' => array('preprocess' => FALSE),
             ),
           ),
           'jquery' => array(
@@ -81,7 +81,7 @@ function wysiwyg_tinymce_editor() {
  *   The installed editor version.
  */
 function wysiwyg_tinymce_version($editor) {
-  $script = $editor['library path'] . '/tiny_mce.min.js';
+  $script = $editor['library path'] . '/tinymce.min.js';
   if (!file_exists($script)) {
     return;
   }
