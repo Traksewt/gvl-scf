@@ -15,11 +15,11 @@ function wysiwyg_tinymce_editor() {
     'title' => 'TinyMCE',
     'vendor url' => 'http://tinymce.moxiecode.com',
     'download url' => 'http://tinymce.moxiecode.com/download.php',
-    'library path' => wysiwyg_get_path('tinymce') . '/js/tinymce',
+    'library path' => wysiwyg_get_path('tinymce') . '/jscripts/tiny_mce',
     'libraries' => array(
       '' => array(
         'title' => 'Minified',
-        'files' => array('tinymce.min.js'),
+        'files' => array('tiny_mce.js'),
       ),
       'src' => array(
         'title' => 'Source',
@@ -53,7 +53,7 @@ function wysiwyg_tinymce_editor() {
           '' => array(
             'title' => 'Minified',
             'files' => array(
-              'tinymce.min.js' => array('preprocess' => FALSE),
+              'tiny_mce.js' => array('preprocess' => FALSE),
             ),
           ),
           'jquery' => array(
@@ -81,7 +81,7 @@ function wysiwyg_tinymce_editor() {
  *   The installed editor version.
  */
 function wysiwyg_tinymce_version($editor) {
-  $script = $editor['library path'] . '/tinymce.min.js';
+  $script = $editor['library path'] . '/tiny_mce.js';
   if (!file_exists($script)) {
     return;
   }
