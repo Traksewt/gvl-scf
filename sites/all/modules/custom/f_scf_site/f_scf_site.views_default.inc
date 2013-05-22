@@ -106,7 +106,7 @@ function f_scf_site_views_default_views() {
   /* Display: Block */
   $handler = $view->new_display('block', 'Block', 'block_1');
   $handler->display->display_options['defaults']['title'] = FALSE;
-  $handler->display->display_options['title'] = 'New Chapters';
+  $handler->display->display_options['title'] = 'Tutorials';
   $handler->display->display_options['defaults']['hide_admin_links'] = FALSE;
   $handler->display->display_options['defaults']['use_more'] = FALSE;
   $handler->display->display_options['use_more'] = TRUE;
@@ -143,7 +143,7 @@ function f_scf_site_views_default_views() {
   );
   $handler->display->display_options['filters']['type']['group'] = 0;
   $handler->display->display_options['filters']['type']['expose']['operator'] = FALSE;
-  $handler->display->display_options['block_description'] = 'SCF New chapters block';
+  $handler->display->display_options['block_description'] = 'SCF Tutorials block';
   $export['book_chapters'] = $view;
 
   $view = new view();
@@ -220,7 +220,7 @@ function f_scf_site_views_default_views() {
 
   /* Display: Defaults */
   $handler = $view->new_display('default', 'Defaults', 'default');
-  $handler->display->display_options['title'] = 'New Chapters';
+  $handler->display->display_options['title'] = 'Tutorials';
   $handler->display->display_options['use_more_always'] = FALSE;
   $handler->display->display_options['access']['type'] = 'none';
   $handler->display->display_options['cache']['type'] = 'none';
