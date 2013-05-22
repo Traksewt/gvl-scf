@@ -167,7 +167,7 @@ function scfmembers_field_default_fields() {
       'settings' => array(
         'allowed_values' => array(
           0 => '',
-          1 => 'I have read and agree to the Terms and Conditions of the Multiple Sclerosis Discovery Forum.',
+          1 => 'I have read and agree to the Terms and Conditions of the Genome Virtual Laboratory Science Collaboration Framework.',
         ),
         'allowed_values_function' => '',
         'profile2_private' => 0,
