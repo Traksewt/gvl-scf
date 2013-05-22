@@ -19,7 +19,7 @@ function wysiwyg_tinymce_editor() {
     'libraries' => array(
       '' => array(
         'title' => 'Minified',
-        'files' => array('tiny_mce.js'),
+        'files' => array('tiny_mce.min.js'),
       ),
       'src' => array(
         'title' => 'Source',
