@@ -15,7 +15,7 @@ function wysiwyg_tinymce_editor() {
     'title' => 'TinyMCE',
     'vendor url' => 'http://tinymce.moxiecode.com',
     'download url' => 'http://tinymce.moxiecode.com/download.php',
-    'library path' => wysiwyg_get_path('tinymce') . '/js/tiny_mce',
+    'library path' => wysiwyg_get_path('tinymce') . '/js/tinymce',
     'libraries' => array(
       '' => array(
         'title' => 'Minified',
