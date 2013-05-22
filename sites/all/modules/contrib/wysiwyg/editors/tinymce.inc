@@ -53,7 +53,7 @@ function wysiwyg_tinymce_editor() {
           '' => array(
             'title' => 'Minified',
             'files' => array(
-              'tiny_mce.js' => array('preprocess' => FALSE),
+              'tiny_mce.min.js' => array('preprocess' => FALSE),
             ),
           ),
           'jquery' => array(
@@ -81,7 +81,7 @@ function wysiwyg_tinymce_editor() {
  *   The installed editor version.
  */
 function wysiwyg_tinymce_version($editor) {
-  $script = $editor['library path'] . '/tiny_mce.js';
+  $script = $editor['library path'] . '/tiny_mce.min.js';
   if (!file_exists($script)) {
     return;
   }
