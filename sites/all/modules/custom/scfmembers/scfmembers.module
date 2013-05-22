@@ -201,16 +201,16 @@ function scfmembers_form_alter(&$form, &$form_state, $form_id) {
     }
 
     // Displays the Terms and Conditions content above the checkbox.
-    $tnc_field = field_get_items('node', node_load(572), 'body');
+//    $tnc_field = field_get_items('node', node_load(572), 'body');
     // HTML tags are not allowed and will be stripped.
-    $form['profile_scfmembers_profile']['field_scfmembers_agree_tc']['tnc_text'] = array(
+/*    $form['profile_scfmembers_profile']['field_scfmembers_agree_tc']['tnc_text'] = array(
       '#type' => 'textarea',
       '#title' => t('Terms & Conditions'),
       '#default_value' => filter_xss($tnc_field[0]['value'], array()),
       '#disabled' => TRUE,
       '#weight' => -1,
     );
-  }
+*/  }
 
   // Close optional information fieldset on registration form.
   if ($form_id == 'user_register_form') {
