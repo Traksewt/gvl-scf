@@ -225,6 +225,20 @@ $databases = array (
       'prefix' => '',
     ),
   ),
+  'postgresql' =>
+  array (
+    'default' =>
+    array (
+      'database' => 'scfdb',
+      'username' => 'scfuser',
+      'password' => 'scfgv7',
+      'host' => 'localhost',
+      'port' => '',
+      'driver' => 'pgsql',
+      'prefix' => '',
+    ),
+
+  ),
 );
 
 /**
