@@ -135,9 +135,10 @@ function scf_site_update_7006() {
  * Delete old scf_protocols view.
  */
 function scf_site_update_7007() {
-  watchdog('features', 'scf_protocols: %scf_protocols', array('%scf_protocols' => views_get_view('scf_protocols')), WATCHDOG_ERROR);
-  if (isset(views_get_view(['scf_protocols']))) {
-  	views_get_view('scf_protocols')->delete();
+  $protocols_view = views_get_view('scf_protocols');
+  watchdog('features', 'scf_protocols: %scf_protocols', array('%scf_protocols' => $protocols_view), WATCHDOG_ERROR);
+  if (isset($protocols_view)) {
+  	$protocols_view->delete();
   }
 }
 
