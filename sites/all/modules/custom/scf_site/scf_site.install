@@ -136,7 +136,7 @@ function scf_site_update_7006() {
  */
 function scf_site_update_7007() {
   watchdog('features', 'scf_protocols: %scf_protocols', array('%scf_protocols' => views_get_view('scf_protocols')), WATCHDOG_ERROR);
-  if (isset(views_get_view('scf_protocols'))) {
+  if (isset(views_get_view(['scf_protocols']))) {
   	views_get_view('scf_protocols')->delete();
   }
 }
