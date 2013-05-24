@@ -217,9 +217,9 @@ $databases = array (
   array (
     'default' =>
     array (
-      'database' => 'scfdb',
-      'username' => 'scfuser',
-      'password' => 'scfgv7',
+      'database' => '[DATABASE]',
+      'username' => '[USERNAME]',
+      'password' => '[PASSWORD]',
       'host' => 'localhost',
       'port' => '',
       'driver' => 'pgsql',
