@@ -6,7 +6,7 @@
 function pubnode_install () {
   //drupal_install_schema('pubnode');
   module_load_include("php", "pubnode", "PubNodeModule");
-  pubnode()->installForumContainer();
+  //pubnode()->installForumContainer();
   $vocabs = array(
     'scf_keyword_vocabulary',
     'bio_ontologies_biological_process_vocabulary',
@@ -170,7 +170,7 @@ function pubnode_update_6004 () {
 
 function pubnode_update_6005 () {
   module_load_include("php", "pubnode", "PubNodeModule");
-  pubnode()->installForumContainer();
+  //pubnode()->installForumContainer();
   return array();
 }
 
