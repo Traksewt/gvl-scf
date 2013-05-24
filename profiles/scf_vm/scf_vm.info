@@ -125,9 +125,9 @@ dependencies[] = 	views
 dependencies[] = 	views_bulk_operations
 dependencies[] = 	views_system
 dependencies[] = 	views_ui
-dependencies[] = 	bartik
-dependencies[] = 	seven
-dependencies[] = 	sbo2
+#dependencies[] = 	bartik
+#dependencies[] = 	seven
+#dependencies[] = 	sbo2
 
 
 
