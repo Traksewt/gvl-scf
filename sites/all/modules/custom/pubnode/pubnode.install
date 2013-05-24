@@ -7,14 +7,15 @@ function pubnode_install () {
   //drupal_install_schema('pubnode');
   module_load_include("php", "pubnode", "PubNodeModule");
   //pubnode()->installForumContainer();
-  $vocabs = array(
+/*  $vocabs = array(
     'scf_keyword_vocabulary',
     'bio_ontologies_biological_process_vocabulary',
     'bio_ontologies_cellular_component_vocabulary',
     'bio_ontologies_molecular_function_vocabulary'
   );
-  pubnode()->addNodeTypeToVocabulariesByVarName($vocabs);
-  pubnode()->addAssociatedTypes('antibody', 'modelorganism', 'researchstatement', 'gene');
+  */
+//  pubnode()->addNodeTypeToVocabulariesByVarName($vocabs);
+//  pubnode()->addAssociatedTypes('antibody', 'modelorganism', 'researchstatement', 'gene');
 }
 
 /**
@@ -176,12 +177,13 @@ function pubnode_update_6005 () {
 
 function pubnode_update_6006 () {
   module_load_include("php", "pubnode", "PubNodeModule");
-  $new_vocabs = array(
+/*  $new_vocabs = array(
     'bio_ontologies_biological_process_vocabulary',
     'bio_ontologies_cellular_component_vocabulary',
     'bio_ontologies_molecular_function_vocabulary'
   );
-  pubnode()->addNodeTypeToVocabulariesByVarName($new_vocabs);
+  */
+//  pubnode()->addNodeTypeToVocabulariesByVarName($new_vocabs);
   return array();
 }
 
@@ -213,7 +215,7 @@ function pubnode_update_6008 () {
  */
 function pubnode_update_6009 () {
   module_load_include("php", "pubnode", "PubNodeModule");
-  pubnode()->addAssociatedTypes('antibody', 'modelorganism', 'researchstatement');
+//  pubnode()->addAssociatedTypes('antibody', 'modelorganism', 'researchstatement');
   return array();
 }
 
