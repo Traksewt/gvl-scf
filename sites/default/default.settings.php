@@ -212,18 +212,20 @@
  */
 #$databases = array();
 $databases = array (
+
   'default' =>
   array (
     'default' =>
     array (
-      'database' => 'SCFDB',
-      'username' => 'SCFUSER',
-      'password' => 'scfgv7',
+      'database' => '[DATABASE]',
+      'username' => '[USERNAME]',
+      'password' => '[PASSWORD]',
       'host' => 'localhost',
       'port' => '',
-      'driver' => 'mysql',
+      'driver' => 'pgsql',
       'prefix' => '',
     ),
+
   ),
 );
 
