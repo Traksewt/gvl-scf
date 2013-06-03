@@ -27,6 +27,8 @@ function safeword_field_info() {
       'description' => t('A field with human readable text and a scrubbed machine-safe variation.'),
       'default_widget' => 'safeword_machine_name',
       'default_formatter' => 'safeword_human',
+      // Support default token formatter for field tokens.
+      'default_token_formatter' => 'safeword_machine_basic',
     ),
   );
 }
@@ -159,6 +161,10 @@ function safeword_field_formatter_info() {
       'field types' => array('safeword'),
     ),
     'safeword_machine' => array(
+      'label' => t('Machine-readable version wrapped in an acronym tag'),
+      'field types' => array('safeword'),
+    ),
+    'safeword_machine_basic' => array(
       'label' => t('Machine-readable version'),
       'field types' => array('safeword'),
     ),
@@ -194,6 +200,12 @@ function safeword_field_formatter_view($entity_type, $entity, $field, $instance,
     case 'safeword_machine':
       foreach ($items as $delta => $item) {
         $element[$delta]['#markup'] = '<acronym title="' . filter_xss($item['human']) . '">' . filter_xss($item['machine']) . '</acronym>';
+      }
+      break;
+
+    case 'safeword_machine_basic':
+      foreach ($items as $delta => $item) {
+        $element[$delta]['#markup'] = filter_xss($item['machine']);
       }
       break;
 
