@@ -867,6 +867,12 @@ function comment_get_thread($node, $mode, $comments_per_page) {
  *   The $comments argument is altered by reference with indentation information.
  */
 function comment_prepare_thread(&$comments) {
+
+ 
+   // trying to resolve https://drupal.org/node/1266620 (@tafkey, Jun 3, 2013) 
+   if (empty($comments)) return;
+ 
+
   // A flag stating if we are still searching for first new comment on the thread.
   $first_new = TRUE;
 
