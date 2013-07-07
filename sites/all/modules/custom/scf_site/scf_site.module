@@ -68,10 +68,5 @@ function scf_site_user_top_menu_block_content() {
   $links[] = l(t('E-Alerts'), 'ealerts');
   $output .= theme('item_list', array('items' => $links, 'attributes' => array('id' => 'scf_site_user_menu2', 'class' => 'menu')));
 
-  // Third row of links (download e-book).
-  $links = array();
-  $links[] = l(t('Download E-Book'), 'sites/default/files/ebook/scf-ebook.epub');
-  $output .= theme('item_list', array('items' => $links, 'attributes' => array('id' => 'scf_site_user_menu3', 'class' => 'menu')));
-
   return $output;
 }

@@ -87,44 +87,6 @@ function scf_site_menu_default_menu_links() {
     'weight' => '-50',
     'parent_path' => 'node/384/top-menu-link',
   );
-  // Exported menu link: main-menu:node/712
-  $menu_links['main-menu:node/712'] = array(
-    'menu_name' => 'main-menu',
-    'link_path' => 'node/712',
-    'router_path' => 'node/%',
-    'link_title' => 'E-Alerts',
-    'options' => array(
-      'attributes' => array(
-        'title' => '',
-      ),
-    ),
-    'module' => 'menu',
-    'hidden' => '0',
-    'external' => '0',
-    'has_children' => '0',
-    'expanded' => '0',
-    'weight' => '-44',
-    'parent_path' => 'node/382',
-  );
-  // Exported menu link: main-menu:node/750
-  $menu_links['main-menu:node/750'] = array(
-    'menu_name' => 'main-menu',
-    'link_path' => 'node/750',
-    'router_path' => 'node/%',
-    'link_title' => 'Image Credits',
-    'options' => array(
-      'attributes' => array(
-        'title' => '',
-      ),
-    ),
-    'module' => 'menu',
-    'hidden' => '0',
-    'external' => '0',
-    'has_children' => '0',
-    'expanded' => '0',
-    'weight' => '-50',
-    'parent_path' => 'node/382',
-  );
   // Exported menu link: main-menu:resources/directory
   $menu_links['main-menu:resources/directory'] = array(
     'menu_name' => 'main-menu',
@@ -149,8 +111,6 @@ function scf_site_menu_default_menu_links() {
   t('About');
   t('Contributor Info');
   t('Directory');
-  t('E-Alerts');
-  t('Image Credits');
   t('Useful Links');
 
 
