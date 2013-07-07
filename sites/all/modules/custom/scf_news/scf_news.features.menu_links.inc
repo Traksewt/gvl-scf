@@ -28,25 +28,6 @@ function scf_news_menu_default_menu_links() {
     'expanded' => '0',
     'weight' => '-46',
   );
-  // Exported menu link: main-menu:news/cell-lines
-  $menu_links['main-menu:news/cell-lines'] = array(
-    'menu_name' => 'main-menu',
-    'link_path' => 'news/cell-lines',
-    'router_path' => 'news',
-    'link_title' => 'Cell Lines',
-    'options' => array(
-      'attributes' => array(
-        'title' => '',
-      ),
-    ),
-    'module' => 'menu',
-    'hidden' => '0',
-    'external' => '0',
-    'has_children' => '0',
-    'expanded' => '0',
-    'weight' => '-50',
-    'parent_path' => 'news',
-  );
   // Exported menu link: main-menu:news/latest-news
   $menu_links['main-menu:news/latest-news'] = array(
     'menu_name' => 'main-menu',
@@ -106,7 +87,6 @@ function scf_news_menu_default_menu_links() {
   );
   // Translatables
   // Included for use with string extractors like potx.
-  t('Cell Lines');
   t('Latest News');
   t('News & Commentaries');
   t('Protocols');

@@ -791,7 +791,6 @@ function scf_news_field_default_fields() {
       'module' => 'list',
       'settings' => array(
         'allowed_values' => array(
-          'cell-lines' => 'Cell Lines',
           'protocols' => 'Protocols',
           'latest-news' => 'Latest News',
           'research' => 'Research',
