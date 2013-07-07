@@ -1,0 +1,228 @@
+<?php
+/**
+ * @file
+ * Code for the journalstream_biblio_query feature.
+ */
+
+include_once('journalstream_biblio_query.features.inc');
+include_once('journalstream_biblio_query.import.inc');
+
+define('JS_BIBLIO_QUERY_NODE_TYPE', 'biblio_topic_query');
+
+/**
+ * Implements hook_cron_queue_info().
+ */
+function journalstream_biblio_query_cron_queue_info() {
+  $queues['journalstream_biblio_query_feeds'] = array(
+    'worker callback' => 'journalstream_biblio_query_execute',
+    'time' => 60,
+  );
+  return $queues;
+}
+
+/**
+ * Implements hook_node_view()
+*/
+function journalstream_biblio_query_node_view($node, $view_mode, $langcode) {
+  if($node->type == 'biblio_topic_query') {
+    $node->content['query_form'] = array(
+      '#markup' => drupal_render(drupal_get_form('journalstream_biblio_query_execute_form')),
+      '#weight' => 10,
+    );
+  }
+}
+
+/**
+ * Generates a form for executing biblio_query
+*/
+function journalstream_biblio_query_execute_form($form, &$form_state) {
+  $form['description'] = array(
+    '#type' => 'markup',
+    '#markup' => '<div>' . t('Execute query now.') . '</div>',
+  );
+  $form['submit'] = array(
+    '#type' => 'submit',
+    '#value' => 'Execute',
+  );
+  $form['nid'] = array(
+    '#type' => 'value',
+    '#value' => arg(1),
+  );
+  return $form;
+}
+
+/**
+ * Generates a form for executing biblio_query
+*/
+function journalstream_biblio_query_execute_form_submit($form, &$form_state) {
+  //Add to queue
+  $queue = DrupalQueue::get('journalstream_biblio_query_feeds');
+  $feed = node_load($form_state['values']['nid']);
+  if($feed && $queue->createItem($feed)) {
+    $feed->field_queued[LANGUAGE_NONE][0]['value'] = REQUEST_TIME;
+    node_save($feed);
+  }
+
+  $batch = array(
+    'operations' => array(
+      array('journalstream_biblio_query_batch', array()),
+    ),
+    'finished' => 'journalstream_biblio_query_batch_finished',
+    'title' => t('Running biblio import query.'),
+    'progress_message' => t('Trying to check import data ...'),
+    'error_message' => t('Error importing data.'),
+    'file' => drupal_get_path('module', 'journamstream_biblio_query') . '/journalstream_bilbio_query.import.inc',
+  );
+  batch_set($batch);
+  //batch_process('');
+  
+  /*
+  $operations = array();
+  $operations[] = array('journalstream_biblio_query_batch_execute',array($form_state['values']['nid']),array());
+  $batch = array(
+    'operations' => $operations,
+    'finished' => 'journalstream_biblio_query_batch_finished',
+  );
+  batch_set($batch);
+  */
+}
+
+
+/**
+ * Implements hook_cron().
+ *
+ * Queues news feeds for updates once their refresh interval has elapsed.
+ */
+function journalstream_biblio_query_cron() {
+  // Only query pubmed between 4am and 5am.
+  /** Temporarily Disable
+  if (date('H') != 4) {
+    return;
+  }
+  **/
+  $checked = REQUEST_TIME - 3600;
+  $never = 0;
+  $query = new EntityFieldQuery;
+  $result = $query
+    ->entityCondition('entity_type', 'node')
+    ->propertyCondition('type', JS_BIBLIO_QUERY_NODE_TYPE)
+    ->fieldCondition('field_queued','value', 0)
+    ->fieldCondition('field_checked','value', $checked, '<')
+    ->fieldCondition('field_refresh','value', $never, '!=')
+    ->execute();
+  $queue = DrupalQueue::get('journalstream_biblio_query_feeds');
+  if(empty($result['node'])) {
+    return;
+  }
+  foreach($result['node'] as $row) {
+    $feed = node_load($row->nid);
+    if($feed && $queue->createItem($feed)) {
+      $feed->field_queued[LANGUAGE_NONE][0]['value'] = REQUEST_TIME;
+      node_save($feed);
+    }
+  }
+}
+
+/**
+ * Checks a PubMed feed for new items.
+ *
+ * @param $feed node
+ *   An object describing the feed to be refreshed.
+ */
+function journalstream_biblio_query_execute($feed) {
+  if(!$feed || !is_object($feed)) {
+    watchdog('journalstream_biblio_query', 'Feed argument passed during execution was invalid.');
+    return;
+  }
+  module_load_include('php', 'biblio_pm', 'EntrezClient');
+  module_load_include('php', 'biblio_pm', 'EntrezPubmedArticle');
+  module_load_include('inc', 'journalstream_biblio_query', 'journalstream_biblio_query.import');
+  require_once drupal_get_path('module', 'biblio') .'/includes/biblio.import.export.inc';
+
+  // Establish the date range for the query.
+  // @todo should we not try to query any paper which is older than the previous
+  // [Saturday] or begining of the POW period?
+  $checked = isset($feed->field_checked[LANGUAGE_NONE][0]['value']) ? $feed->field_checked[LANGUAGE_NONE][0]['value'] : time();
+  $query = isset($feed->body[LANGUAGE_NONE][0]['value']) ? $feed->body[LANGUAGE_NONE][0]['value'] : NULL;
+
+  if(empty($query)) {
+    watchdog('journalstream_biblio_query', 'Query argument in feed is empty');
+    return;
+  }
+
+  $minDate = date('Y/m/d', $checked);
+  // Do not fetch papers which are older than 7 days.
+  $minDate = $minDate < date('Y/m/d', strtotime('-7 days')) ? date('Y/m/d', strtotime('-7 days')) : $minDate;
+  // If the mindate is today, set it to yesterday as there are likely no papers
+  // for today yet, or it might just be partial.
+  // This is useful when running the import manually.
+  $minDate = $minDate == date('Y/m/d') ? date('Y/m/d', strtotime('-1 day')) : $minDate;
+  $maxDate = date('Y/m/d');
+  watchdog('journalstream_biblio_query', 'Querying pubmed with date ' . $minDate . ' to ' . $maxDate . '.');
+
+  $Eclient = new BiblioEntrezClient;
+  $Eclient->setTerm($query);
+  $Eclient->setReturnMax($feed->field_limit[LANGUAGE_NONE][0]['value']);
+  $Eclient->setDateRange($minDate, $maxDate);
+  $results = $Eclient->search(0);
+
+  $node = new stdClass();
+  $data = new BiblioEntrezPubmedArticle();
+  // Counter for imported papers.
+  $imported = 0;
+  // Node ID's for queue
+  $queue_nids = array();
+  foreach($results->IdList->Id as $pmid) {
+    $article = $Eclient->fetch((string)$pmid)->PubmedArticle;
+    if (!$article) {
+      watchdog('pow_import_' . $pmid, 'PMID ' . $pmid . ' error during import, data could not be parsed according to expected XML schema.', array(), WATCHDOG_ERROR);
+      continue;
+    }
+    $node = $data->setArticle($article)->getBiblioAsObject();
+    if (isset($node)) {
+      if (!empty($terms)) {
+        if (!isset($node->taxonomy)) $node->taxonomy = array();
+        $node->taxonomy = array_merge($terms, $node->taxonomy);
+      }
+      if ($dup = biblio_pm_check_pmid($node->biblio_pubmed_id)) {
+        watchdog('journalstream_biblio_query_' . $node->biblio_pubmed_id, 'The publication @url already exists and was not reimported via the automatic query.', array('@url' => url('node/' . $dup)));
+      }
+      else {
+        // Attempt to import the publication.
+        try {
+          biblio_save_node($node);
+          // Add node to topic queue
+          $queue_nids[] = $node->nid;
+
+          watchdog('journalstream_biblio_query_' . $node->biblio_pubmed_id, 'PMID ' . $node->biblio_pubmed_id . ' imported via automatic query.');
+          $imported++;
+        }
+        catch (Exception $e) {
+          watchdog('journalstream_biblio_query_' . $node->biblio_pubmed_id, 'Error during import of the publication ID ' . $node->biblio_pubmed_id, array(), WATCHDOG_WARNING);
+          watchdog_exception('journalstream_biblio_query', $e);
+        }
+      }
+      $node = NULL;
+    }
+  }
+  drupal_set_message($imported . ' new papers have been imported');
+
+  // Add nodes to moderation queue.
+  if(!empty($feed->field_topic_queue[LANGUAGE_NONE])) {
+    foreach($feed->field_topic_queue[LANGUAGE_NONE] as $topic_queue) {
+      if(!empty($topic_queue['nid'])) {
+        journalstream_add_to_queue($queue_nids,$topic_queue['nid']);
+      }
+    }
+  }
+
+  // Indicates that this feed has been checked. This assumes the pubmed query
+  // succeeded.
+  // @todo detect when the query failed and remove the item from the queue but
+  // don't update the checked time so the next request checks back from that
+  // time onwards
+  $feed->field_checked[LANGUAGE_NONE][0]['value'] = REQUEST_TIME;
+  $feed->field_queued[LANGUAGE_NONE][0]['value'] = 0;
+  node_save($feed);
+  return true;
+}

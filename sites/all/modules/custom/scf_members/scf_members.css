@@ -1,0 +1,41 @@
+/* Directory and user profiles */
+
+.page-user .content .profile fieldset legend {
+    border-top: 5px solid black;
+    display: block;
+    font-weight: bold;
+    margin-bottom: 10px;
+    width: 100%;
+}
+
+.page-user .content .profile fieldset .field {
+    border-top: 1px solid #EEEEEE;
+    padding-bottom: 10px;
+    padding-top: 5px;
+}
+
+.page-user .content .profile fieldset .send-email{
+    padding-top: 10px;
+}
+.page-user .content .profile fieldset .field-label {
+    width: 150px;
+}
+
+.page-user .button {
+    background-color: #C8DD5D;
+    border-radius: 2px 2px 2px 2px;
+    color: #0F4982;
+    font-size: 10px;
+    font-weight: bold;
+    padding: 5px 10px;
+    text-transform: uppercase;
+}
+
+.profile h3 {
+    display: none;
+}
+
+.view-scf-members-directory .views-view-grid td {
+  width: 33%;
+  vertical-align: baseline;
+}

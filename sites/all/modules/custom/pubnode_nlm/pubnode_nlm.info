@@ -1,0 +1,8 @@
+; $Id$
+name = Publication Node NLM Importer
+description = Allows importing of NLM articles as Publication Nodes
+dependencies[] = pubnode
+package = SCF
+version = VERSION
+core = 7.x
+stylesheets[all][] = css/nlm.css

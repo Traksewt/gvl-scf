@@ -1,0 +1,35 @@
+  // Get current bundle settings.
+  $bundle_settings = field_bundle_settings($entity_type, $bundle);
+
+  // Save data for 'extra' summary / history field.
+  $bundle_settings['extra_fields']['display']['summary']['default'] = array(
+    'visible' => FALSE,
+  );
+  }
+  // Save updated bundle settings.
+  field_bundle_settings($entity_type, $bundle, $bundle_settings);
+
+
+
+
+  // Get current bundle settings.
+  $bundle_settings = field_bundle_settings('user', 'user');
+  // Save data for 'extra' summary / history field.
+  $bundle_settings['extra_fields']['display']['profile_scf_members_profile']['default'] = array(
+    'weight' => -1,
+    'visible' => TRUE,
+  );
+  // Save updated bundle settings.
+  field_bundle_settings('user', 'user', $bundle_settings);
+
+
+
+## Default image is not supported by features
+see http://drupal.org/node/1439136
+By default, features will export an empty default image. If one is added
+manually after installation, and a feature-revert is run, the default image
+will be reverted to its original empty default image (no image).
+
+Potential workarounds:
+- http://drupal.org/project/features_override
+- stop using features once the distribution has been installed (disabled features).

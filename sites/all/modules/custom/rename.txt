@@ -1,0 +1,71 @@
+# rename SCF features to be just one word
+#scf_common
+#scf_forums
+#scf_news
+#scf_protocols
+#scf_search
+
+
+
+
+git sed 's/scf_common/scfcommon/g'
+git sed 's/scf_forums/scfforums/g'
+git sed 's/scf_news/scfnews/g'
+git sed 's/scf_protocols/scfprotocols/g'
+git sed 's/scf_search/scfsearch/g'
+
+git mv scf_common scfcommon
+git mv scf_forums scfforums
+git mv scf_news scfnews
+git mv scf_protocols scfprotocols
+git mv scf_search scfsearch
+
+
+git mv scfcommon/scf_common.context.inc scfcommon/scfcommon.context.inc
+git mv scfcommon/scf_common.delta.inc scfcommon/scfcommon.delta.inc
+git mv scfcommon/scf_common.ds.inc scfcommon/scfcommon.ds.inc
+git mv scfcommon/scf_common.features.filter.inc scfcommon/scfcommon.features.filter.inc
+git mv scfcommon/scf_common.features.inc scfcommon/scfcommon.features.inc
+git mv scfcommon/scf_common.features.uuid_node.inc scfcommon/scfcommon.features.uuid_node.inc
+git mv scfcommon/scf_common.features.wysiwyg.inc scfcommon/scfcommon.features.wysiwyg.inc
+git mv scfcommon/scf_common.info scfcommon/scfcommon.info
+git mv scfcommon/scf_common.menu_block.inc scfcommon/scfcommon.menu_block.inc
+git mv scfcommon/scf_common.module scfcommon/scfcommon.module
+git mv scfcommon/scf_common.strongarm.inc scfcommon/scfcommon.strongarm.inc
+git mv scfcommon/scf_common.views_default.inc scfcommon/scfcommon.views_default.inc
+git mv scfforums/scf_forums.context.inc scfforums/scfforums.context.inc
+git mv scfforums/scf_forums.ds.inc scfforums/scfforums.ds.inc
+git mv scfforums/scf_forums.features.field.inc scfforums/scfforums.features.field.inc
+git mv scfforums/scf_forums.features.inc scfforums/scfforums.features.inc
+git mv scfforums/scf_forums.features.menu_links.inc scfforums/scfforums.features.menu_links.inc
+git mv scfforums/scf_forums.info scfforums/scfforums.info
+git mv scfforums/scf_forums.module scfforums/scfforums.module
+git mv scfforums/scf_forums.strongarm.inc scfforums/scfforums.strongarm.inc
+git mv scfforums/scf_forums.views_default.inc scfforums/scfforums.views_default.inc
+git mv scfnews/scf_news.context.inc scfnews/scfnews.context.inc
+git mv scfnews/scf_news.ds.inc scfnews/scfnews.ds.inc
+git mv scfnews/scf_news.features.field.inc scfnews/scfnews.features.field.inc
+git mv scfnews/scf_news.features.inc scfnews/scfnews.features.inc
+git mv scfnews/scf_news.features.menu_links.inc scfnews/scfnews.features.menu_links.inc
+git mv scfnews/scf_news.info scfnews/scfnews.info
+git mv scfnews/scf_news.module scfnews/scfnews.module
+git mv scfnews/scf_news.strongarm.inc scfnews/scfnews.strongarm.inc
+git mv scfnews/scf_news.views_default.inc scfnews/scfnews.views_default.inc
+git mv scfprotocols/scf_protocols.context.inc scfprotocols/scfprotocols.context.inc
+git mv scfprotocols/scf_protocols.features.field.inc scfprotocols/scfprotocols.features.field.inc
+git mv scfprotocols/scf_protocols.features.inc scfprotocols/scfprotocols.features.inc
+git mv scfprotocols/scf_protocols.features.menu_custom.inc scfprotocols/scfprotocols.features.menu_custom.inc
+git mv scfprotocols/scf_protocols.features.menu_links.inc scfprotocols/scfprotocols.features.menu_links.inc
+git mv scfprotocols/scf_protocols.features.uuid_node.inc scfprotocols/scfprotocols.features.uuid_node.inc
+git mv scfprotocols/scf_protocols.info scfprotocols/scfprotocols.info
+git mv scfprotocols/scf_protocols.module scfprotocols/scfprotocols.module
+git mv scfprotocols/scf_protocols.strongarm.inc scfprotocols/scfprotocols.strongarm.inc
+git mv scfprotocols/scf_protocols.views_default.inc scfprotocols/scfprotocols.views_default.inc
+git mv scfsearch/scf_search.apachesolr_environments.inc scfsearch/scfsearch.apachesolr_environments.inc
+git mv scfsearch/scf_search.apachesolr_search_defaults.inc scfsearch/scfsearch.apachesolr_search_defaults.inc
+git mv scfsearch/scf_search.context.inc scfsearch/scfsearch.context.inc
+git mv scfsearch/scf_search.facetapi_defaults.inc scfsearch/scfsearch.facetapi_defaults.inc
+git mv scfsearch/scf_search.features.inc scfsearch/scfsearch.features.inc
+git mv scfsearch/scf_search.info scfsearch/scfsearch.info
+git mv scfsearch/scf_search.module scfsearch/scfsearch.module
+git mv scfsearch/scf_search.strongarm.inc scfsearch/scfsearch.strongarm.inc

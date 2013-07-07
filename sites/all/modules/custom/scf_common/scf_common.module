@@ -1,0 +1,27 @@
+<?php
+/**
+ * @file
+ * Code for the scf_common feature.
+ */
+
+include_once 'scf_common.features.inc';
+
+/**
+ * Implements hook_menu_block_blocks().
+ */
+function scf_common_menu_block_blocks() {
+  // The array key is the block delta used by menu block.
+  return array(
+    'scf_menu_block_main' => array(
+      'menu_name'   => 'main-menu',
+      'parent_mlid' => 0,
+      'title_link'  => 1,
+      'admin_title' => 'Menu block',
+      'level'       => 2,
+      'follow'      => 0,
+      'depth'       => 1,
+      'expanded'    => 0,
+      'sort'        => 0,
+    ),
+  );
+}
