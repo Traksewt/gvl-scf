@@ -1,7 +1,0 @@
-name = SCF Nodeblock Export
-description = Make Nodeblock powered blocks exportable via a machine name.
-package = Core
-version = VERSION
-core = 7.x
-dependencies[] = nodeblock
-dependencies[] = safeword

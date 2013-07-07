@@ -1,7 +1,0 @@
-; $Id$
-name = Publication Node
-description = Provides the pubnode node type allowing creation, listing and storing of publications.
-package = SCF
-version = VERSION
-core = 7.x
-stylesheets[all][] = pubnode.css
