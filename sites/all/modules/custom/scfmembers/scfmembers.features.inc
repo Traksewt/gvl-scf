@@ -1,13 +1,13 @@
 <?php
 /**
  * @file
- * scf_members.features.inc
+ * scfmembers.features.inc
  */
 
 /**
  * Implements hook_ctools_plugin_api().
  */
-function scf_members_ctools_plugin_api() {
+function scfmembers_ctools_plugin_api() {
   list($module, $api) = func_get_args();
   if ($module == "context" && $api == "context") {
     return array("version" => "3");
@@ -29,17 +29,20 @@ function scf_members_ctools_plugin_api() {
 /**
  * Implements hook_views_api().
  */
-function scf_members_views_api() {
-  return array("version" => "3.0");
+function scfmembers_views_api() {
+  list($module, $api) = func_get_args();
+  if ($module == "views" && $api == "views_default") {
+    return array("version" => "3.0");
+  }
 }
 
 /**
  * Implements hook_flag_default_flags().
  */
-function scf_members_flag_default_flags() {
+function scfmembers_flag_default_flags() {
   $flags = array();
   // Exported flag: "Bookmark".
-  $flags['scf_members_bookmark'] = array(
+  $flags['scfmembers_bookmark'] = array(
     'content_type' => 'node',
     'title' => 'Bookmark',
     'global' => '0',
@@ -71,21 +74,19 @@ function scf_members_flag_default_flags() {
         0 => '2',
       ),
     ),
-    'weight' => 0,
-    'show_on_form' => 0,
-    'access_author' => '',
     'show_on_page' => 1,
     'show_on_teaser' => 1,
-    'show_contextual_link' => FALSE,
+    'show_on_form' => 0,
+    'access_author' => '',
     'i18n' => 0,
-    'module' => 'scf_members',
+    'module' => 'scfmembers',
     'locked' => array(
       0 => 'name',
     ),
     'api_version' => 2,
   );
   // Exported flag: "Recommend".
-  $flags['scf_members_recommend'] = array(
+  $flags['scfmembers_recommend'] = array(
     'content_type' => 'node',
     'title' => 'Recommend',
     'global' => '0',
@@ -117,66 +118,29 @@ function scf_members_flag_default_flags() {
         0 => '2',
       ),
     ),
-    'weight' => 0,
-    'show_on_form' => 0,
-    'access_author' => '',
     'show_on_page' => 1,
     'show_on_teaser' => 1,
-    'show_contextual_link' => FALSE,
-    'i18n' => 0,
-    'module' => 'scf_members',
-    'locked' => array(
-      0 => 'name',
-    ),
-    'api_version' => 2,
-  );
-  // Exported flag: "Vetted member".
-  $flags['scf_members_vetted'] = array(
-    'content_type' => 'user',
-    'title' => 'Vetted member',
-    'global' => '1',
-    'types' => array(),
-    'flag_short' => 'Make this member a vetted member',
-    'flag_long' => '',
-    'flag_message' => '',
-    'unflag_short' => 'Remove vetted member status',
-    'unflag_long' => '',
-    'unflag_message' => '',
-    'unflag_denied_text' => '',
-    'link_type' => 'toggle',
-    'roles' => array(
-      'flag' => array(
-        0 => '4',
-      ),
-      'unflag' => array(
-        0 => '4',
-      ),
-    ),
-    'weight' => '-9',
-    'show_on_entity' => 1,
     'show_on_form' => 0,
     'access_author' => '',
-    'show_on_profile' => 0,
-    'access_uid' => '',
-    'module' => 'scf_members',
+    'i18n' => 0,
+    'module' => 'scfmembers',
     'locked' => array(
       0 => 'name',
     ),
     'api_version' => 2,
   );
   return $flags;
-
 }
 
 /**
  * Implements hook_image_default_styles().
  */
-function scf_members_image_default_styles() {
+function scfmembers_image_default_styles() {
   $styles = array();
 
-  // Exported image style: scf_members_thumbnail.
-  $styles['scf_members_thumbnail'] = array(
-    'name' => 'scf_members_thumbnail',
+  // Exported image style: scfmembers_thumbnail
+  $styles['scfmembers_thumbnail'] = array(
+    'name' => 'scfmembers_thumbnail',
     'effects' => array(
       5 => array(
         'label' => 'Scale and crop',
@@ -202,12 +166,12 @@ function scf_members_image_default_styles() {
 /**
  * Implements hook_default_profile2_type().
  */
-function scf_members_default_profile2_type() {
+function scfmembers_default_profile2_type() {
   $items = array();
-  $items['scf_members_profile'] = entity_import('profile2_type', '{
+  $items['scfmembers_profile'] = entity_import('profile2_type', '{
     "userCategory" : true,
     "userView" : true,
-    "type" : "scf_members_profile",
+    "type" : "scfmembers_profile",
     "label" : "Profile",
     "weight" : "0",
     "data" : { "registration" : 1 },

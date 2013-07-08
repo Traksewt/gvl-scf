@@ -1,16 +1,16 @@
 <?php
 /**
  * @file
- * scf_members.quicktabs.inc
+ * scfmembers.quicktabs.inc
  */
 
 /**
  * Implements hook_quicktabs_default_quicktabs().
  */
-function scf_members_quicktabs_default_quicktabs() {
+function scfmembers_quicktabs_default_quicktabs() {
   $export = array();
 
-  $quicktabs = new stdClass();
+  $quicktabs = new stdClass;
   $quicktabs->disabled = FALSE; /* Edit this to true to make a default quicktabs disabled initially */
   $quicktabs->api_version = 1;
   $quicktabs->machine_name = 'member_comments';
@@ -27,7 +27,7 @@ function scf_members_quicktabs_default_quicktabs() {
       'type' => 'block',
     ),
     1 => array(
-      'bid' => 'scf_members_delta_scf_members_most_active',
+      'bid' => 'scfmembers_delta_scfmembers_most_active',
       'hide_title' => 1,
       'title' => 'Most Active Commentator',
       'weight' => '-99',

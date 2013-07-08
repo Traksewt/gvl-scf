@@ -1,17 +1,17 @@
 <?php
 /**
  * @file
- * scf_members.features.taxonomy.inc
+ * scfmembers.features.taxonomy.inc
  */
 
 /**
  * Implements hook_taxonomy_default_vocabularies().
  */
-function scf_members_taxonomy_default_vocabularies() {
+function scfmembers_taxonomy_default_vocabularies() {
   return array(
-    'scf_members_affiliations' => array(
+    'scfmembers_affiliations' => array(
       'name' => 'Affiliations',
-      'machine_name' => 'scf_members_affiliations',
+      'machine_name' => 'scfmembers_affiliations',
       'description' => '',
       'hierarchy' => '0',
       'module' => 'taxonomy',
@@ -32,9 +32,9 @@ function scf_members_taxonomy_default_vocabularies() {
         ),
       ),
     ),
-    'scf_members_clinical_interests' => array(
+    'scfmembers_clinical_interests' => array(
       'name' => 'Clinical interests (not used)',
-      'machine_name' => 'scf_members_clinical_interests',
+      'machine_name' => 'scfmembers_clinical_interests',
       'description' => 'merged into research interests',
       'hierarchy' => '0',
       'module' => 'taxonomy',
@@ -55,9 +55,9 @@ function scf_members_taxonomy_default_vocabularies() {
         ),
       ),
     ),
-    'scf_members_degrees' => array(
+    'scfmembers_degrees' => array(
       'name' => 'Degrees',
-      'machine_name' => 'scf_members_degrees',
+      'machine_name' => 'scfmembers_degrees',
       'description' => '',
       'hierarchy' => '0',
       'module' => 'taxonomy',
@@ -78,9 +78,9 @@ function scf_members_taxonomy_default_vocabularies() {
         ),
       ),
     ),
-    'scf_members_feedback_types' => array(
+    'scfmembers_feedback_types' => array(
       'name' => 'Feedback types',
-      'machine_name' => 'scf_members_feedback_types',
+      'machine_name' => 'scfmembers_feedback_types',
       'description' => '',
       'hierarchy' => '0',
       'module' => 'taxonomy',
@@ -101,9 +101,9 @@ function scf_members_taxonomy_default_vocabularies() {
         ),
       ),
     ),
-    'scf_members_positions' => array(
+    'scfmembers_positions' => array(
       'name' => 'Positions',
-      'machine_name' => 'scf_members_positions',
+      'machine_name' => 'scfmembers_positions',
       'description' => '',
       'hierarchy' => '0',
       'module' => 'taxonomy',
@@ -124,9 +124,9 @@ function scf_members_taxonomy_default_vocabularies() {
         ),
       ),
     ),
-    'scf_members_research_interests' => array(
+    'scfmembers_research_interests' => array(
       'name' => 'Research Interests',
-      'machine_name' => 'scf_members_research_interests',
+      'machine_name' => 'scfmembers_research_interests',
       'description' => '',
       'hierarchy' => '0',
       'module' => 'taxonomy',
@@ -147,9 +147,9 @@ function scf_members_taxonomy_default_vocabularies() {
         ),
       ),
     ),
-    'scf_members_work_sectors' => array(
+    'scfmembers_work_sectors' => array(
       'name' => 'Work Sectors',
-      'machine_name' => 'scf_members_work_sectors',
+      'machine_name' => 'scfmembers_work_sectors',
       'description' => '',
       'hierarchy' => '0',
       'module' => 'taxonomy',

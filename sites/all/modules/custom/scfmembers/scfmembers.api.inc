@@ -1,13 +1,13 @@
 <?php
 
 /**
- * @file - API Functions for scf_members module
+ * @file - API Functions for scfmembers module
 */
 
 /**
  * Define Constants
 */
-define('RECOMMEND_FLAG','scf_members_recommend');
+define('RECOMMEND_FLAG','scfmembers_recommend');
 
 /**
  * Hook for rendering users that recommended a particlar node.
@@ -15,7 +15,7 @@ define('RECOMMEND_FLAG','scf_members_recommend');
  * @param $format - HTML or JSON format. Defaults to json
  * @return void - Prints Output
 */
-function scf_members_get_recommended_users($nid, $format = 'json') {
+function scfmembers_get_recommended_users($nid, $format = 'json') {
   $flags = flag_get_content_flags('node', $nid, RECOMMEND_FLAG);
   $users = array();
   if(!$flags) {

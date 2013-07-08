@@ -1,26 +1,25 @@
 <?php
 /**
  * @file
- * scf_members.features.field.inc
+ * scfmembers.features.field.inc
  */
 
 /**
  * Implements hook_field_default_fields().
  */
-function scf_members_field_default_fields() {
+function scfmembers_field_default_fields() {
   $fields = array();
 
-  // Exported field: 'profile2-scf_members_profile-field_scf_members_address'.
-  $fields['profile2-scf_members_profile-field_scf_members_address'] = array(
+  // Exported field: 'profile2-scfmembers_profile-field_scfmembers_address'
+  $fields['profile2-scfmembers_profile-field_scfmembers_address'] = array(
     'field_config' => array(
       'active' => '1',
       'cardinality' => '1',
       'deleted' => '0',
       'entity_types' => array(),
-      'field_name' => 'field_scf_members_address',
+      'field_name' => 'field_scfmembers_address',
       'foreign keys' => array(),
       'indexes' => array(),
-      'locked' => '0',
       'module' => 'addressfield',
       'settings' => array(
         'profile2_private' => 0,
@@ -29,12 +28,12 @@ function scf_members_field_default_fields() {
       'type' => 'addressfield',
     ),
     'field_instance' => array(
-      'bundle' => 'scf_members_profile',
+      'bundle' => 'scfmembers_profile',
       'default_value' => array(
         0 => array(
           'administrative_area' => '',
           'country' => 'US',
-          'element_key' => 'profile2|scf_members_profile|field_scf_members_address|und|0',
+          'element_key' => 'profile2|scfmembers_profile|field_scfmembers_address|und|0',
           'locality' => '',
           'postal_code' => '',
           'premise' => '',
@@ -58,7 +57,7 @@ function scf_members_field_default_fields() {
         ),
       ),
       'entity_type' => 'profile2',
-      'field_name' => 'field_scf_members_address',
+      'field_name' => 'field_scfmembers_address',
       'label' => 'Address',
       'required' => 0,
       'settings' => array(
@@ -82,14 +81,14 @@ function scf_members_field_default_fields() {
     ),
   );
 
-  // Exported field: 'profile2-scf_members_profile-field_scf_members_affiliation'.
-  $fields['profile2-scf_members_profile-field_scf_members_affiliation'] = array(
+  // Exported field: 'profile2-scfmembers_profile-field_scfmembers_affiliation'
+  $fields['profile2-scfmembers_profile-field_scfmembers_affiliation'] = array(
     'field_config' => array(
       'active' => '1',
       'cardinality' => '-1',
       'deleted' => '0',
       'entity_types' => array(),
-      'field_name' => 'field_scf_members_affiliation',
+      'field_name' => 'field_scfmembers_affiliation',
       'foreign keys' => array(
         'tid' => array(
           'columns' => array(
@@ -103,13 +102,12 @@ function scf_members_field_default_fields() {
           0 => 'tid',
         ),
       ),
-      'locked' => '0',
       'module' => 'taxonomy',
       'settings' => array(
         'allowed_values' => array(
           0 => array(
             'parent' => '0',
-            'vocabulary' => 'scf_members_affiliations',
+            'vocabulary' => 'scfmembers_affiliations',
           ),
         ),
         'profile2_private' => 0,
@@ -118,7 +116,7 @@ function scf_members_field_default_fields() {
       'type' => 'taxonomy_term_reference',
     ),
     'field_instance' => array(
-      'bundle' => 'scf_members_profile',
+      'bundle' => 'scfmembers_profile',
       'default_value' => NULL,
       'deleted' => '0',
       'description' => '',
@@ -132,7 +130,7 @@ function scf_members_field_default_fields() {
         ),
       ),
       'entity_type' => 'profile2',
-      'field_name' => 'field_scf_members_affiliation',
+      'field_name' => 'field_scfmembers_affiliation',
       'label' => 'Affiliations',
       'required' => 1,
       'settings' => array(
@@ -151,26 +149,25 @@ function scf_members_field_default_fields() {
     ),
   );
 
-  // Exported field: 'profile2-scf_members_profile-field_scf_members_agree_tc'.
-  $fields['profile2-scf_members_profile-field_scf_members_agree_tc'] = array(
+  // Exported field: 'profile2-scfmembers_profile-field_scfmembers_agree_tc'
+  $fields['profile2-scfmembers_profile-field_scfmembers_agree_tc'] = array(
     'field_config' => array(
       'active' => '1',
       'cardinality' => '1',
       'deleted' => '0',
       'entity_types' => array(),
-      'field_name' => 'field_scf_members_agree_tc',
+      'field_name' => 'field_scfmembers_agree_tc',
       'foreign keys' => array(),
       'indexes' => array(
         'value' => array(
           0 => 'value',
         ),
       ),
-      'locked' => '0',
       'module' => 'list',
       'settings' => array(
         'allowed_values' => array(
           0 => '',
-          1 => 'I have read and agree to the Terms and Conditions.',
+          1 => 'I have read and agree to the Terms and Conditions of the Multiple Sclerosis Discovery Forum.',
         ),
         'allowed_values_function' => '',
         'profile2_private' => 0,
@@ -179,7 +176,7 @@ function scf_members_field_default_fields() {
       'type' => 'list_boolean',
     ),
     'field_instance' => array(
-      'bundle' => 'scf_members_profile',
+      'bundle' => 'scfmembers_profile',
       'default_value' => array(
         0 => array(
           'value' => 0,
@@ -196,7 +193,7 @@ function scf_members_field_default_fields() {
         ),
       ),
       'entity_type' => 'profile2',
-      'field_name' => 'field_scf_members_agree_tc',
+      'field_name' => 'field_scfmembers_agree_tc',
       'label' => 'Terms & Conditions',
       'required' => 1,
       'settings' => array(
@@ -214,14 +211,14 @@ function scf_members_field_default_fields() {
     ),
   );
 
-  // Exported field: 'profile2-scf_members_profile-field_scf_members_attachment'.
-  $fields['profile2-scf_members_profile-field_scf_members_attachment'] = array(
+  // Exported field: 'profile2-scfmembers_profile-field_scfmembers_attachment'
+  $fields['profile2-scfmembers_profile-field_scfmembers_attachment'] = array(
     'field_config' => array(
       'active' => '1',
       'cardinality' => '1',
       'deleted' => '0',
       'entity_types' => array(),
-      'field_name' => 'field_scf_members_attachment',
+      'field_name' => 'field_scfmembers_attachment',
       'foreign keys' => array(
         'fid' => array(
           'columns' => array(
@@ -235,7 +232,6 @@ function scf_members_field_default_fields() {
           0 => 'fid',
         ),
       ),
-      'locked' => '0',
       'module' => 'file',
       'settings' => array(
         'display_default' => 0,
@@ -247,7 +243,7 @@ function scf_members_field_default_fields() {
       'type' => 'file',
     ),
     'field_instance' => array(
-      'bundle' => 'scf_members_profile',
+      'bundle' => 'scfmembers_profile',
       'deleted' => '0',
       'description' => '',
       'display' => array(
@@ -260,12 +256,12 @@ function scf_members_field_default_fields() {
         ),
       ),
       'entity_type' => 'profile2',
-      'field_name' => 'field_scf_members_attachment',
+      'field_name' => 'field_scfmembers_attachment',
       'label' => 'Upload CV or Biosketch',
       'required' => 0,
       'settings' => array(
         'description_field' => 0,
-        'file_directory' => 'scf_members_attachment',
+        'file_directory' => 'scfmembers_attachment',
         'file_extensions' => 'txt pdf doc docx rtf',
         'max_filesize' => '16 MB',
         'user_register_form' => FALSE,
@@ -274,17 +270,6 @@ function scf_members_field_default_fields() {
         'active' => 1,
         'module' => 'file',
         'settings' => array(
-          'caption_from_title' => 0,
-          'insert' => 0,
-          'insert_absolute' => FALSE,
-          'insert_class' => '',
-          'insert_default' => array(
-            0 => 'auto',
-          ),
-          'insert_styles' => array(
-            0 => 'auto',
-          ),
-          'insert_width' => '',
           'progress_indicator' => 'throbber',
         ),
         'type' => 'file_generic',
@@ -293,14 +278,14 @@ function scf_members_field_default_fields() {
     ),
   );
 
-  // Exported field: 'profile2-scf_members_profile-field_scf_members_clinical_i'.
-  $fields['profile2-scf_members_profile-field_scf_members_clinical_i'] = array(
+  // Exported field: 'profile2-scfmembers_profile-field_scfmembers_clinical_i'
+  $fields['profile2-scfmembers_profile-field_scfmembers_clinical_i'] = array(
     'field_config' => array(
       'active' => '1',
       'cardinality' => '-1',
       'deleted' => '0',
       'entity_types' => array(),
-      'field_name' => 'field_scf_members_clinical_i',
+      'field_name' => 'field_scfmembers_clinical_i',
       'foreign keys' => array(
         'tid' => array(
           'columns' => array(
@@ -314,13 +299,12 @@ function scf_members_field_default_fields() {
           0 => 'tid',
         ),
       ),
-      'locked' => '0',
       'module' => 'taxonomy',
       'settings' => array(
         'allowed_values' => array(
           0 => array(
             'parent' => '0',
-            'vocabulary' => 'scf_members_clinical_interests',
+            'vocabulary' => 'scfmembers_clinical_interests',
           ),
         ),
         'profile2_private' => 0,
@@ -329,7 +313,7 @@ function scf_members_field_default_fields() {
       'type' => 'taxonomy_term_reference',
     ),
     'field_instance' => array(
-      'bundle' => 'scf_members_profile',
+      'bundle' => 'scfmembers_profile',
       'default_value' => NULL,
       'deleted' => '0',
       'description' => 'Please list clinical interests, separated by commas, with your primary interest first',
@@ -342,7 +326,7 @@ function scf_members_field_default_fields() {
         ),
       ),
       'entity_type' => 'profile2',
-      'field_name' => 'field_scf_members_clinical_i',
+      'field_name' => 'field_scfmembers_clinical_i',
       'label' => 'Clinical interests (not used, merged into research interests)',
       'required' => 0,
       'settings' => array(
@@ -361,14 +345,14 @@ function scf_members_field_default_fields() {
     ),
   );
 
-  // Exported field: 'profile2-scf_members_profile-field_scf_members_department'.
-  $fields['profile2-scf_members_profile-field_scf_members_department'] = array(
+  // Exported field: 'profile2-scfmembers_profile-field_scfmembers_department'
+  $fields['profile2-scfmembers_profile-field_scfmembers_department'] = array(
     'field_config' => array(
       'active' => '1',
       'cardinality' => '1',
       'deleted' => '0',
       'entity_types' => array(),
-      'field_name' => 'field_scf_members_department',
+      'field_name' => 'field_scfmembers_department',
       'foreign keys' => array(
         'format' => array(
           'columns' => array(
@@ -382,7 +366,6 @@ function scf_members_field_default_fields() {
           0 => 'format',
         ),
       ),
-      'locked' => '0',
       'module' => 'text',
       'settings' => array(
         'max_length' => '255',
@@ -392,7 +375,7 @@ function scf_members_field_default_fields() {
       'type' => 'text',
     ),
     'field_instance' => array(
-      'bundle' => 'scf_members_profile',
+      'bundle' => 'scfmembers_profile',
       'default_value' => NULL,
       'deleted' => '0',
       'description' => '',
@@ -406,7 +389,7 @@ function scf_members_field_default_fields() {
         ),
       ),
       'entity_type' => 'profile2',
-      'field_name' => 'field_scf_members_department',
+      'field_name' => 'field_scfmembers_department',
       'label' => 'Department',
       'required' => 0,
       'settings' => array(
@@ -425,14 +408,14 @@ function scf_members_field_default_fields() {
     ),
   );
 
-  // Exported field: 'profile2-scf_members_profile-field_scf_members_fax'.
-  $fields['profile2-scf_members_profile-field_scf_members_fax'] = array(
+  // Exported field: 'profile2-scfmembers_profile-field_scfmembers_fax'
+  $fields['profile2-scfmembers_profile-field_scfmembers_fax'] = array(
     'field_config' => array(
       'active' => '1',
       'cardinality' => '1',
       'deleted' => '0',
       'entity_types' => array(),
-      'field_name' => 'field_scf_members_fax',
+      'field_name' => 'field_scfmembers_fax',
       'foreign keys' => array(
         'format' => array(
           'columns' => array(
@@ -446,7 +429,6 @@ function scf_members_field_default_fields() {
           0 => 'format',
         ),
       ),
-      'locked' => '0',
       'module' => 'text',
       'settings' => array(
         'max_length' => '255',
@@ -456,7 +438,7 @@ function scf_members_field_default_fields() {
       'type' => 'text',
     ),
     'field_instance' => array(
-      'bundle' => 'scf_members_profile',
+      'bundle' => 'scfmembers_profile',
       'default_value' => NULL,
       'deleted' => '0',
       'description' => '',
@@ -470,7 +452,7 @@ function scf_members_field_default_fields() {
         ),
       ),
       'entity_type' => 'profile2',
-      'field_name' => 'field_scf_members_fax',
+      'field_name' => 'field_scfmembers_fax',
       'label' => 'Fax',
       'required' => 0,
       'settings' => array(
@@ -489,14 +471,14 @@ function scf_members_field_default_fields() {
     ),
   );
 
-  // Exported field: 'profile2-scf_members_profile-field_scf_members_feedback'.
-  $fields['profile2-scf_members_profile-field_scf_members_feedback'] = array(
+  // Exported field: 'profile2-scfmembers_profile-field_scfmembers_feedback'
+  $fields['profile2-scfmembers_profile-field_scfmembers_feedback'] = array(
     'field_config' => array(
       'active' => '1',
       'cardinality' => '-1',
       'deleted' => '0',
       'entity_types' => array(),
-      'field_name' => 'field_scf_members_feedback',
+      'field_name' => 'field_scfmembers_feedback',
       'foreign keys' => array(
         'tid' => array(
           'columns' => array(
@@ -510,13 +492,12 @@ function scf_members_field_default_fields() {
           0 => 'tid',
         ),
       ),
-      'locked' => '0',
       'module' => 'taxonomy',
       'settings' => array(
         'allowed_values' => array(
           0 => array(
             'parent' => '0',
-            'vocabulary' => 'scf_members_feedback_types',
+            'vocabulary' => 'scfmembers_feedback_types',
           ),
         ),
         'profile2_private' => 0,
@@ -525,7 +506,7 @@ function scf_members_field_default_fields() {
       'type' => 'taxonomy_term_reference',
     ),
     'field_instance' => array(
-      'bundle' => 'scf_members_profile',
+      'bundle' => 'scfmembers_profile',
       'default_value' => NULL,
       'deleted' => '0',
       'description' => '',
@@ -538,7 +519,7 @@ function scf_members_field_default_fields() {
         ),
       ),
       'entity_type' => 'profile2',
-      'field_name' => 'field_scf_members_feedback',
+      'field_name' => 'field_scfmembers_feedback',
       'label' => 'How did you hear about us?',
       'required' => 1,
       'settings' => array(
@@ -554,14 +535,14 @@ function scf_members_field_default_fields() {
     ),
   );
 
-  // Exported field: 'profile2-scf_members_profile-field_scf_members_feedback_other'.
-  $fields['profile2-scf_members_profile-field_scf_members_feedback_other'] = array(
+  // Exported field: 'profile2-scfmembers_profile-field_scfmembers_feedback_other'
+  $fields['profile2-scfmembers_profile-field_scfmembers_feedback_other'] = array(
     'field_config' => array(
       'active' => '1',
       'cardinality' => '1',
       'deleted' => '0',
       'entity_types' => array(),
-      'field_name' => 'field_scf_members_feedback_other',
+      'field_name' => 'field_scfmembers_feedback_other',
       'foreign keys' => array(
         'format' => array(
           'columns' => array(
@@ -575,7 +556,6 @@ function scf_members_field_default_fields() {
           0 => 'format',
         ),
       ),
-      'locked' => '0',
       'module' => 'text',
       'settings' => array(
         'max_length' => '255',
@@ -585,7 +565,7 @@ function scf_members_field_default_fields() {
       'type' => 'text',
     ),
     'field_instance' => array(
-      'bundle' => 'scf_members_profile',
+      'bundle' => 'scfmembers_profile',
       'default_value' => NULL,
       'deleted' => '0',
       'description' => '',
@@ -598,7 +578,7 @@ function scf_members_field_default_fields() {
         ),
       ),
       'entity_type' => 'profile2',
-      'field_name' => 'field_scf_members_feedback_other',
+      'field_name' => 'field_scfmembers_feedback_other',
       'label' => 'How did you hear about us? (other)',
       'required' => 0,
       'settings' => array(
@@ -617,14 +597,14 @@ function scf_members_field_default_fields() {
     ),
   );
 
-  // Exported field: 'profile2-scf_members_profile-field_scf_members_firstname'.
-  $fields['profile2-scf_members_profile-field_scf_members_firstname'] = array(
+  // Exported field: 'profile2-scfmembers_profile-field_scfmembers_firstname'
+  $fields['profile2-scfmembers_profile-field_scfmembers_firstname'] = array(
     'field_config' => array(
       'active' => '1',
       'cardinality' => '1',
       'deleted' => '0',
       'entity_types' => array(),
-      'field_name' => 'field_scf_members_firstname',
+      'field_name' => 'field_scfmembers_firstname',
       'foreign keys' => array(
         'format' => array(
           'columns' => array(
@@ -638,7 +618,6 @@ function scf_members_field_default_fields() {
           0 => 'format',
         ),
       ),
-      'locked' => '0',
       'module' => 'text',
       'settings' => array(
         'max_length' => '255',
@@ -648,7 +627,7 @@ function scf_members_field_default_fields() {
       'type' => 'text',
     ),
     'field_instance' => array(
-      'bundle' => 'scf_members_profile',
+      'bundle' => 'scfmembers_profile',
       'default_value' => NULL,
       'deleted' => '0',
       'description' => '',
@@ -661,7 +640,7 @@ function scf_members_field_default_fields() {
         ),
       ),
       'entity_type' => 'profile2',
-      'field_name' => 'field_scf_members_firstname',
+      'field_name' => 'field_scfmembers_firstname',
       'label' => 'First name',
       'required' => 1,
       'settings' => array(
@@ -680,14 +659,14 @@ function scf_members_field_default_fields() {
     ),
   );
 
-  // Exported field: 'profile2-scf_members_profile-field_scf_members_funding_grant'.
-  $fields['profile2-scf_members_profile-field_scf_members_funding_grant'] = array(
+  // Exported field: 'profile2-scfmembers_profile-field_scfmembers_funding_grant'
+  $fields['profile2-scfmembers_profile-field_scfmembers_funding_grant'] = array(
     'field_config' => array(
       'active' => '1',
       'cardinality' => '1',
       'deleted' => '0',
       'entity_types' => array(),
-      'field_name' => 'field_scf_members_funding_grant',
+      'field_name' => 'field_scfmembers_funding_grant',
       'foreign keys' => array(
         'format' => array(
           'columns' => array(
@@ -701,7 +680,6 @@ function scf_members_field_default_fields() {
           0 => 'format',
         ),
       ),
-      'locked' => '0',
       'module' => 'text',
       'settings' => array(
         'max_length' => '255',
@@ -711,7 +689,7 @@ function scf_members_field_default_fields() {
       'type' => 'text',
     ),
     'field_instance' => array(
-      'bundle' => 'scf_members_profile',
+      'bundle' => 'scfmembers_profile',
       'default_value' => NULL,
       'deleted' => '0',
       'description' => '',
@@ -725,7 +703,7 @@ function scf_members_field_default_fields() {
         ),
       ),
       'entity_type' => 'profile2',
-      'field_name' => 'field_scf_members_funding_grant',
+      'field_name' => 'field_scfmembers_funding_grant',
       'label' => 'Funding/Grants',
       'required' => 0,
       'settings' => array(
@@ -744,14 +722,14 @@ function scf_members_field_default_fields() {
     ),
   );
 
-  // Exported field: 'profile2-scf_members_profile-field_scf_members_hdegree'.
-  $fields['profile2-scf_members_profile-field_scf_members_hdegree'] = array(
+  // Exported field: 'profile2-scfmembers_profile-field_scfmembers_hdegree'
+  $fields['profile2-scfmembers_profile-field_scfmembers_hdegree'] = array(
     'field_config' => array(
       'active' => '1',
       'cardinality' => '-1',
       'deleted' => '0',
       'entity_types' => array(),
-      'field_name' => 'field_scf_members_hdegree',
+      'field_name' => 'field_scfmembers_hdegree',
       'foreign keys' => array(
         'tid' => array(
           'columns' => array(
@@ -765,13 +743,12 @@ function scf_members_field_default_fields() {
           0 => 'tid',
         ),
       ),
-      'locked' => '0',
       'module' => 'taxonomy',
       'settings' => array(
         'allowed_values' => array(
           0 => array(
             'parent' => '0',
-            'vocabulary' => 'scf_members_degrees',
+            'vocabulary' => 'scfmembers_degrees',
           ),
         ),
         'profile2_private' => 0,
@@ -780,7 +757,7 @@ function scf_members_field_default_fields() {
       'type' => 'taxonomy_term_reference',
     ),
     'field_instance' => array(
-      'bundle' => 'scf_members_profile',
+      'bundle' => 'scfmembers_profile',
       'default_value' => NULL,
       'deleted' => '0',
       'description' => '',
@@ -794,7 +771,7 @@ function scf_members_field_default_fields() {
         ),
       ),
       'entity_type' => 'profile2',
-      'field_name' => 'field_scf_members_hdegree',
+      'field_name' => 'field_scfmembers_hdegree',
       'label' => 'Highest degree(s) earned',
       'required' => 0,
       'settings' => array(
@@ -813,14 +790,14 @@ function scf_members_field_default_fields() {
     ),
   );
 
-  // Exported field: 'profile2-scf_members_profile-field_scf_members_lastname'.
-  $fields['profile2-scf_members_profile-field_scf_members_lastname'] = array(
+  // Exported field: 'profile2-scfmembers_profile-field_scfmembers_lastname'
+  $fields['profile2-scfmembers_profile-field_scfmembers_lastname'] = array(
     'field_config' => array(
       'active' => '1',
       'cardinality' => '1',
       'deleted' => '0',
       'entity_types' => array(),
-      'field_name' => 'field_scf_members_lastname',
+      'field_name' => 'field_scfmembers_lastname',
       'foreign keys' => array(
         'format' => array(
           'columns' => array(
@@ -834,7 +811,6 @@ function scf_members_field_default_fields() {
           0 => 'format',
         ),
       ),
-      'locked' => '0',
       'module' => 'text',
       'settings' => array(
         'max_length' => '255',
@@ -844,7 +820,7 @@ function scf_members_field_default_fields() {
       'type' => 'text',
     ),
     'field_instance' => array(
-      'bundle' => 'scf_members_profile',
+      'bundle' => 'scfmembers_profile',
       'default_value' => NULL,
       'deleted' => '0',
       'description' => '',
@@ -857,7 +833,7 @@ function scf_members_field_default_fields() {
         ),
       ),
       'entity_type' => 'profile2',
-      'field_name' => 'field_scf_members_lastname',
+      'field_name' => 'field_scfmembers_lastname',
       'label' => 'Last name',
       'required' => 1,
       'settings' => array(
@@ -876,14 +852,14 @@ function scf_members_field_default_fields() {
     ),
   );
 
-  // Exported field: 'profile2-scf_members_profile-field_scf_members_phone'.
-  $fields['profile2-scf_members_profile-field_scf_members_phone'] = array(
+  // Exported field: 'profile2-scfmembers_profile-field_scfmembers_phone'
+  $fields['profile2-scfmembers_profile-field_scfmembers_phone'] = array(
     'field_config' => array(
       'active' => '1',
       'cardinality' => '1',
       'deleted' => '0',
       'entity_types' => array(),
-      'field_name' => 'field_scf_members_phone',
+      'field_name' => 'field_scfmembers_phone',
       'foreign keys' => array(
         'format' => array(
           'columns' => array(
@@ -897,7 +873,6 @@ function scf_members_field_default_fields() {
           0 => 'format',
         ),
       ),
-      'locked' => '0',
       'module' => 'text',
       'settings' => array(
         'max_length' => '255',
@@ -907,7 +882,7 @@ function scf_members_field_default_fields() {
       'type' => 'text',
     ),
     'field_instance' => array(
-      'bundle' => 'scf_members_profile',
+      'bundle' => 'scfmembers_profile',
       'default_value' => NULL,
       'deleted' => '0',
       'description' => '',
@@ -921,7 +896,7 @@ function scf_members_field_default_fields() {
         ),
       ),
       'entity_type' => 'profile2',
-      'field_name' => 'field_scf_members_phone',
+      'field_name' => 'field_scfmembers_phone',
       'label' => 'Phone',
       'required' => 0,
       'settings' => array(
@@ -940,14 +915,14 @@ function scf_members_field_default_fields() {
     ),
   );
 
-  // Exported field: 'profile2-scf_members_profile-field_scf_members_photo'.
-  $fields['profile2-scf_members_profile-field_scf_members_photo'] = array(
+  // Exported field: 'profile2-scfmembers_profile-field_scfmembers_photo'
+  $fields['profile2-scfmembers_profile-field_scfmembers_photo'] = array(
     'field_config' => array(
       'active' => '1',
       'cardinality' => '1',
       'deleted' => '0',
       'entity_types' => array(),
-      'field_name' => 'field_scf_members_photo',
+      'field_name' => 'field_scfmembers_photo',
       'foreign keys' => array(
         'fid' => array(
           'columns' => array(
@@ -961,7 +936,6 @@ function scf_members_field_default_fields() {
           0 => 'fid',
         ),
       ),
-      'locked' => '0',
       'module' => 'image',
       'settings' => array(
         'default_image' => 0,
@@ -972,7 +946,7 @@ function scf_members_field_default_fields() {
       'type' => 'image',
     ),
     'field_instance' => array(
-      'bundle' => 'scf_members_profile',
+      'bundle' => 'scfmembers_profile',
       'deleted' => '0',
       'description' => 'Photos will display as squares, so for best results, please load a square image.',
       'display' => array(
@@ -988,13 +962,12 @@ function scf_members_field_default_fields() {
         ),
       ),
       'entity_type' => 'profile2',
-      'field_name' => 'field_scf_members_photo',
+      'field_name' => 'field_scfmembers_photo',
       'label' => 'Photo',
       'required' => 0,
       'settings' => array(
         'alt_field' => 0,
-        'default_image' => '619',
-        'file_directory' => 'scf_members_photo',
+        'file_directory' => 'scfmembers_photo',
         'file_extensions' => 'png gif jpg jpeg',
         'max_filesize' => '10 MB',
         'max_resolution' => '',
@@ -1006,17 +979,6 @@ function scf_members_field_default_fields() {
         'active' => 1,
         'module' => 'image',
         'settings' => array(
-          'caption_from_title' => 0,
-          'insert' => 0,
-          'insert_absolute' => FALSE,
-          'insert_class' => '',
-          'insert_default' => array(
-            0 => 'auto',
-          ),
-          'insert_styles' => array(
-            0 => 'auto',
-          ),
-          'insert_width' => '',
           'preview_image_style' => 'thumbnail',
           'progress_indicator' => 'throbber',
         ),
@@ -1026,14 +988,14 @@ function scf_members_field_default_fields() {
     ),
   );
 
-  // Exported field: 'profile2-scf_members_profile-field_scf_members_position'.
-  $fields['profile2-scf_members_profile-field_scf_members_position'] = array(
+  // Exported field: 'profile2-scfmembers_profile-field_scfmembers_position'
+  $fields['profile2-scfmembers_profile-field_scfmembers_position'] = array(
     'field_config' => array(
       'active' => '1',
       'cardinality' => '-1',
       'deleted' => '0',
       'entity_types' => array(),
-      'field_name' => 'field_scf_members_position',
+      'field_name' => 'field_scfmembers_position',
       'foreign keys' => array(
         'tid' => array(
           'columns' => array(
@@ -1047,13 +1009,12 @@ function scf_members_field_default_fields() {
           0 => 'tid',
         ),
       ),
-      'locked' => '0',
       'module' => 'taxonomy',
       'settings' => array(
         'allowed_values' => array(
           0 => array(
             'parent' => '0',
-            'vocabulary' => 'scf_members_positions',
+            'vocabulary' => 'scfmembers_positions',
           ),
         ),
         'profile2_private' => 0,
@@ -1062,7 +1023,7 @@ function scf_members_field_default_fields() {
       'type' => 'taxonomy_term_reference',
     ),
     'field_instance' => array(
-      'bundle' => 'scf_members_profile',
+      'bundle' => 'scfmembers_profile',
       'default_value' => NULL,
       'deleted' => '0',
       'description' => 'Check all that apply',
@@ -1076,7 +1037,7 @@ function scf_members_field_default_fields() {
         ),
       ),
       'entity_type' => 'profile2',
-      'field_name' => 'field_scf_members_position',
+      'field_name' => 'field_scfmembers_position',
       'label' => 'Position',
       'required' => 1,
       'settings' => array(
@@ -1092,14 +1053,14 @@ function scf_members_field_default_fields() {
     ),
   );
 
-  // Exported field: 'profile2-scf_members_profile-field_scf_members_position_other'.
-  $fields['profile2-scf_members_profile-field_scf_members_position_other'] = array(
+  // Exported field: 'profile2-scfmembers_profile-field_scfmembers_position_other'
+  $fields['profile2-scfmembers_profile-field_scfmembers_position_other'] = array(
     'field_config' => array(
       'active' => '1',
       'cardinality' => '1',
       'deleted' => '0',
       'entity_types' => array(),
-      'field_name' => 'field_scf_members_position_other',
+      'field_name' => 'field_scfmembers_position_other',
       'foreign keys' => array(
         'format' => array(
           'columns' => array(
@@ -1113,7 +1074,6 @@ function scf_members_field_default_fields() {
           0 => 'format',
         ),
       ),
-      'locked' => '0',
       'module' => 'text',
       'settings' => array(
         'max_length' => '255',
@@ -1123,7 +1083,7 @@ function scf_members_field_default_fields() {
       'type' => 'text',
     ),
     'field_instance' => array(
-      'bundle' => 'scf_members_profile',
+      'bundle' => 'scfmembers_profile',
       'default_value' => NULL,
       'deleted' => '0',
       'description' => '',
@@ -1137,7 +1097,7 @@ function scf_members_field_default_fields() {
         ),
       ),
       'entity_type' => 'profile2',
-      'field_name' => 'field_scf_members_position_other',
+      'field_name' => 'field_scfmembers_position_other',
       'label' => 'Position (other)',
       'required' => 0,
       'settings' => array(
@@ -1156,14 +1116,91 @@ function scf_members_field_default_fields() {
     ),
   );
 
-  // Exported field: 'profile2-scf_members_profile-field_scf_members_research_focus'.
-  $fields['profile2-scf_members_profile-field_scf_members_research_focus'] = array(
+  // Exported field: 'profile2-scfmembers_profile-field_scfmembers_publication'
+  $fields['profile2-scfmembers_profile-field_scfmembers_publication'] = array(
+    'field_config' => array(
+      'active' => '1',
+      'cardinality' => '-1',
+      'deleted' => '0',
+      'entity_types' => array(),
+      'field_name' => 'field_scfmembers_publication',
+      'foreign keys' => array(
+        'nid' => array(
+          'columns' => array(
+            'nid' => 'nid',
+          ),
+          'table' => 'node',
+        ),
+      ),
+      'indexes' => array(
+        'nid' => array(
+          0 => 'nid',
+        ),
+      ),
+      'module' => 'node_reference',
+      'settings' => array(
+        'profile2_private' => 0,
+        'referenceable_types' => array(
+          'biblio' => 'biblio',
+          'biblio_topic_query' => 0,
+          'blogs' => 0,
+          'collection' => 0,
+          'discussion' => 0,
+          'essays_opinions' => 0,
+          'new_findings' => 0,
+          'new_synthesis' => 0,
+          'node_block' => 0,
+          'page' => 0,
+          'topic_queue' => 0,
+          'webinar' => 0,
+        ),
+        'view' => array(
+          'args' => array(),
+          'display_name' => '',
+          'view_name' => '',
+        ),
+      ),
+      'translatable' => '0',
+      'type' => 'node_reference',
+    ),
+    'field_instance' => array(
+      'bundle' => 'scfmembers_profile',
+      'default_value' => NULL,
+      'deleted' => '0',
+      'description' => '',
+      'display' => array(
+        'default' => array(
+          'label' => 'above',
+          'settings' => array(),
+          'type' => 'hidden',
+          'weight' => '22',
+        ),
+      ),
+      'entity_type' => 'profile2',
+      'field_name' => 'field_scfmembers_publication',
+      'label' => 'Publications',
+      'required' => 0,
+      'settings' => array(
+        'user_register_form' => FALSE,
+      ),
+      'widget' => array(
+        'active' => 1,
+        'module' => 'options',
+        'settings' => array(),
+        'type' => 'options_select',
+        'weight' => '24',
+      ),
+    ),
+  );
+
+  // Exported field: 'profile2-scfmembers_profile-field_scfmembers_research_focus'
+  $fields['profile2-scfmembers_profile-field_scfmembers_research_focus'] = array(
     'field_config' => array(
       'active' => '1',
       'cardinality' => '1',
       'deleted' => '0',
       'entity_types' => array(),
-      'field_name' => 'field_scf_members_research_focus',
+      'field_name' => 'field_scfmembers_research_focus',
       'field_permissions' => array(
         'type' => '0',
       ),
@@ -1180,7 +1217,6 @@ function scf_members_field_default_fields() {
           0 => 'format',
         ),
       ),
-      'locked' => '0',
       'module' => 'text',
       'settings' => array(
         'profile2_private' => 0,
@@ -1189,7 +1225,7 @@ function scf_members_field_default_fields() {
       'type' => 'text_long',
     ),
     'field_instance' => array(
-      'bundle' => 'scf_members_profile',
+      'bundle' => 'scfmembers_profile',
       'default_value' => NULL,
       'deleted' => '0',
       'description' => '',
@@ -1203,7 +1239,7 @@ function scf_members_field_default_fields() {
         ),
       ),
       'entity_type' => 'profile2',
-      'field_name' => 'field_scf_members_research_focus',
+      'field_name' => 'field_scfmembers_research_focus',
       'label' => 'Research focus',
       'required' => 0,
       'settings' => array(
@@ -1222,14 +1258,14 @@ function scf_members_field_default_fields() {
     ),
   );
 
-  // Exported field: 'profile2-scf_members_profile-field_scf_members_research_i'.
-  $fields['profile2-scf_members_profile-field_scf_members_research_i'] = array(
+  // Exported field: 'profile2-scfmembers_profile-field_scfmembers_research_i'
+  $fields['profile2-scfmembers_profile-field_scfmembers_research_i'] = array(
     'field_config' => array(
       'active' => '1',
       'cardinality' => '-1',
       'deleted' => '0',
       'entity_types' => array(),
-      'field_name' => 'field_scf_members_research_i',
+      'field_name' => 'field_scfmembers_research_i',
       'foreign keys' => array(
         'tid' => array(
           'columns' => array(
@@ -1243,13 +1279,12 @@ function scf_members_field_default_fields() {
           0 => 'tid',
         ),
       ),
-      'locked' => '0',
       'module' => 'taxonomy',
       'settings' => array(
         'allowed_values' => array(
           0 => array(
             'parent' => '0',
-            'vocabulary' => 'scf_members_research_interests',
+            'vocabulary' => 'scfmembers_research_interests',
           ),
         ),
         'profile2_private' => 0,
@@ -1258,7 +1293,7 @@ function scf_members_field_default_fields() {
       'type' => 'taxonomy_term_reference',
     ),
     'field_instance' => array(
-      'bundle' => 'scf_members_profile',
+      'bundle' => 'scfmembers_profile',
       'default_value' => NULL,
       'deleted' => '0',
       'description' => 'Please list research / clinical interests, separated by commas, with your primary interest first',
@@ -1272,7 +1307,6 @@ function scf_members_field_default_fields() {
             'textformatter_comma_full_stop' => 0,
             'textformatter_comma_override' => 0,
             'textformatter_comma_tag' => 'div',
-            'textformatter_contrib' => array(),
             'textformatter_separator_custom' => '',
             'textformatter_separator_custom_class' => 'textformatter-separator',
             'textformatter_separator_custom_tag' => 'span',
@@ -1284,7 +1318,7 @@ function scf_members_field_default_fields() {
         ),
       ),
       'entity_type' => 'profile2',
-      'field_name' => 'field_scf_members_research_i',
+      'field_name' => 'field_scfmembers_research_i',
       'label' => 'Research/Clinical interest(s)',
       'required' => 1,
       'settings' => array(
@@ -1303,14 +1337,14 @@ function scf_members_field_default_fields() {
     ),
   );
 
-  // Exported field: 'profile2-scf_members_profile-field_scf_members_title'.
-  $fields['profile2-scf_members_profile-field_scf_members_title'] = array(
+  // Exported field: 'profile2-scfmembers_profile-field_scfmembers_title'
+  $fields['profile2-scfmembers_profile-field_scfmembers_title'] = array(
     'field_config' => array(
       'active' => '1',
       'cardinality' => '1',
       'deleted' => '0',
       'entity_types' => array(),
-      'field_name' => 'field_scf_members_title',
+      'field_name' => 'field_scfmembers_title',
       'foreign keys' => array(
         'format' => array(
           'columns' => array(
@@ -1324,7 +1358,6 @@ function scf_members_field_default_fields() {
           0 => 'format',
         ),
       ),
-      'locked' => '0',
       'module' => 'text',
       'settings' => array(
         'max_length' => '255',
@@ -1334,7 +1367,7 @@ function scf_members_field_default_fields() {
       'type' => 'text',
     ),
     'field_instance' => array(
-      'bundle' => 'scf_members_profile',
+      'bundle' => 'scfmembers_profile',
       'default_value' => NULL,
       'deleted' => '0',
       'description' => '',
@@ -1348,7 +1381,7 @@ function scf_members_field_default_fields() {
         ),
       ),
       'entity_type' => 'profile2',
-      'field_name' => 'field_scf_members_title',
+      'field_name' => 'field_scfmembers_title',
       'label' => 'Title',
       'required' => 0,
       'settings' => array(
@@ -1367,14 +1400,14 @@ function scf_members_field_default_fields() {
     ),
   );
 
-  // Exported field: 'profile2-scf_members_profile-field_scf_members_vci_statement'.
-  $fields['profile2-scf_members_profile-field_scf_members_vci_statement'] = array(
+  // Exported field: 'profile2-scfmembers_profile-field_scfmembers_vci_statement'
+  $fields['profile2-scfmembers_profile-field_scfmembers_vci_statement'] = array(
     'field_config' => array(
       'active' => '1',
       'cardinality' => '1',
       'deleted' => '0',
       'entity_types' => array(),
-      'field_name' => 'field_scf_members_vci_statement',
+      'field_name' => 'field_scfmembers_vci_statement',
       'field_permissions' => array(
         'type' => '0',
       ),
@@ -1391,7 +1424,6 @@ function scf_members_field_default_fields() {
           0 => 'format',
         ),
       ),
-      'locked' => '0',
       'module' => 'text',
       'settings' => array(
         'profile2_private' => 0,
@@ -1400,7 +1432,7 @@ function scf_members_field_default_fields() {
       'type' => 'text_long',
     ),
     'field_instance' => array(
-      'bundle' => 'scf_members_profile',
+      'bundle' => 'scfmembers_profile',
       'default_value' => NULL,
       'deleted' => '0',
       'description' => '',
@@ -1414,7 +1446,7 @@ function scf_members_field_default_fields() {
         ),
       ),
       'entity_type' => 'profile2',
-      'field_name' => 'field_scf_members_vci_statement',
+      'field_name' => 'field_scfmembers_vci_statement',
       'label' => 'Voluntary conflict of interest statement',
       'required' => 0,
       'settings' => array(
@@ -1433,17 +1465,16 @@ function scf_members_field_default_fields() {
     ),
   );
 
-  // Exported field: 'profile2-scf_members_profile-field_scf_members_website_link'.
-  $fields['profile2-scf_members_profile-field_scf_members_website_link'] = array(
+  // Exported field: 'profile2-scfmembers_profile-field_scfmembers_website_link'
+  $fields['profile2-scfmembers_profile-field_scfmembers_website_link'] = array(
     'field_config' => array(
       'active' => '1',
       'cardinality' => '1',
       'deleted' => '0',
       'entity_types' => array(),
-      'field_name' => 'field_scf_members_website_link',
+      'field_name' => 'field_scfmembers_website_link',
       'foreign keys' => array(),
       'indexes' => array(),
-      'locked' => '0',
       'module' => 'link',
       'settings' => array(
         'attributes' => array(
@@ -1465,7 +1496,7 @@ function scf_members_field_default_fields() {
       'type' => 'link_field',
     ),
     'field_instance' => array(
-      'bundle' => 'scf_members_profile',
+      'bundle' => 'scfmembers_profile',
       'default_value' => NULL,
       'deleted' => '0',
       'description' => '',
@@ -1479,7 +1510,7 @@ function scf_members_field_default_fields() {
         ),
       ),
       'entity_type' => 'profile2',
-      'field_name' => 'field_scf_members_website_link',
+      'field_name' => 'field_scfmembers_website_link',
       'label' => 'Website',
       'required' => 0,
       'settings' => array(
@@ -1511,14 +1542,14 @@ function scf_members_field_default_fields() {
     ),
   );
 
-  // Exported field: 'profile2-scf_members_profile-field_scf_members_work_sector'.
-  $fields['profile2-scf_members_profile-field_scf_members_work_sector'] = array(
+  // Exported field: 'profile2-scfmembers_profile-field_scfmembers_work_sector'
+  $fields['profile2-scfmembers_profile-field_scfmembers_work_sector'] = array(
     'field_config' => array(
       'active' => '1',
       'cardinality' => '1',
       'deleted' => '0',
       'entity_types' => array(),
-      'field_name' => 'field_scf_members_work_sector',
+      'field_name' => 'field_scfmembers_work_sector',
       'foreign keys' => array(
         'tid' => array(
           'columns' => array(
@@ -1532,13 +1563,12 @@ function scf_members_field_default_fields() {
           0 => 'tid',
         ),
       ),
-      'locked' => '0',
       'module' => 'taxonomy',
       'settings' => array(
         'allowed_values' => array(
           0 => array(
             'parent' => '0',
-            'vocabulary' => 'scf_members_work_sectors',
+            'vocabulary' => 'scfmembers_work_sectors',
           ),
         ),
         'profile2_private' => 0,
@@ -1547,7 +1577,7 @@ function scf_members_field_default_fields() {
       'type' => 'taxonomy_term_reference',
     ),
     'field_instance' => array(
-      'bundle' => 'scf_members_profile',
+      'bundle' => 'scfmembers_profile',
       'default_value' => NULL,
       'deleted' => '0',
       'description' => '',
@@ -1561,7 +1591,7 @@ function scf_members_field_default_fields() {
         ),
       ),
       'entity_type' => 'profile2',
-      'field_name' => 'field_scf_members_work_sector',
+      'field_name' => 'field_scfmembers_work_sector',
       'label' => 'Work sector',
       'required' => 0,
       'settings' => array(
@@ -1598,6 +1628,7 @@ function scf_members_field_default_fields() {
   t('Please list research / clinical interests, separated by commas, with your primary interest first');
   t('Position');
   t('Position (other)');
+  t('Publications');
   t('Research focus');
   t('Research/Clinical interest(s)');
   t('Terms & Conditions');
