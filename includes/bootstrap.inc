@@ -41,6 +41,16 @@ define('ERROR_REPORTING_DISPLAY_SOME', 1);
 define('ERROR_REPORTING_DISPLAY_ALL', 2);
 
 /**
+ * Error reporting type of debug information: Add stacktrace or backtrace information to logs.
+ */
+define('ERROR_REPORTING_DISPLAY_LOGS', 1);  // Do not start at zero.
+
+/**
+ * Error reporting type of debug information: Add stacktrace or backtrace information to messages on page.
+ */
+define('ERROR_REPORTING_DISPLAY_MESSAGES', 2);
+
+/**
  * Indicates that the item should never be removed unless explicitly selected.
  *
  * The item may be removed using cache_clear_all() with a cache ID.
@@ -1768,7 +1778,13 @@ function watchdog($type, $message, $variables = array(), $severity = WATCHDOG_NO
  * @see theme_status_messages()
  */
 function drupal_set_message($message = NULL, $type = 'status', $repeat = TRUE) {
-  if ($message) {
+  
+    // DEBUG: Go track down that stinkin' error...
+//    if ($type == 'error') {
+//      $message .= '<pre>'. print_r(debug_backtrace(), 1) .'</pre>';
+//    }
+    //           // END DEBUG
+    if ($message) {
     if (!isset($_SESSION['messages'][$type])) {
       $_SESSION['messages'][$type] = array();
     }

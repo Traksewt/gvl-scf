@@ -56,7 +56,7 @@ a.active {
 
 /* Branding region */
 #region-branding {
-  background: url('../images/header.png');
+/*  background: url('../images/header.png');*/
   height: 105px;
 }
 h1.site-name a, h2.site-name a {

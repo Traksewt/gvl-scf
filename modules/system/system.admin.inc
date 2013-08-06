@@ -1661,6 +1661,28 @@ function system_logging_settings() {
     '#description' => t('It is recommended that sites running on production environments do not display any errors.'),
   );
 
+  $form['error_stacktrace_display'] = array(
+    '#type' => 'checkboxes',
+    '#title' => t('Choose how to monitor stacktrace information.'),
+    '#default_value' => variable_get('error_stacktrace_display', array()),
+    '#options' => array(
+      ERROR_REPORTING_DISPLAY_MESSAGES => t('Show on page'),
+      ERROR_REPORTING_DISPLAY_LOGS => t('Add to log'),
+    ),
+    '#description' => t('On production environments only use "Add to log" and then only when needed.'),
+  );
+
+  $form['error_backtrace_display'] = array(
+    '#type' => 'checkboxes',
+    '#title' => t('Choose how to monitor backtrace information.'),
+    '#default_value' => variable_get('error_backtrace_display', array()),
+    '#options' => array(
+      ERROR_REPORTING_DISPLAY_MESSAGES => t('Show on page'),
+      ERROR_REPORTING_DISPLAY_LOGS => t('Add to log'),
+    ),
+    '#description' => t('On production environments only use "Add to log" and then only when needed.'),
+  );
+
   return system_settings_form($form);
 }
 

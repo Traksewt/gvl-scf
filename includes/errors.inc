@@ -56,7 +56,8 @@ function _drupal_error_handler_real($error_level, $message, $filename, $line, $c
   if ($error_level & error_reporting()) {
     $types = drupal_error_levels();
     list($severity_msg, $severity_level) = $types[$error_level];
-    $caller = _drupal_get_last_caller(debug_backtrace());
+    $backtrace = debug_backtrace();
+    $caller = _drupal_get_last_caller($backtrace);
 
     if (!function_exists('filter_xss_admin')) {
       require_once DRUPAL_ROOT . '/includes/common.inc';
@@ -72,6 +73,7 @@ function _drupal_error_handler_real($error_level, $message, $filename, $line, $c
       '%file' => $caller['file'],
       '%line' => $caller['line'],
       'severity_level' => $severity_level,
+      '!backtrace' => $backtrace,
     ), $error_level == E_RECOVERABLE_ERROR);
   }
 }
@@ -112,13 +114,14 @@ function _drupal_decode_exception($exception) {
   $caller = _drupal_get_last_caller($backtrace);
 
   return array(
-    '%type' => get_class($exception),
+    '!backtrace' => $backtrace,
+    '%type'     => get_class($exception),
     // The standard PHP exception handler considers that the exception message
     // is plain-text. We mimick this behavior here.
-    '!message' => check_plain($message),
+    '!message'  => check_plain($message),
     '%function' => $caller['function'],
-    '%file' => $caller['file'],
-    '%line' => $caller['line'],
+    '%file'     => $caller['file'],
+    '%line'     => $caller['line'],
     'severity_level' => WATCHDOG_ERROR,
   );
 }
@@ -162,9 +165,10 @@ function error_displayable($error = NULL) {
  * Logs a PHP error or exception and displays an error page in fatal cases.
  *
  * @param $error
- *   An array with the following keys: %type, !message, %function, %file, %line
- *   and severity_level. All the parameters are plain-text, with the exception
- *   of !message, which needs to be a safe HTML string.
+ *   An array with the following keys: %type, !message, %function, %file,
+ *   %line, severity_level, and backtrace. All the parameters are plain-text,
+ *   with the exception of !message, which needs to be a safe HTML string, and
+ *   backtrace, which is a standard PHP backtrace.
  * @param $fatal
  *   TRUE if the error is fatal.
  */
@@ -177,6 +181,13 @@ function _drupal_log_error($error, $fatal = FALSE) {
       define('MAINTENANCE_MODE', 'error');
     }
     drupal_maintenance_theme();
+  }
+
+  // Backtrace array is not a valid replacement value for t().
+  $backtrace = isset($error['!backtrace']) ? $error['!backtrace'] : '';
+  unset($error['!backtrace']);
+  if (!$backtrace) {
+    $backtrace = debug_backtrace(TRUE);
   }
 
   // When running inside the testing framework, we relay the errors
@@ -199,7 +210,29 @@ function _drupal_log_error($error, $fatal = FALSE) {
     $number++;
   }
 
-  watchdog('php', '%type: !message in %function (line %line of %file).', $error, $error['severity_level']);
+  $st_opts=variable_get('error_stacktrace_display', array());
+  if (array_sum($st_opts)) {
+    $error['!stacktrace'] = format_stacktrace($backtrace);
+  }
+  $bt_opts=variable_get('error_backtrace_display', array());
+  if (array_sum($bt_opts)) {
+    $error['!backtrace'] = format_backtrace($backtrace);
+  }
+
+  if ($st_opts[ERROR_REPORTING_DISPLAY_LOGS] || $bt_opts[ERROR_REPORTING_DISPLAY_LOGS]) {
+    $message_line='%type: <pre>!message</pre><br/>LINE: %line<br/>FUNCTION: %function<br/>FILE: %file';
+    if ($st_opts[ERROR_REPORTING_DISPLAY_LOGS]) {
+      $message_line .= ' !stacktrace';
+    }
+    if ($bt_opts[ERROR_REPORTING_DISPLAY_LOGS]) {
+      $message_line .= ' !backtrace';
+    }
+  } else {
+    $message_line='%type: !message in %function (line %line of %file).';
+  }
+  if (!array_has_PDOException($error)) { // If it was a DB error don't write to the DB.
+    watchdog('php', $message_line, $error, $error['severity_level']);
+  }
 
   if ($fatal) {
     drupal_add_http_header('Status', '500 Service unavailable (with message)');
@@ -229,13 +262,39 @@ function _drupal_log_error($error, $fatal = FALSE) {
       $class = 'error';
 
       // If error type is 'User notice' then treat it as debug information
-      // instead of an error message, see dd().
+      // instead of an error message.
+      // @see debug()
       if ($error['%type'] == 'User notice') {
         $error['%type'] = 'Debug';
         $class = 'status';
       }
 
-      drupal_set_message(t('%type: !message in %function (line %line of %file).', $error), $class);
+      // Attempt to reduce verbosity by removing DRUPAL_ROOT from the file path
+      // in the message. This does not happen for (false) security.
+      $root_length = strlen(DRUPAL_ROOT);
+      if (substr($error['%file'], 0, $root_length) == DRUPAL_ROOT) {
+        $error['%file'] = substr($error['%file'], $root_length + 1);
+      }
+      $message = t('%type: !message in %function (line %line of %file).', $error);
+
+      // Check if verbose error reporting is on.
+      $error_level = variable_get('error_level', ERROR_REPORTING_DISPLAY_ALL);
+
+      if ($error_level != ERROR_REPORTING_HIDE) {
+        if ($st_opts[ERROR_REPORTING_DISPLAY_MESSAGES]) {
+          $message .= $error['!stacktrace'];
+        }
+        if ($bt_opts[ERROR_REPORTING_DISPLAY_MESSAGES]) {
+          // First trace is the error itself, already contained in the message.
+          // While the second trace is the error source and also contained in the
+          // message, the message doesn't contain argument values, so we output it
+          // once more in the backtrace.
+          array_shift($backtrace);
+          // Generate a backtrace containing only scalar argument values.
+          $message .= '<pre class="backtrace">' . format_backtrace($backtrace) . '</pre>';
+        }
+      }
+      drupal_set_message($message, $class);
     }
 
     if ($fatal) {
@@ -252,12 +311,12 @@ function _drupal_log_error($error, $fatal = FALSE) {
  * Gets the last caller from a backtrace.
  *
  * @param $backtrace
- *   A standard PHP backtrace.
+ *   A standard PHP backtrace. Passed by reference.
  *
  * @return
  *   An associative array with keys 'file', 'line' and 'function'.
  */
-function _drupal_get_last_caller($backtrace) {
+function _drupal_get_last_caller(&$backtrace) {
   // Errors that occur inside PHP internal functions do not generate
   // information about file and line. Ignore black listed functions.
   $blacklist = array('debug', '_drupal_error_handler', '_drupal_exception_handler');
@@ -283,4 +342,124 @@ function _drupal_get_last_caller($backtrace) {
     $call['function'] = 'main()';
   }
   return $call;
+}
+
+/**
+ * We don't want to call watchdog if anywhere in the array there is a PDOException since PHP won't let us log a PDOException back to the DB.
+ * The function will check for the exception and return TRUE if it finds it in an array. It checks recursively through the array.
+ *
+ * @param type $array
+ *   The array to check, will likely be $error from calling function
+ *
+ * @return boolean
+ *   TRUE if found.
+ */
+function array_has_PDOException($array) {
+  if (array_key_exists('%type', $array) && stripos($array['%type'], 'PDOException') !== FALSE) {
+    return TRUE;
+  }
+  foreach ($array as $value) {
+    if (is_array($value) && array_has_PDOException($value)) {
+      return TRUE;
+    }
+  }
+  return FALSE;
+}
+
+/**
+ * Formats a backtrace into a plain-text string.
+ *
+ * The calls show values for scalar arguments and type names for complex ones.
+ *
+ * @param array $backtrace
+ *   A standard PHP backtrace.
+ *
+ * @return string
+ *   A plain-text line-wrapped string ready to be put inside <pre>.
+ */
+function format_backtrace(array $backtrace) {
+  $return = '';
+  foreach ($backtrace as $trace) {
+    $call = array('function' => '', 'args' => array());
+    if (isset($trace['class'])) {
+      $call['function'] = $trace['class'] . $trace['type'] . $trace['function'];
+    }
+    elseif (isset($trace['function'])) {
+      $call['function'] = $trace['function'];
+    }
+    else {
+      $call['function'] = 'main';
+    }
+    if (isset($trace['args'])) {
+      foreach ($trace['args'] as $arg) {
+        if (is_scalar($arg)) {
+          $call['args'][] = is_string($arg) ? '\'' . filter_xss($arg) . '\'' : $arg;
+        }
+        else {
+          $call['args'][] = ucfirst(gettype($arg));
+        }
+      }
+    }
+    $return .= $call['function'] . '(' . implode(', ', $call['args']) . ")\n";
+  }
+  return '<br/><br/>BACKTRACE:<br/>' . $return;
+}
+
+/**
+ * Formats a stacktrace into an HTML table.
+ *
+ * @param array $backtrace
+ *   A standard PHP backtrace.
+ *
+ * @return string
+ *   An HTML string.
+ */
+function format_stacktrace(array $backtrace) {
+  $callstack = array_reverse($backtrace, TRUE);
+  // TODO: Styling should be in CSS or should make use of drupal's existing CSS.
+  $cs =<<<EOT
+<style>
+  .stacktrace td, .stacktrace th {padding: 0 0.5em;}
+  .stacktrace .row-bunch {border-top: 1px solid;}
+  pre.stacktrace {font-family: "Andale Mono","Courier New",Courier,Lucidatypewriter,Fixed,monospace;}
+</style>
+<pre class="stacktrace">
+  <table>
+    <thead>
+      <tr>
+        <th>Index</th>
+        <th>Function called</th>
+        <th>Caller line</th>
+        <th>Caller file</th>
+      </tr>
+    </thead>
+    <tbody>
+EOT
+  ;
+  $row_bunching=3;
+  foreach ($callstack AS $k => &$v) {
+    $row_bunching++;
+    if ($row_bunching >= 3) {
+      $row_class = 'class="row-bunch"';
+      $row_bunching=0;
+    } else {
+      $row_class = '';
+    }
+    $cs .= "<tr $row_class><td>$k</td>";
+    foreach (array('function'=>0, 'line'=>0, 'file'=>0) as $k2 => $v2) {
+      if (isset($v[$k2])) {
+        $data = str_replace(DRUPAL_ROOT . '/', '', $v[$k2]);
+        $data = htmlentities($data);
+        $cs .= "<td>$data</td>";
+      }
+    }
+    $cs .= '</tr>';
+  }
+  $cs .=<<<EOT
+    </tbody>
+  </table>
+</pre>
+EOT
+  ;
+  return '<br/><br/>STACKTRACE:' . $cs;
 }
